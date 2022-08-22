@@ -16,13 +16,19 @@ import Drawer from "@material-ui/core/Drawer";
 import Menu from "@material-ui/icons/Menu";
 import Close from "@material-ui/icons/Close";
 // core components
-import styles from "assets/jss/material-kit-pro-react/components/headerStyle.js";
 
-const useStyles = makeStyles(styles);
+// styles
+import headerStyles from "assets/jss/material-kit-pro-react/components/headerStyle.js";
+import desktop14PageStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/desktop14PageStyles.js";
+const useHeaderStyles = makeStyles(headerStyles);
+const useDesktop14PageStyle = makeStyles(desktop14PageStyle);
 
 export default function Header_Lillup_LearnerExperience(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const classes = useStyles();
+
+  const headerClasses = useHeaderStyles();
+  const desktop14PageClasses = useDesktop14PageStyle();
+
   React.useEffect(() => {
     if (props.changeColorOnScroll) {
       window.addEventListener("scroll", headerColorChange);
@@ -43,36 +49,36 @@ export default function Header_Lillup_LearnerExperience(props) {
     if (windowsScrollTop > changeColorOnScroll.height) {
       document.body
         .getElementsByTagName("header")[0]
-        .classList.remove(classes[color]);
+        .classList.remove(headerClasses[color]);
       document.body
         .getElementsByTagName("header")[0]
-        .classList.add(classes[changeColorOnScroll.color]);
+        .classList.add(headerClasses[changeColorOnScroll.color]);
     } else {
       document.body
         .getElementsByTagName("header")[0]
-        .classList.add(classes[color]);
+        .classList.add(headerClasses[color]);
       document.body
         .getElementsByTagName("header")[0]
-        .classList.remove(classes[changeColorOnScroll.color]);
+        .classList.remove(headerClasses[changeColorOnScroll.color]);
     }
   };
   const { color, links, brand, fixed, absolute } = props;
   const appBarClasses = classNames({
-    [classes.appBar]: true,
-    [classes[color]]: color,
-    [classes.absolute]: absolute,
-    [classes.fixed]: fixed,
+    [headerClasses.appBar]: true,
+    [headerClasses[color]]: color,
+    [headerClasses.absolute]: absolute,
+    [headerClasses.fixed]: fixed,
   });
   return (
     <AppBar className={appBarClasses}>
-      <Toolbar className={classes.container}>
-        <Button className={classes.title}>
+      <Toolbar className={desktop14PageClasses.toolbarContainer}>
+        <Button className={headerClasses.title}>
           <Link to="/">{brand}</Link>
         </Button>
-        <Hidden smDown implementation="css" className={classes.hidden}>
-          <div className={classes.collapse}>{links}</div>
+        <Hidden smDown implementation="css" className={headerClasses.hidden}>
+          <div className={headerClasses.collapse}>{links}</div>
         </Hidden>
-        {/* <Hidden mdUp>
+        <Hidden mdUp>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -80,15 +86,15 @@ export default function Header_Lillup_LearnerExperience(props) {
           >
             <Menu />
           </IconButton>
-        </Hidden> */}
+        </Hidden>
       </Toolbar>
-      {/* <Hidden mdUp implementation="js">
+      <Hidden mdUp implementation="js">
         <Drawer
           variant="temporary"
           anchor={"right"}
           open={mobileOpen}
           classes={{
-            paper: classes.drawerPaper,
+            paper: headerClasses.drawerPaper,
           }}
           onClose={handleDrawerToggle}
         >
@@ -96,13 +102,13 @@ export default function Header_Lillup_LearnerExperience(props) {
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerToggle}
-            className={classes.closeButtonDrawer}
+            className={headerClasses.closeButtonDrawer}
           >
             <Close />
           </IconButton>
-          <div className={classes.appResponsive}>{links}</div>
+          <div className={headerClasses.appResponsive}>{links}</div>
         </Drawer>
-      </Hidden> */}
+      </Hidden>
     </AppBar>
   );
 }
