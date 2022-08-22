@@ -44,6 +44,8 @@ var hist = createBrowserHistory();
 ReactDOM.render(
   <Router history={hist}>
     <Switch>
+      <Route path="/lillup/learner/desktop-13" component={ErrorPage} />
+      <Route path="/lillup/learner/desktop-14" component={ErrorPage} />
       <Route path="/about-us" component={AboutUsPage} />
       <Route path="/blog-post" component={BlogPostPage} />
       <Route path="/blog-posts" component={BlogPostsPage} />

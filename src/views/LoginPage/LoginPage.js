@@ -151,7 +151,7 @@ export default function LoginPage() {
             </GridItem>
           </GridContainer>
         </div>
-        {/* <Footer
+        <Footer
           className={classes.footer}
           content={
             <div>
@@ -207,7 +207,7 @@ export default function LoginPage() {
               </div>
             </div>
           }
-        /> */}
+        />
       </div>
     </div>
   );
