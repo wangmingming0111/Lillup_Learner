@@ -27,13 +27,13 @@ export default function ErrorPage({ ...rest }) {
   const classes = useStyles();
   return (
     <div>
-      {/* <Header
+      <Header
         absolute
         color="transparent"
         brand="Material Kit PRO React"
         links={<HeaderLinks dropdownHoverColor="dark" />}
         {...rest}
-      /> */}
+      />
       <div
         className={classes.pageHeader}
         style={{
