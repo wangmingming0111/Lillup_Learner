@@ -18,6 +18,7 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:prettier/recommended",
   ],
+  // ignore warning 'no-unused-vars'
   rules: {
     "no-unused-vars": "off",
   },
