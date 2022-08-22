@@ -49,7 +49,9 @@ const footerStyle = {
     },
   },
   big: {
-    padding: "1.875rem 0",
+    // padding: "1.875rem 0",
+    // by ryujec 2022/08/22
+    padding: "4.875rem 0",
     "& h5, & h4": {
       fontWeight: 700,
       fontFamily: "Roboto Slab,Times New Roman,serif",

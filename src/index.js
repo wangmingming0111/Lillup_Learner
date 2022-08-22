@@ -38,14 +38,16 @@ import SectionsPage from "views/SectionsPage/SectionsPage.js";
 import ShoppingCartPage from "views/ShoppingCartPage/ShoppingCartPage.js";
 import SignupPage from "views/SignupPage/SignupPage.js";
 import ErrorPage from "views/ErrorPage/ErrorPage.js";
+import Desktop13Page from "views/LillupPage/LearnerExperiencePage/Desktop13Page";
+import Desktop14Page from "views/LillupPage/LearnerExperiencePage/Desktop14Page";
 
 var hist = createBrowserHistory();
 
 ReactDOM.render(
   <Router history={hist}>
     <Switch>
-      <Route path="/lillup/learner/desktop-13" component={ErrorPage} />
-      <Route path="/lillup/learner/desktop-14" component={ErrorPage} />
+      <Route path="/lillup/learner/experience/desktop-13" component={Desktop13Page} />
+      <Route path="/lillup/learner/experience/desktop-14" component={Desktop14Page} />
       <Route path="/about-us" component={AboutUsPage} />
       <Route path="/blog-post" component={BlogPostPage} />
       <Route path="/blog-posts" component={BlogPostsPage} />
@@ -62,7 +64,6 @@ ReactDOM.render(
       <Route path="/signup-page" component={SignupPage} />
       <Route path="/error-page" component={ErrorPage} />
       <Route path="/" component={PresentationPage} />
-      {/* <Route path="/" component={LoginPage} /> */}
     </Switch>
   </Router>,
   document.getElementById("root")

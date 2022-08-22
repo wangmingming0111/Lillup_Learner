@@ -46,7 +46,7 @@ import styles from "assets/jss/material-kit-pro-react/components/headerLinksStyl
 
 const useStyles = makeStyles(styles);
 
-export default function HeaderLinks(props) {
+export default function HeaderLinks_Lillup_LearnerExperience(props) {
   const easeInOutQuad = (t, b, c, d) => {
     t /= d / 2;
     if (t < 1) return (c / 2) * t * t + b;
@@ -90,8 +90,6 @@ export default function HeaderLinks(props) {
   const classes = useStyles();
   return (
     <List className={classes.list + " " + classes.mlAuto}>
-
-      {/* +----------- by ryujec 2022/08/22 +----------- */}
       <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
@@ -115,9 +113,7 @@ export default function HeaderLinks(props) {
         ]}
         />
       </ListItem>
-      {/* +----------- by ryujec 2022/08/22 +----------- */}
-
-      <ListItem className={classes.listItem}>
+      {/* <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
           navDropdown
@@ -282,16 +278,16 @@ export default function HeaderLinks(props) {
         >
           <ShoppingCart className={classes.icons} /> buy now
         </Button>
-      </ListItem>
+      </ListItem> */}
     </List>
   );
 }
 
-HeaderLinks.defaultProps = {
+HeaderLinks_Lillup_LearnerExperience.defaultProps = {
   hoverColor: "primary",
 };
 
-HeaderLinks.propTypes = {
+HeaderLinks_Lillup_LearnerExperience.propTypes = {
   dropdownHoverColor: PropTypes.oneOf([
     "dark",
     "primary",

@@ -52,7 +52,7 @@ export default function LoginPage() {
       >
         <div className={classes.container}>
           <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={4}>
+            <GridItem xs={12} sm={12} md={12}>
               <Card>
                 <form className={classes.form}>
                   <CardHeader
@@ -149,8 +149,31 @@ export default function LoginPage() {
                 </form>
               </Card>
             </GridItem>
+            <GridItem xs={12} sm={12} md={12}>
+              <h2 className={classes.subTitle}>404 Page not found : 1</h2>
+              <h2 className={classes.subTitle}>404 Page not found : 2</h2>
+              <h2 className={classes.subTitle}>404 Page not found : 3</h2>
+              <h2 className={classes.subTitle}>404 Page not found : 4</h2>
+              <h2 className={classes.subTitle}>404 Page not found : 5</h2>
+              <h2 className={classes.subTitle}>404 Page not found : 6</h2>
+              <h2 className={classes.subTitle}>404 Page not found : 7</h2>
+              <h2 className={classes.subTitle}>404 Page not found : 8</h2>
+              <h2 className={classes.subTitle}>404 Page not found : 9</h2>
+              <h2 className={classes.subTitle}>404 Page not found : 10</h2>
+              <h2 className={classes.subTitle}>404 Page not found : 11</h2>
+              <h2 className={classes.subTitle}>404 Page not found : 12</h2>
+              <h2 className={classes.subTitle}>404 Page not found : 13</h2>
+              <h2 className={classes.subTitle}>404 Page not found : 14</h2>
+              <h2 className={classes.subTitle}>404 Page not found : 15</h2>
+              <h2 className={classes.subTitle}>404 Page not found : 16</h2>
+              <h2 className={classes.subTitle}>404 Page not found : 17</h2>
+              <h2 className={classes.subTitle}>404 Page not found : 18</h2>
+              <h2 className={classes.subTitle}>404 Page not found : 19</h2>
+              <h2 className={classes.subTitle}>404 Page not found : 20</h2>
+            </GridItem>
           </GridContainer>
         </div>
+        {/* <div > */}
         <Footer
           className={classes.footer}
           content={
