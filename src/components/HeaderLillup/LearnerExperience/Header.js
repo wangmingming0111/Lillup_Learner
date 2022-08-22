@@ -19,15 +19,15 @@ import Close from "@material-ui/icons/Close";
 
 // styles
 import headerStyles from "assets/jss/material-kit-pro-react/components/headerStyle.js";
-import desktop14PageStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/desktop14PageStyles.js";
+import commonStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/commonStyles.js";
 const useHeaderStyles = makeStyles(headerStyles);
-const useDesktop14PageStyle = makeStyles(desktop14PageStyle);
+const useCommonStyle = makeStyles(commonStyle);
 
 export default function Header_Lillup_LearnerExperience(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const headerClasses = useHeaderStyles();
-  const desktop14PageClasses = useDesktop14PageStyle();
+  const commonClasses = useCommonStyle();
 
   React.useEffect(() => {
     if (props.changeColorOnScroll) {
@@ -71,7 +71,7 @@ export default function Header_Lillup_LearnerExperience(props) {
   });
   return (
     <AppBar className={appBarClasses}>
-      <Toolbar className={desktop14PageClasses.toolbarContainer}>
+      <Toolbar className={commonClasses.toolbarContainer}>
         <Button className={headerClasses.title}>
           <Link to="/">{brand}</Link>
         </Button>

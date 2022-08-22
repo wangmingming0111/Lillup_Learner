@@ -30,11 +30,13 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 
 import desktop14PageStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/desktop14PageStyles.js";
+import commonStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/commonStyles.js";
 
 import image from "assets/img/lillup-learner-experience-desktop-13.jpg";
 import cardProduct1 from "assets/img/examples/card-product1.jpg";
 
-const useStyles = makeStyles(desktop14PageStyle);
+const useDesktop14PageStyles = makeStyles(desktop14PageStyle);
+const useCommonStyles = makeStyles(commonStyle);
 
 export default function Desktop14Page({ ...rest }) {
   React.useEffect(() => {
@@ -42,7 +44,8 @@ export default function Desktop14Page({ ...rest }) {
     document.body.scrollTop = 0;
   });
 
-  const classes = useStyles();
+  const pageClasses = useDesktop14PageStyles();
+  const commonClasses = useCommonStyles();
   
   return (
     <div>
@@ -55,33 +58,33 @@ export default function Desktop14Page({ ...rest }) {
         {...rest}
       />
       <div
-        className={classes.pageHeader}
+        className={pageClasses.pageHeader}
         style={{
           backgroundImage: "url(" + image + ")",
           backgroundSize: "cover",
           backgroundPosition: "top center",
         }}
       >
-        <div className={classes.container}>
+        <div className={pageClasses.container}>
           <GridContainer justify="center">
-        {/* <div className={classes.contentCenter}>
+        {/* <div className={pageClasses.contentCenter}>
           <GridContainer> */}
             <GridItem xs={12} sm={12} md={12}>
-              <h4 className={classes.title}>www.lillup.com Learner-Experience Page</h4>
-              <h4 className={classes.description}>
+              <h4 className={pageClasses.title}>www.lillup.com Learner-Experience Page</h4>
+              <h4 className={pageClasses.description}>
                 Ooooups! Looks like you got lost.
               </h4>
             </GridItem>
             <GridItem xs={12} sm={12} md={8}>
               <Card>
-                {/* <form className={classes.form}> */}
+                {/* <form className={pageClasses.form}> */}
                   <CardHeader
                       // image
                       color="primary"
                       // signup
-                      className={classes.cardHeader}
+                      className={pageClasses.cardHeader}
                     >
-                    <h1 className={classes.title}>404</h1>
+                    <h1 className={pageClasses.title}>404</h1>
                   </CardHeader>
 
                   {/* <CardHeader image>
@@ -91,8 +94,8 @@ export default function Desktop14Page({ ...rest }) {
                   </CardHeader> */}
 
                   <CardBody signup>
-                    <h2 className={classes.subTitle}>Page not found :(</h2>
-                    <h4 className={classes.description}>
+                    <h2 className={pageClasses.subTitle}>Page not found :(</h2>
+                    <h4 className={pageClasses.description}>
                       Ooooups! Looks like you got lost.
                     </h4>
                   </CardBody>
@@ -100,26 +103,26 @@ export default function Desktop14Page({ ...rest }) {
               </Card>
             </GridItem>
             <GridItem xs={12} sm={12} md={12}>
-              <h2 className={classes.subTitle}>404 Page not found : 1</h2>
-              <h2 className={classes.subTitle}>404 Page not found : 2</h2>
-              <h2 className={classes.subTitle}>404 Page not found : 3</h2>
-              <h2 className={classes.subTitle}>404 Page not found : 4</h2>
-              <h2 className={classes.subTitle}>404 Page not found : 5</h2>
-              <h2 className={classes.subTitle}>404 Page not found : 6</h2>
-              <h2 className={classes.subTitle}>404 Page not found : 7</h2>
-              <h2 className={classes.subTitle}>404 Page not found : 8</h2>
-              <h2 className={classes.subTitle}>404 Page not found : 9</h2>
-              <h2 className={classes.subTitle}>404 Page not found : 10</h2>
-              <h2 className={classes.subTitle}>404 Page not found : 11</h2>
-              <h2 className={classes.subTitle}>404 Page not found : 12</h2>
-              <h2 className={classes.subTitle}>404 Page not found : 13</h2>
-              <h2 className={classes.subTitle}>404 Page not found : 14</h2>
-              <h2 className={classes.subTitle}>404 Page not found : 15</h2>
-              <h2 className={classes.subTitle}>404 Page not found : 16</h2>
-              <h2 className={classes.subTitle}>404 Page not found : 17</h2>
-              <h2 className={classes.subTitle}>404 Page not found : 18</h2>
-              <h2 className={classes.subTitle}>404 Page not found : 19</h2>
-              <h2 className={classes.subTitle}>404 Page not found : 20</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 1</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 2</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 3</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 4</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 5</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 6</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 7</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 8</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 9</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 10</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 11</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 12</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 13</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 14</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 15</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 16</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 17</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 18</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 19</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 20</h2>
             </GridItem>
           </GridContainer>
         </div>
@@ -129,8 +132,8 @@ export default function Desktop14Page({ ...rest }) {
         theme="dark"
         big
         content={
-          <div className={classes.footerContainer}>
-            <div className={classes.left}>
+          <div className={commonClasses.footerContainer}>
+            <div className={pageClasses.left}>
               <GridContainer>
                 {/* <GridItem xs={12} sm={6} md={6} lg={3}> */}
                 <GridItem xs={6} sm={3} md={3} lg={1}>
@@ -144,40 +147,40 @@ export default function Desktop14Page({ ...rest }) {
                 </GridItem>
               </GridContainer>
             </div>
-            <div className={classes.right}>
-              <List className={classes.dense} dense>
+            <div className={pageClasses.right}>
+              <List className={pageClasses.dense} dense>
                 <ListItem>
-                  <a target="_blank" href="#" className={classes.block}>
+                  <a target="_blank" href="#" className={pageClasses.block}>
                     Creator
                   </a>
                 </ListItem>
                 <ListItem>
-                  <a target="_blank" href="#" className={classes.block}>
+                  <a target="_blank" href="#" className={pageClasses.block}>
                     Learner
                   </a>
                 </ListItem>
                 <ListItem>
-                  <a target="_blank" href="#" className={classes.block}>
+                  <a target="_blank" href="#" className={pageClasses.block}>
                     Explore
                   </a>
                 </ListItem>
                 <ListItem>
-                  <a target="_blank" href="#" className={classes.block}>
+                  <a target="_blank" href="#" className={pageClasses.block}>
                     Documentation
                   </a>
                 </ListItem>
                 <ListItem>
-                  <a target="_blank" href="#" className={classes.block}>
+                  <a target="_blank" href="#" className={pageClasses.block}>
                     Stakeholder
                   </a>
                 </ListItem>
                 <ListItem>
-                  <a target="_blank" href="#" className={classes.block}>
+                  <a target="_blank" href="#" className={pageClasses.block}>
                     About Us
                   </a>
                 </ListItem>
                 <ListItem>
-                  <a target="_blank" href="#" className={classes.block}>
+                  <a target="_blank" href="#" className={pageClasses.block}>
                     Blog
                   </a>
                 </ListItem>
