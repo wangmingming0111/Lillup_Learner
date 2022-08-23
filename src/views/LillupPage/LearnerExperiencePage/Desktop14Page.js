@@ -26,12 +26,7 @@ import clsx from 'clsx';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 
-
-
-
-
 // import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
-
 
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
@@ -40,7 +35,7 @@ import CardHeader from "components/Card/CardHeader.js";
 import desktop14PageStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/desktop14PageStyles.js";
 import commonStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/commonStyles.js";
 
-import imageBack from "assets/img/lillup-learner-experience-desktop-13.jpg";
+import imageBack from "assets/img/lillup-learner-experience-desktop-13.png";
 import imageMarkCopy from "assets/img/lillup/experience/Mark_Copy.png";
 import imageMarkFacebook from "assets/img/lillup/experience/Mark_Facebook.png";
 import imageMarkInstagram from "assets/img/lillup/experience/Mark_Instagram.png";
@@ -50,7 +45,7 @@ import imageMarkTelegram from "assets/img/lillup/experience/Mark_Telegram.png";
 import imageMarkTwitter from "assets/img/lillup/experience/Mark_Twitter.png";
 import imageMarkWhatapp from "assets/img/lillup/experience/Mark_Whatapp.png";
 import imageQRCode from "assets/img/lillup/experience/QRCode_Sample.png";
-import TokenCode from "assets/img/lillup/experience/TokenCode_Sample.png";
+import imageTokenCode from "assets/img/lillup/experience/TokenCode_Sample.png";
 
 import wallet_img from "assets/img/lillup/experience/wallet_avatar.png";
 import token_img from "assets/img/lillup/experience/token_avatar.png";
@@ -70,13 +65,14 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(3),
   },
   textField: {
-    width: '682px',
-    height: '56px',
+    width: "100%",
+    height: "55px",
   },
   borderProp: {
     background: '#FFFFFF',
     border: '1px solid #D1D1D1',
-    borderRadius: '10px',
+    // borderRadius: '10px',
+    borderRadius: '0.5vw',
   }
 }));
 
@@ -125,6 +121,7 @@ export default function Desktop14Page({ ...rest }) {
         className={pageClasses.pageHeader}
         style={{
           backgroundImage: "url(" + imageBack + ")",
+          // backgroundColor: "white",
           backgroundSize: "cover",
           backgroundPosition: "top center",
         }}
@@ -134,33 +131,50 @@ export default function Desktop14Page({ ...rest }) {
             <GridItem
               xs={12} sm={12} md={7}
               className={pageClasses.leftPanel}>
-              <div className={pageClasses.portfolio_content}>
-                <h1 className={pageClasses.portfolio_title}>PORTFOLIO</h1>
-                <div className={pageClasses.cell}><img src ={TokenCode} width="685px" height="336.52px"/></div>
-                <div className={pageClasses.wallet_group}>
-                  <span className={pageClasses.label_Address}>Wallet Address</span>
-                  <FormControl className={clsx(classes.margin, classes.textField, classes.borderProp)} variant="outlined">
-                    <OutlinedInput
-                      id="outlined-adornment-wallet"
-                      type={'text'}
-                      startAdornment={<InputAdornment position="start"><img src={wallet_img} /></InputAdornment>}
-                    />
-                  </FormControl>                  
-                </div>
-                <div className={pageClasses.token_group}>
-                  <span className={pageClasses.label_Id}>Token Id</span>
-                  <FormControl className={clsx(classes.margin, classes.textField, classes.borderProp)} variant="outlined">
-                    <OutlinedInput
-                      id="outlined-adornment-token"
-                      type={'text'}
-                      startAdornment={<InputAdornment position="start"><img src={token_img} /></InputAdornment>}
-                    />
-                  </FormControl>
-                </div>
-                <div className={pageClasses.publish}>
-                  <Button className={pageClasses.publish_btn}>PUBLISH</Button>
-                </div>
+              <div className={pageClasses.portfolioTitleGrp}>
+                <h1 className={pageClasses.portfolioTitle}>PORTFOLIO</h1>
               </div>
+              <div className={pageClasses.tokenCodeGrp}>
+                <img 
+                  src ={imageTokenCode} 
+                  className={pageClasses.tokenCodeGrp_Img}
+                />
+              </div>
+
+              <div className={pageClasses.walletGroup}>
+                <span className={pageClasses.walletGroup_Label}>
+                  Wallet Address
+                </span>
+                <FormControl 
+                  className={clsx(classes.margin, classes.textField, classes.borderProp)} 
+                  variant="outlined">
+                  <OutlinedInput
+                    id="outlined-adornment-wallet"
+                    type={'text'}
+                    startAdornment={<InputAdornment position="start"><img src={wallet_img} /></InputAdornment>}
+                  />
+                </FormControl>
+              </div>
+
+              <div className={pageClasses.tokenGroup}>
+                <span className={pageClasses.tokenGroup_Label}>
+                  Token Id
+                </span>
+                <FormControl className={clsx(classes.margin, classes.textField, classes.borderProp)} variant="outlined">
+                  <OutlinedInput
+                    id="outlined-adornment-token"
+                    type={'text'}
+                    startAdornment={<InputAdornment position="start"><img src={token_img} /></InputAdornment>}
+                  />
+                </FormControl>
+              </div>
+
+              <div className={pageClasses.publishGrp}>
+                <Button color="danger" className={pageClasses.publishBtn}>
+                PUBLISH
+                </Button>
+              </div>
+
             </GridItem>
             <GridItem
               xs={12} sm={12} md={5}

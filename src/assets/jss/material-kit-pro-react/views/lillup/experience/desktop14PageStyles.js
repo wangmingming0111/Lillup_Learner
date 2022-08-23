@@ -126,73 +126,133 @@ const desktop14PageStyles = (theme) => ({
     zIndex: "2",
   },
 
-  portfolio_title:{
-      fontFamily: "Roboto",
-      fontStyle: "normal",
-      fontWeight: "700",
-      fontSize: "36px",
-      lineHeight: "42px",
-      textTransform: "uppercase",
-      color: "#333333"
+  portfolioTitleGrp: {
+    // borderStyle: "solid",
+    // borderWidth: "2px",
+    // borderColor: "white",
+    // borderRadius: "2px",
+
+    textAlign: "left",
+    width: "100%",
+
+    paddingTop: "50px",
+    paddingBottom: "20px",
+    // paddingTop: "4rem",
+    // paddingBottom: "1.4rem",
   },
 
-  portfolio_content: {
-      position: "relative",
-      left: "0",
-      top: "0",
-      marginTop: "50px",
-      backgroundColor: "white"
+  portfolioTitle:{
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: "40px",
+    // fontSize: "2.4rem",
+    // fontSize: "2.8vw",
+    
+    lineHeight: "42px",
+    // lineHeight: "2.9vw",
+
+    textTransform: "uppercase",
+    
+    color: "#333333"
   },
 
+  tokenCodeGrp: {
+    // borderStyle: "solid",
+    // borderWidth: "2px",
+    // borderColor: "white",
+    // borderRadius: "2px",
 
-  cell:{
-      marginTop: "29px",
-      width: "652px",
-      height: "336.52px",
+    display: "flex!important",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "left",
+
+    padding:"0",
   },
 
-  wallet_group:{
-      width: "682px",
-      height: "88px",
-      marginTop: "36.48px" 
+  tokenCodeGrp_Img: {
+    width: "100%",
+    height: "auto",
+    // width: "24rem",
+    // height: "24rem",
+    // width: "23vw",
+    // height: "23vw",
   },
 
-  label_Address: {
-      fontFamily: "Roboto",
-      fontStyle: "normal",
-      fontWeight: "600",
-      fontSize: "16px",
-      lineHeight: "19px",
-      color: "#000000",
-      marginRight: "500px"
+  walletGroup:{
+    // borderStyle: "solid",
+    // borderWidth: "2px",
+    // borderColor: "white",
+    // borderRadius: "2px",
+
+    display: "flex!important",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "left",
+
+    padding:"0",
+
+    marginTop: "20px",
+    marginBottom: "20px",
   },
 
-  address: {
-      width: "682px",
-      height: "56px",
-      backgroundColor: "#FFFFFF",
-      backgroundImage: "url(wallet-filled-money-tool (2).png)",
-      border: "1px solid #D1D1D1",
-      borderRadius: "10px",
-      marginTop: "13px"
+  walletGroup_Label: {
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: "20px",
+    // fontSize: "1.0rem",
+    // fontSize: "1.5vw",
+
+    lineHeight: "30px",
+    // lineHeight: "2.1vw",
+
+    color: "#000000",
   },
 
-  token_group:{
-      width: "682px",
-      height: "88px",
-      marginTop: "24px"
+  // address: {
+  //     width: "682px",
+  //     height: "56px",
+  //     backgroundColor: "#FFFFFF",
+  //     backgroundImage: "url(wallet-filled-money-tool (2).png)",
+  //     border: "1px solid #D1D1D1",
+  //     borderRadius: "10px",
+  //     marginTop: "13px"
+  // },
+
+  tokenGroup:{
+    // borderStyle: "solid",
+    // borderWidth: "2px",
+    // borderColor: "white",
+    // borderRadius: "2px",
+
+    display: "flex!important",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "left",
+
+    padding:"0",
+
+    marginTop: "0",
+    marginBottom: "20px",
   },
 
-  label_Id: {
-      fontFamily: "Roboto",
-      fontStyle: "normal",
-      fontWeight: "600",
-      fontSize: "16px",
-      lineHeight: "19px",
-      color: "#000000",
-      marginRight: "500px"
+  tokenGroup_Label: {
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: "20px",
+    // fontSize: "1.0rem",
+    // fontSize: "1.5vw",
+
+    lineHeight: "30px",
+    // lineHeight: "2.1vw",
+
+    color: "#000000",
   },
 
+  // unused class name(only in Desktop-13)
   token_Id:{
       width: "682px",
       height: "56px",
@@ -203,25 +263,46 @@ const desktop14PageStyles = (theme) => ({
       marginTop: "13px"
   },
 
-  publish: {
-      marginTop: "50px",
-      marginLeft: "70px",
-      marginBottom: "88px"
+  publishGrp: {
+    display: "flex!important",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+
+    padding:"2px",
+    width: "100%",
+
+    marginTop: "30px",
+    // marginTop: "1.6rem",
+    // marginTop: "2vw",
+    marginBottom: "50px",
+    // marginBottom: "3rem",
+    // marginBottom: "3.5vw",
+
+    // borderStyle: "solid",
+    // borderWidth: "2px",
+    // borderColor: "white",
+    // borderRadius: "5px",    
   },
 
-  publish_btn: {
-      backgroundColor: "#EB1F24",
-      borderRadius: "15px",
-      width: "438px",
-      height: "56px",        
+  publishBtn: {
+    width: "80%",
+    height: "auto",
 
-      fontFamily: "Roboto",
-      fontStyle: "normal",
-      fontWeight: "700",
-      fontSize: "20px",
-      lineHeight: "23px",
-      textTransform: "uppercase",
-      color: "#FFFFFF"
+    maxWidth: "400px",
+    // maxWidth: "24rem",
+    // maxWidth: "28vw",
+
+    borderRadius: "10px",
+    // borderRadius: "0.6rem",
+    // borderRadius: "0.7vw",
+
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    fontSize: "20px",
+    // fontSize: "1.2rem",
+    // fontSize: "1.4vw",
   },
 
   embed_cell: {
@@ -233,26 +314,35 @@ const desktop14PageStyles = (theme) => ({
   },
 
   leftPanel : {
-    backgroundColor: "green",
-    color: "white",
-    borderStyle: "solid",
-    borderWidth: "5px",
-    borderColor: "white",
-    borderRadius: "3%",
+    backgroundColor: "white",
+    color: "black",
+
+    // borderStyle: "solid",
+    // borderWidth: "5px",
+    // borderColor: "white",
+    // borderRadius: "3%",
+
+    // paddingLeft: "80px",
+    // paddingLeft: "5.6vw",
+    paddingLeft: "10%",
 
     display: "flex!important",
     flexDirection: "column",
     justifyContent: "top",
-    alignItems: "center",
+    alignItems: "right",
   },
 
   rightPanel : {
-    backgroundColor: "blue",
-    color: "white",
-    borderStyle: "solid",
-    borderWidth: "5px",
-    borderColor: "white",
-    borderRadius: "3%",
+    backgroundColor: "white",
+    color: "black",
+
+    // borderStyle: "solid",
+    // borderWidth: "5px",
+    // borderColor: "white",
+    // borderRadius: "3%",
+
+    // paddingRight: "80px",
+    // paddingRight: "5.6vw",
 
     display: "flex!important",
     flexDirection: "column",
@@ -261,17 +351,19 @@ const desktop14PageStyles = (theme) => ({
   },
 
   socialNetworkTitle: {
-    // paddingTop: "50px",
-    // paddingBottom: "20px",
-    paddingTop: "4rem",
-    paddingBottom: "1.4rem",
+    paddingTop: "50px",
+    paddingBottom: "20px",
+    // paddingTop: "4rem",
+    // paddingBottom: "1.4rem",
 
-    fontFamily: "Roboto Slab,Times New Roman,serif",
+    fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "normal",
-    // fontSize: "48px",
+    fontSize: "48px",
     // fontSize: "4rem",
-    fontSize: "3.5vw",
+    // fontSize: "3.5vw",
+
+    color: "black",
   },
 
   socialNetworkGroup: {
@@ -280,8 +372,8 @@ const desktop14PageStyles = (theme) => ({
     justifyContent: "top",
     alignItems: "center",
 
-    // padding:"10px",
-    padding:"0.8rem",
+    padding:"10px",
+    // padding:"0.8rem",
   },
 
   socialNetworkRow: {
@@ -297,38 +389,38 @@ const desktop14PageStyles = (theme) => ({
     // borderColor: "white",
     // borderRadius: "10%",
 
-    // paddingLeft: "10px",
-    // paddingRight: "10px",
-    // paddingTop: "10px",
-    // paddingBottom: "5px",
+    paddingLeft: "10px",
+    paddingRight: "10px",
+    paddingTop: "10px",
+    paddingBottom: "5px",
     // paddingLeft: "0.8rem",
     // paddingRight: "0.8rem",
     // paddingTop: "0.8rem",
     // paddingBottom: "0.4rem",
-    paddingLeft: "0.5vw",
-    paddingRight: "0.5vw",
-    paddingTop: "0.5vw",
-    paddingBottom: "0.25vw",
+    // paddingLeft: "0.5vw",
+    // paddingRight: "0.5vw",
+    // paddingTop: "0.5vw",
+    // paddingBottom: "0.25vw",
 
     // paddingLeft: "0",
     // paddingRight: "0",
     // paddingTop: "0",
     // paddingBottom: "0",
 
-    // margin: "10px",
-    margin: "0.8rem",
+    margin: "10px",
+    // margin: "0.8rem",
 
-    // width: "100px",
-    // height: "100px",
+    width: "100px",
+    height: "100px",
     // width: "6rem",
     // height: "6rem",
-    width: "7vw",
-    height: "7vw",
+    // width: "7vw",
+    // height: "7vw",
 
     cursor: "pointer",
     textAlign: "center",
 
-    color: "white",
+    color: "black",
     "&:hover": {
       color: "red",
     },
@@ -340,39 +432,20 @@ const desktop14PageStyles = (theme) => ({
     justifyContent: "space-around",
     alignItems: "center",
 
-    fontFamily: "Roboto Slab,Times New Roman,serif",
+    fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "normal",
-    // fontSize: "14px",
-    fontSize: "1vw",
+    fontSize: "14px",
+    // fontSize: "1vw",
   },
 
   socialNetworkMark_Img: {
-    // width: "45px",
-    // height: "45px",
+    width: "45px",
+    height: "45px",
     // width: "2.8rem",
     // height: "2.8rem",
-    width: "3.2vw",
-    height: "3.2vw",
-
-    // paddingLeft: "0",
-    // paddingRight: "0",
-    // paddingTop: "0",
-    // paddingBottom: "0",
-
-    // margin: "0",
-  },
-
-  socialNetworkMark_Desc: {
-    // width: "100px",
-    // height: "20px",
-    // width: "6rem",
-    // height: "1.2rem",
-    width: "7vw",
-    height: "2.4vw",
-
-    textAlign: "center",
-    verticalAlign: "middle",
+    // width: "3.2vw",
+    // height: "3.2vw",
 
     // paddingLeft: "0",
     // paddingRight: "0",
@@ -397,12 +470,12 @@ const desktop14PageStyles = (theme) => ({
   },
 
   qrCodeGroup_Img: {
-    // width: "400px",
-    // height: "400px",
+    width: "400px",
+    height: "400px",
     // width: "24rem",
     // height: "24rem",
-    width: "23vw",
-    height: "23vw",
+    // width: "23vw",
+    // height: "23vw",
   },
 
   embeddedGroup: {
@@ -414,12 +487,12 @@ const desktop14PageStyles = (theme) => ({
     padding:"2px",
     width: "100%",
 
-    // marginTop: "30px",
+    marginTop: "30px",
     // marginTop: "1.6rem",
-    marginTop: "2vw",
-    // marginBottom: "50px",
+    // marginTop: "2vw",
+    marginBottom: "50px",
     // marginBottom: "3rem",
-    marginBottom: "3.5vw",
+    // marginBottom: "3.5vw",
 
     // borderStyle: "solid",
     // borderWidth: "2px",
@@ -431,20 +504,20 @@ const desktop14PageStyles = (theme) => ({
     width: "80%",
     height: "auto",
 
-    // maxWidth: "400px",
+    maxWidth: "400px",
     // maxWidth: "24rem",
-    maxWidth: "28vw",
+    // maxWidth: "28vw",
 
-    // borderRadius: "10px",
+    borderRadius: "10px",
     // borderRadius: "0.6rem",
-    borderRadius: "0.7vw",
+    // borderRadius: "0.7vw",
 
-    fontFamily: "Roboto Slab,Times New Roman,serif",
+    fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "normal",
-    // fontSize: "20px",
+    fontSize: "20px",
     // fontSize: "1.2rem",
-    fontSize: "1.4vw",
+    // fontSize: "1.4vw",
   },
 
 });
