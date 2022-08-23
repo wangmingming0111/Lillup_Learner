@@ -137,27 +137,24 @@ const desktop14PageStyles = (theme) => ({
   },
 
   portfolio_content: {
-      // position: "absolute",
-      // marginLeft: "165px",
       position: "relative",
       left: "0",
       top: "0",
-      marginTop: "100px",
-      // height: "917px",
-      backgroundColor: "green"
+      marginTop: "50px",
+      backgroundColor: "white"
   },
+
 
   cell:{
       marginTop: "29px",
-      width: "682px",
-      height: "366.52px",
-      backgroundColor: "yellow"
+      width: "652px",
+      height: "336.52px",
   },
 
   wallet_group:{
       width: "682px",
       height: "88px",
-      marginTop: "35.48px" 
+      marginTop: "36.48px" 
   },
 
   label_Address: {
@@ -236,7 +233,7 @@ const desktop14PageStyles = (theme) => ({
   },
 
   leftPanel : {
-    backgroundColor: "red",
+    backgroundColor: "white",
     color: "white",
     borderStyle: "solid",
     borderWidth: "5px",
