@@ -32,10 +32,17 @@ import CardHeader from "components/Card/CardHeader.js";
 import desktop14PageStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/desktop14PageStyles.js";
 import commonStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/commonStyles.js";
 
-import image from "assets/img/lillup-learner-experience-desktop-13.jpg";
+import imageBack from "assets/img/lillup-learner-experience-desktop-13.jpg";
 import wallet_img from "assets/img/lillup/experience/wallet_avatar.png";
-// import token_img from "assets/img/lillup/experience/token_avatar.png";
-import cardProduct1 from "assets/img/examples/card-product1.jpg";
+import imageMarkCopy from "assets/img/lillup/experience/Mark_Copy.png";
+import imageMarkFacebook from "assets/img/lillup/experience/Mark_Facebook.png";
+import imageMarkInstagram from "assets/img/lillup/experience/Mark_Instagram.png";
+import imageMarkLinkedIn from "assets/img/lillup/experience/Mark_LinkedIn.png";
+import imageMarkMail from "assets/img/lillup/experience/Mark_Mail.png";
+import imageMarkTelegram from "assets/img/lillup/experience/Mark_Telegram.png";
+import imageMarkTwitter from "assets/img/lillup/experience/Mark_Twitter.png";
+import imageMarkWhatapp from "assets/img/lillup/experience/Mark_Whatapp.png";
+import imageQRCode from "assets/img/lillup/experience/QRCode_Sample.png";
 
 const useDesktop14PageStyles = makeStyles(desktop14PageStyle);
 const useCommonStyles = makeStyles(commonStyle);
@@ -62,7 +69,7 @@ export default function Desktop14Page({ ...rest }) {
       <div
         className={pageClasses.pageHeader}
         style={{
-          backgroundImage: "url(" + image + ")",
+          backgroundImage: "url(" + imageBack + ")",
           backgroundSize: "cover",
           backgroundPosition: "top center",
         }}
@@ -97,7 +104,90 @@ export default function Desktop14Page({ ...rest }) {
             <GridItem 
               xs={12} sm={12} md={5}
               className={pageClasses.rightPanel}>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 1</h2>
+              <h1 className={pageClasses.socialNetworkTitle}>Share</h1>
+              <div className={pageClasses.socialNetworkGroup}>
+                <div className={pageClasses.socialNetworkRow}>
+                  <div className={pageClasses.socialNetworkMark}>
+                    <img
+                      src={imageMarkLinkedIn}
+                      alt="..."
+                      // className={classes.imgRounded + " " + classes.imgFluid}
+                    />
+                    <span>Linked In</span>
+                  </div>
+                  <div className={pageClasses.socialNetworkMark}>
+                    <img
+                      src={imageMarkTwitter}
+                      alt="..."
+                      // className={classes.imgRounded + " " + classes.imgFluid}
+                    />
+                    <span>Twitter</span>
+                  </div>
+                  <div className={pageClasses.socialNetworkMark}>
+                    <img
+                      src={imageMarkWhatapp}
+                      alt="..."
+                      // className={classes.imgRounded + " " + classes.imgFluid}
+                    />
+                    <span>Whatsapp</span>
+                  </div>
+                  <div className={pageClasses.socialNetworkMark}>
+                    <img
+                      src={imageMarkTelegram}
+                      alt="..."
+                      // className={classes.imgRounded + " " + classes.imgFluid}
+                    />
+                    <span>Telegram</span>
+                  </div>
+                </div>
+                <div className={pageClasses.socialNetworkRow}>
+                  <div className={pageClasses.socialNetworkMark}>
+                    <img
+                      src={imageMarkFacebook}
+                      alt="..."
+                      // className={classes.imgRounded + " " + classes.imgFluid}
+                    />
+                    <span>Facebook</span>
+                  </div>
+                  <div className={pageClasses.socialNetworkMark}>
+                    <img
+                      src={imageMarkInstagram}
+                      alt="..."
+                      // className={classes.imgRounded + " " + classes.imgFluid}
+                    />
+                    <span>Instagram</span>
+                  </div>
+                  <div className={pageClasses.socialNetworkMark}>
+                    <img
+                      src={imageMarkMail}
+                      alt="..."
+                      // className={classes.imgRounded + " " + classes.imgFluid}
+                    />
+                    <span>Email</span>
+                  </div>
+                  <div className={pageClasses.socialNetworkMark}>
+                    <img
+                      src={imageMarkCopy}
+                      alt="..."
+                      // className={classes.imgRounded + " " + classes.imgFluid}
+                    />
+                    <span>Copy</span>
+                  </div>
+                </div>
+              </div>
+              <div className={pageClasses.QRCodeGroup}>
+                <img
+                  src={imageQRCode}
+                  alt="..."
+                  // className={classes.imgRounded + " " + classes.imgFluid}
+                />
+              </div>
+              <div className={pageClasses.embeddedGroup}>
+                <Button color="danger" className={pageClasses.embeddedBtn}>
+                  EMBEDDED
+                </Button>
+              </div>
+              {/* <h2 className={pageClasses.subTitle}>404 Page not found : 1</h2>
               <h2 className={pageClasses.subTitle}>404 Page not found : 2</h2>
               <h2 className={pageClasses.subTitle}>404 Page not found : 3</h2>
               <h2 className={pageClasses.subTitle}>404 Page not found : 4</h2>
@@ -116,7 +206,7 @@ export default function Desktop14Page({ ...rest }) {
               <h2 className={pageClasses.subTitle}>404 Page not found : 17</h2>
               <h2 className={pageClasses.subTitle}>404 Page not found : 18</h2>
               <h2 className={pageClasses.subTitle}>404 Page not found : 19</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 20</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 20</h2> */}
             </GridItem>
           </GridContainer>
         </div>
