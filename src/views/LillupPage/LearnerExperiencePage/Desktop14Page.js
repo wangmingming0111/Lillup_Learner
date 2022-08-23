@@ -33,6 +33,8 @@ import desktop14PageStyle from "assets/jss/material-kit-pro-react/views/lillup/e
 import commonStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/commonStyles.js";
 
 import image from "assets/img/lillup-learner-experience-desktop-13.jpg";
+import wallet_img from "assets/img/lillup/experience/wallet_avatar.png";
+// import token_img from "assets/img/lillup/experience/token_avatar.png";
 import cardProduct1 from "assets/img/examples/card-product1.jpg";
 
 const useDesktop14PageStyles = makeStyles(desktop14PageStyle);
@@ -75,7 +77,13 @@ export default function Desktop14Page({ ...rest }) {
                   <div className={pageClasses.cell}></div>            
                   <div className={pageClasses.wallet_group}>
                     <span className={pageClasses.label_Address}>Wallet Address</span>
-                    <input className={pageClasses.address}/>
+                    <input className={pageClasses.address}
+                      style={{
+                        backgroundImage: "url(" + wallet_img + ")",
+                        backgroundSize: "20px, 20px",
+                        backgroundPosition: "left",
+                      }}
+                    />
                   </div>
                   <div className={pageClasses.token_group}>
                     <span className={pageClasses.label_Id}>Token Id</span>
