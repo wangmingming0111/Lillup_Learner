@@ -40,10 +40,14 @@ const commonStyles = (theme) => ({
 		lineHeight: "1.1em",
 	},
   pageContent: {
-    paddingLeft: "50px",
-    paddingRight: "50px",
-    paddingTop: "130px",
-    paddingBottom: "300px",
+    // paddingLeft: "50px",
+    // paddingRight: "50px",
+    // paddingTop: "130px",
+    // paddingBottom: "300px",
+    paddingLeft: "4rem",
+    paddingRight: "4rem",
+    paddingTop: "8rem",
+    paddingBottom: "18rem",
   },
 });
 

@@ -180,6 +180,7 @@ export default function Desktop14Page({ ...rest }) {
                     <img
                       src={imageMarkLinkedIn}
                       alt="..."
+                      className={pageClasses.socialNetworkMark_Img}
                       // className={classes.imgRounded + " " + classes.imgFluid}
                     />
                     <span>Linked In</span>
@@ -188,6 +189,7 @@ export default function Desktop14Page({ ...rest }) {
                     <img
                       src={imageMarkTwitter}
                       alt="..."
+                      className={pageClasses.socialNetworkMark_Img}
                       // className={classes.imgRounded + " " + classes.imgFluid}
                     />
                     <span>Twitter</span>
@@ -196,6 +198,7 @@ export default function Desktop14Page({ ...rest }) {
                     <img
                       src={imageMarkWhatapp}
                       alt="..."
+                      className={pageClasses.socialNetworkMark_Img}
                       // className={classes.imgRounded + " " + classes.imgFluid}
                     />
                     <span>Whatsapp</span>
@@ -204,6 +207,7 @@ export default function Desktop14Page({ ...rest }) {
                     <img
                       src={imageMarkTelegram}
                       alt="..."
+                      className={pageClasses.socialNetworkMark_Img}
                       // className={classes.imgRounded + " " + classes.imgFluid}
                     />
                     <span>Telegram</span>
@@ -214,6 +218,7 @@ export default function Desktop14Page({ ...rest }) {
                     <img
                       src={imageMarkFacebook}
                       alt="..."
+                      className={pageClasses.socialNetworkMark_Img}
                       // className={classes.imgRounded + " " + classes.imgFluid}
                     />
                     <span>Facebook</span>
@@ -222,6 +227,7 @@ export default function Desktop14Page({ ...rest }) {
                     <img
                       src={imageMarkInstagram}
                       alt="..."
+                      className={pageClasses.socialNetworkMark_Img}
                       // className={classes.imgRounded + " " + classes.imgFluid}
                     />
                     <span>Instagram</span>
@@ -230,6 +236,7 @@ export default function Desktop14Page({ ...rest }) {
                     <img
                       src={imageMarkMail}
                       alt="..."
+                      className={pageClasses.socialNetworkMark_Img}
                       // className={classes.imgRounded + " " + classes.imgFluid}
                     />
                     <span>Email</span>
@@ -238,16 +245,18 @@ export default function Desktop14Page({ ...rest }) {
                     <img
                       src={imageMarkCopy}
                       alt="..."
+                      className={pageClasses.socialNetworkMark_Img}
                       // className={classes.imgRounded + " " + classes.imgFluid}
                     />
                     <span>Copy</span>
                   </div>
                 </div>
               </div>
-              <div className={pageClasses.QRCodeGroup}>
+              <div className={pageClasses.qrCodeGroup}>
                 <img
                   src={imageQRCode}
                   alt="..."
+                  className={pageClasses.qrCodeGroup_Img}
                   // className={classes.imgRounded + " " + classes.imgFluid}
                 />
               </div>

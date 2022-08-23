@@ -264,8 +264,17 @@ const desktop14PageStyles = (theme) => ({
   },
 
   socialNetworkTitle: {
-    paddingTop: "50px",
-    paddingBottom: "20px",
+    // paddingTop: "50px",
+    // paddingBottom: "20px",
+    paddingTop: "4rem",
+    paddingBottom: "1.4rem",
+
+    fontFamily: "Roboto Slab,Times New Roman,serif",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    // fontSize: "48px",
+    // fontSize: "4rem",
+    fontSize: "3.5vw",
   },
 
   socialNetworkGroup: {
@@ -274,7 +283,8 @@ const desktop14PageStyles = (theme) => ({
     justifyContent: "top",
     alignItems: "center",
 
-    padding:"10px",
+    // padding:"10px",
+    padding:"0.8rem",
   },
 
   socialNetworkRow: {
@@ -290,14 +300,33 @@ const desktop14PageStyles = (theme) => ({
     // borderColor: "white",
     // borderRadius: "10%",
 
-    paddingLeft: "10px",
-    paddingRight: "10px",
-    paddingTop: "10px",
-    paddingBottom: "5px",
+    // paddingLeft: "10px",
+    // paddingRight: "10px",
+    // paddingTop: "10px",
+    // paddingBottom: "5px",
+    // paddingLeft: "0.8rem",
+    // paddingRight: "0.8rem",
+    // paddingTop: "0.8rem",
+    // paddingBottom: "0.4rem",
+    paddingLeft: "0.5vw",
+    paddingRight: "0.5vw",
+    paddingTop: "0.5vw",
+    paddingBottom: "0.25vw",
 
-    margin: "10px",
-    width: "100px",
-    height: "100px",
+    // paddingLeft: "0",
+    // paddingRight: "0",
+    // paddingTop: "0",
+    // paddingBottom: "0",
+
+    // margin: "10px",
+    margin: "0.8rem",
+
+    // width: "100px",
+    // height: "100px",
+    // width: "6rem",
+    // height: "6rem",
+    width: "7vw",
+    height: "7vw",
 
     cursor: "pointer",
     textAlign: "center",
@@ -307,26 +336,76 @@ const desktop14PageStyles = (theme) => ({
       color: "red",
     },
 
-    fontFamily: "Roboto Slab,Times New Roman,serif",
-    fontStyle: "normal",
-    fontWeight: "normal",
-    fontSize: "14px",
-
     display: "flex!important",
     flexDirection: "column",
     // flexWrap: "wrap",
     // alignContent: "space-around",
     justifyContent: "space-around",
     alignItems: "center",
+
+    fontFamily: "Roboto Slab,Times New Roman,serif",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    // fontSize: "14px",
+    fontSize: "1vw",
   },
 
-  QRCodeGroup: {
+  socialNetworkMark_Img: {
+    // width: "45px",
+    // height: "45px",
+    // width: "2.8rem",
+    // height: "2.8rem",
+    width: "3.2vw",
+    height: "3.2vw",
+
+    // paddingLeft: "0",
+    // paddingRight: "0",
+    // paddingTop: "0",
+    // paddingBottom: "0",
+
+    // margin: "0",
+  },
+
+  socialNetworkMark_Desc: {
+    // width: "100px",
+    // height: "20px",
+    // width: "6rem",
+    // height: "1.2rem",
+    width: "7vw",
+    height: "2.4vw",
+
+    textAlign: "center",
+    verticalAlign: "middle",
+
+    // paddingLeft: "0",
+    // paddingRight: "0",
+    // paddingTop: "0",
+    // paddingBottom: "0",
+
+    // margin: "0",
+  },
+
+  qrCodeGroup: {
+    // borderStyle: "solid",
+    // borderWidth: "2px",
+    // borderColor: "white",
+    // borderRadius: "10%",
+
     display: "flex!important",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
 
-    padding:"10px",
+    padding:"0",
+  },
+
+  qrCodeGroup_Img: {
+    // width: "400px",
+    // height: "400px",
+    // width: "24rem",
+    // height: "24rem",
+    width: "23vw",
+    height: "23vw",
   },
 
   embeddedGroup: {
@@ -338,24 +417,37 @@ const desktop14PageStyles = (theme) => ({
     padding:"2px",
     width: "100%",
 
+    // marginTop: "30px",
+    // marginTop: "1.6rem",
+    marginTop: "2vw",
+    // marginBottom: "50px",
+    // marginBottom: "3rem",
+    marginBottom: "3.5vw",
+
     // borderStyle: "solid",
     // borderWidth: "2px",
     // borderColor: "white",
-    // borderRadius: "5px",
+    // borderRadius: "5px",    
   },
 
   embeddedBtn: {
     width: "80%",
-    height: "50px",
+    height: "auto",
 
-    maxWidth: "500px",
+    // maxWidth: "400px",
+    // maxWidth: "24rem",
+    maxWidth: "28vw",
 
-    borderRadius: "10px",
+    // borderRadius: "10px",
+    // borderRadius: "0.6rem",
+    borderRadius: "0.7vw",
 
     fontFamily: "Roboto Slab,Times New Roman,serif",
     fontStyle: "normal",
     fontWeight: "normal",
-    fontSize: "20px",
+    // fontSize: "20px",
+    // fontSize: "1.2rem",
+    fontSize: "1.4vw",
   },
 
 });
