@@ -125,7 +125,6 @@ const desktop14PageStyles = (theme) => ({
   },
 
   portfolio_title:{
-      paddingTop: "100px",
       fontFamily: "Roboto",
       fontStyle: "normal",
       fontWeight: "700",
@@ -137,6 +136,7 @@ const desktop14PageStyles = (theme) => ({
 
   portfolio_content: {
       position: "absolute",
+      marginLeft: "165px",
       left: "0",
       top: "0",
       // height: "917px",
