@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
   },
   borderProp: {
     background: '#FFFFFF',
-    border: '1px solid #D1D1D1',
+    // border: '1px solid #D1D1D1',
     // borderRadius: '10px',
     borderRadius: '0.5vw',
   }
