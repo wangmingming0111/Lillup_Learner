@@ -196,8 +196,8 @@ const desktop14PageStyles = (theme) => ({
 
     padding:"0",
 
-    marginTop: "20px",
-    marginBottom: "20px",
+    marginTop: "30px",
+    marginBottom: "30px",
   },
 
   walletGroup_Label: {
@@ -238,7 +238,7 @@ const desktop14PageStyles = (theme) => ({
     padding:"0",
 
     marginTop: "0",
-    marginBottom: "20px",
+    marginBottom: "30px",
   },
 
   tokenGroup_Label: {
@@ -346,6 +346,7 @@ const desktop14PageStyles = (theme) => ({
 
     // paddingRight: "80px",
     // paddingRight: "5.6vw",
+    paddingRight: "5%",
 
     display: "flex!important",
     flexDirection: "column",
@@ -371,26 +372,40 @@ const desktop14PageStyles = (theme) => ({
   },
 
   socialNetworkGroup: {
+    // borderStyle: "solid",
+    // borderWidth: "1px",
+    // borderColor: "black",
+    // borderRadius: "3px",
+
     display: "flex!important",
     flexDirection: "column",
     justifyContent: "top",
     alignItems: "center",
 
+    width: "100%",
     padding:"10px",
     // padding:"0.8rem",
   },
 
   socialNetworkRow: {
+    // borderStyle: "solid",
+    // borderWidth: "1px",
+    // borderColor: "black",
+    // borderRadius: "5px",
+
+    width: "100%",
+
     display: "flex!important",
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-around",
+    // justifyContent: "center",
     alignItems: "center",
   },
 
   socialNetworkMark: {
     // borderStyle: "solid",
     // borderWidth: "2px",
-    // borderColor: "white",
+    // borderColor: "black",
     // borderRadius: "10%",
 
     paddingLeft: "10px",
@@ -411,11 +426,15 @@ const desktop14PageStyles = (theme) => ({
     // paddingTop: "0",
     // paddingBottom: "0",
 
-    margin: "10px",
+    margin: "2px",
+    // margin: "10px",
     // margin: "0.8rem",
 
     width: "100px",
     height: "100px",
+
+    // width: "100px",
+    // height: "100px",
     // width: "6rem",
     // height: "6rem",
     // width: "7vw",
@@ -433,7 +452,7 @@ const desktop14PageStyles = (theme) => ({
     flexDirection: "column",
     // flexWrap: "wrap",
     // alignContent: "space-around",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     alignItems: "center",
 
     fontFamily: "Roboto",
@@ -459,23 +478,32 @@ const desktop14PageStyles = (theme) => ({
     // margin: "0",
   },
 
+  socialNetworkMark_Desc: {
+    width: "80px",
+    height: "20px",
+  },
+
   qrCodeGroup: {
     // borderStyle: "solid",
     // borderWidth: "2px",
-    // borderColor: "white",
-    // borderRadius: "10%",
+    // borderColor: "black",
+    // borderRadius: "10px",
 
     display: "flex!important",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
 
+    width: "100%",
+
     padding:"0",
   },
 
   qrCodeGroup_Img: {
-    width: "400px",
-    height: "400px",
+    width: "350px",
+    height: "350px",
+    // width: "400px",
+    // height: "400px",
     // width: "24rem",
     // height: "24rem",
     // width: "23vw",
@@ -500,7 +528,7 @@ const desktop14PageStyles = (theme) => ({
 
     // borderStyle: "solid",
     // borderWidth: "2px",
-    // borderColor: "white",
+    // borderColor: "black",
     // borderRadius: "5px",    
   },
 

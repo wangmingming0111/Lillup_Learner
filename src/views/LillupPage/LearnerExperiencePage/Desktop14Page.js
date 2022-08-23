@@ -129,7 +129,7 @@ export default function Desktop14Page({ ...rest }) {
         <div className={pageClasses.container + " " + commonClasses.pageContent}>
           <GridContainer direction="row">
             <GridItem
-              xs={12} sm={12} md={7}
+              xs={12} sm={7} md={7}
               className={pageClasses.leftPanel}>
               <div className={pageClasses.portfolioTitleGrp}>
                 <h1 className={pageClasses.portfolioTitle}>NET TOKEN</h1>
@@ -177,7 +177,7 @@ export default function Desktop14Page({ ...rest }) {
 
             </GridItem>
             <GridItem
-              xs={12} sm={12} md={5}
+              xs={12} sm={7} md={5}
               className={pageClasses.rightPanel}>
               <h1 className={pageClasses.socialNetworkTitle}>Share</h1>
               <div className={pageClasses.socialNetworkGroup}>
@@ -189,7 +189,9 @@ export default function Desktop14Page({ ...rest }) {
                       className={pageClasses.socialNetworkMark_Img}
                       // className={classes.imgRounded + " " + classes.imgFluid}
                     />
-                    <span>Linked In</span>
+                    <span className={pageClasses.socialNetworkMark_Desc}>
+                      Linked In
+                    </span>
                   </div>
                   <div className={pageClasses.socialNetworkMark}>
                     <img
@@ -198,7 +200,9 @@ export default function Desktop14Page({ ...rest }) {
                       className={pageClasses.socialNetworkMark_Img}
                       // className={classes.imgRounded + " " + classes.imgFluid}
                     />
-                    <span>Twitter</span>
+                    <span className={pageClasses.socialNetworkMark_Desc}>
+                      Twitter
+                    </span>
                   </div>
                   <div className={pageClasses.socialNetworkMark}>
                     <img
@@ -207,7 +211,9 @@ export default function Desktop14Page({ ...rest }) {
                       className={pageClasses.socialNetworkMark_Img}
                       // className={classes.imgRounded + " " + classes.imgFluid}
                     />
-                    <span>Whatsapp</span>
+                    <span className={pageClasses.socialNetworkMark_Desc}>
+                      Whatsapp
+                    </span>
                   </div>
                   <div className={pageClasses.socialNetworkMark}>
                     <img
@@ -216,7 +222,9 @@ export default function Desktop14Page({ ...rest }) {
                       className={pageClasses.socialNetworkMark_Img}
                       // className={classes.imgRounded + " " + classes.imgFluid}
                     />
-                    <span>Telegram</span>
+                    <span className={pageClasses.socialNetworkMark_Desc}>
+                      Telegram
+                    </span>
                   </div>
                 </div>
                 <div className={pageClasses.socialNetworkRow}>
@@ -227,7 +235,9 @@ export default function Desktop14Page({ ...rest }) {
                       className={pageClasses.socialNetworkMark_Img}
                       // className={classes.imgRounded + " " + classes.imgFluid}
                     />
-                    <span>Facebook</span>
+                    <span className={pageClasses.socialNetworkMark_Desc}>
+                      Facebook
+                    </span>
                   </div>
                   <div className={pageClasses.socialNetworkMark}>
                     <img
@@ -236,7 +246,9 @@ export default function Desktop14Page({ ...rest }) {
                       className={pageClasses.socialNetworkMark_Img}
                       // className={classes.imgRounded + " " + classes.imgFluid}
                     />
-                    <span>Instagram</span>
+                    <span className={pageClasses.socialNetworkMark_Desc}>
+                      Instagram
+                    </span>
                   </div>
                   <div className={pageClasses.socialNetworkMark}>
                     <img
@@ -245,7 +257,9 @@ export default function Desktop14Page({ ...rest }) {
                       className={pageClasses.socialNetworkMark_Img}
                       // className={classes.imgRounded + " " + classes.imgFluid}
                     />
-                    <span>Email</span>
+                    <span className={pageClasses.socialNetworkMark_Desc}>
+                      Email
+                    </span>
                   </div>
                   <div className={pageClasses.socialNetworkMark}>
                     <img
@@ -254,7 +268,9 @@ export default function Desktop14Page({ ...rest }) {
                       className={pageClasses.socialNetworkMark_Img}
                       // className={classes.imgRounded + " " + classes.imgFluid}
                     />
-                    <span>Copy</span>
+                    <span className={pageClasses.socialNetworkMark_Desc}>
+                      Copy
+                    </span>
                   </div>
                 </div>
               </div>
