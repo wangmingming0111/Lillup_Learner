@@ -69,60 +69,22 @@ export default function Desktop14Page({ ...rest }) {
           <GridContainer justify="center">
         {/* <div className={pageClasses.contentCenter}>
           <GridContainer> */}
-            <GridItem xs={12} sm={12} md={12}>
-              <h4 className={pageClasses.title}>www.lillup.com Learner-Experience Page</h4>
-              <h4 className={pageClasses.description}>
-                Ooooups! Looks like you got lost.
-              </h4>
-            </GridItem>
-            <GridItem xs={12} sm={12} md={8}>
-              <Card>
-                {/* <form className={pageClasses.form}> */}
-                  <CardHeader
-                      // image
-                      color="primary"
-                      // signup
-                      className={pageClasses.cardHeader}
-                    >
-                    <h1 className={pageClasses.title}>404</h1>
-                  </CardHeader>
-
-                  {/* <CardHeader image>
-                    <a href="#pablo">
-                      <img src={cardProduct1} alt="cardProduct" />
-                    </a>
-                  </CardHeader> */}
-
-                  <CardBody signup>
-                    <h2 className={pageClasses.subTitle}>Page not found :(</h2>
-                    <h4 className={pageClasses.description}>
-                      Ooooups! Looks like you got lost.
-                    </h4>
-                  </CardBody>
-                {/* </form> */}
-              </Card>
-            </GridItem>
-            <GridItem xs={12} sm={12} md={12}>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 1</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 2</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 3</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 4</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 5</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 6</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 7</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 8</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 9</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 10</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 11</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 12</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 13</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 14</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 15</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 16</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 17</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 18</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 19</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 20</h2>
+            <GridItem xs={8} sm={8} md={8}>
+              <div className={pageClasses.portfolio_content}>
+                  <h1 className={pageClasses.portfolio_title}>PORTFOLIO</h1>
+                  <div className={pageClasses.cell}></div>            
+                  <div className={pageClasses.wallet_group}>
+                    <span className={pageClasses.label_Address}>Wallet Address</span>
+                    <input className={pageClasses.address}/>
+                  </div>
+                  <div className={pageClasses.token_group}>
+                    <span className={pageClasses.label_Id}>Token Id</span>
+                    <input className={pageClasses.token_Id}/>
+                  </div>
+                  <div className={pageClasses.publish}>
+                    <Button className={pageClasses.publish_btn}>PUBLISH</Button>
+                  </div>
+              </div>
             </GridItem>
           </GridContainer>
         </div>

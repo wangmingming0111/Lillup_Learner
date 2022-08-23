@@ -106,7 +106,7 @@ const desktop14PageStyles = (theme) => ({
   },
 
   portfolio_title:{
-      paddingTop: "50px",
+      paddingTop: "100px",
       fontFamily: "Roboto",
       fontStyle: "normal",
       fontWeight: "700",
@@ -199,10 +199,11 @@ const desktop14PageStyles = (theme) => ({
       fontSize: "20px",
       lineHeight: "23px",
       textTransform: "uppercase",
-      color: "#FFFFFF",
+      color: "#FFFFFF"
   },
 
   embed_cell: {
+      marginTop: "200px",
       width: "399px",
       height: "703px",
       backgroundColor: "#444444",
