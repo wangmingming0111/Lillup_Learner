@@ -136,7 +136,8 @@ const desktop14PageStyles = (theme) => ({
     textAlign: "left",
     width: "100%",
 
-    paddingTop: "50px",
+    // paddingTop: "50px",
+    paddingTop: "20px",
     paddingBottom: "20px",
     // paddingTop: "4rem",
     // paddingBottom: "1.4rem",
@@ -325,7 +326,7 @@ const desktop14PageStyles = (theme) => ({
     // borderRadius: "3%",
 
     // paddingLeft: "80px",
-    // paddingLeft: "5.6vw",
+    // paddingLeft: "10vw",
     paddingLeft: "10%",
 
     display: "flex!important",
@@ -353,7 +354,8 @@ const desktop14PageStyles = (theme) => ({
   },
 
   socialNetworkTitle: {
-    paddingTop: "50px",
+    // paddingTop: "50px",
+    paddingTop: "20px",
     paddingBottom: "20px",
     // paddingTop: "4rem",
     // paddingBottom: "1.4rem",
