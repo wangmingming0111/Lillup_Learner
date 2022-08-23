@@ -136,7 +136,7 @@ export default function Desktop14Page({ ...rest }) {
               className={pageClasses.leftPanel}>
               <div className={pageClasses.portfolio_content}>
                 <h1 className={pageClasses.portfolio_title}>PORTFOLIO</h1>
-                <div className={pageClasses.cell}><img src ={TokenCode}/></div>
+                <div className={pageClasses.cell}><img src ={TokenCode} width="685px" height="336.52px"/></div>
                 <div className={pageClasses.wallet_group}>
                   <span className={pageClasses.label_Address}>Wallet Address</span>
                   <FormControl className={clsx(classes.margin, classes.textField, classes.borderProp)} variant="outlined">

@@ -144,6 +144,7 @@ const desktop14PageStyles = (theme) => ({
       backgroundColor: "white"
   },
 
+
   cell:{
       marginTop: "29px",
       width: "652px",
@@ -153,7 +154,7 @@ const desktop14PageStyles = (theme) => ({
   wallet_group:{
       width: "682px",
       height: "88px",
-      marginTop: "100.48px" 
+      marginTop: "36.48px" 
   },
 
   label_Address: {
@@ -232,7 +233,7 @@ const desktop14PageStyles = (theme) => ({
   },
 
   leftPanel : {
-    backgroundColor: "red",
+    backgroundColor: "white",
     color: "white",
     borderStyle: "solid",
     borderWidth: "5px",
