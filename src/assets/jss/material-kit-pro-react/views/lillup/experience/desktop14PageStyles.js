@@ -196,7 +196,7 @@ const desktop14PageStyles = (theme) => ({
       width: "682px",
       height: "56px",
       backgroundColor: "#FFFFFF",
-      backgroundImage: "url(wallet-filled-money-tool (2).png)",
+      backgroundImage: "url(" + "assets/img/lillup/exerience/wallet_avarta.png" + ")",
       border: "1px solid #D1D1D1",
       borderRadius: "10px",
       marginTop: "13px"
