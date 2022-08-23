@@ -67,9 +67,9 @@ export default function Desktop14Page({ ...rest }) {
       >
         <div className={pageClasses.container}>
           <GridContainer direction="row">
-        {/* <div className={pageClasses.contentCenter}>
-          <GridContainer> */}
-            <GridItem xs={12} sm={12} md={7}>
+            <GridItem 
+              xs={12} sm={12} md={7}
+              className={pageClasses.leftPanel}>
               <div className={pageClasses.portfolio_content}>
                   <h1 className={pageClasses.portfolio_title}>PORTFOLIO</h1>
                   <div className={pageClasses.cell}></div>            
@@ -86,7 +86,9 @@ export default function Desktop14Page({ ...rest }) {
                   </div>
               </div>
             </GridItem>
-            <GridItem xs={12} sm={12} md={5}>
+            <GridItem 
+              xs={12} sm={12} md={5}
+              className={pageClasses.rightPanel}>
               <h2 className={pageClasses.subTitle}>404 Page not found : 1</h2>
               <h2 className={pageClasses.subTitle}>404 Page not found : 2</h2>
               <h2 className={pageClasses.subTitle}>404 Page not found : 3</h2>

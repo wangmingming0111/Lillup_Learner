@@ -135,10 +135,12 @@ const desktop14PageStyles = (theme) => ({
   },
 
   portfolio_content: {
-      position: "absolute",
-      marginLeft: "165px",
+      // position: "absolute",
+      // marginLeft: "165px",
+      position: "relative",
       left: "0",
       top: "0",
+      marginTop: "100px",
       // height: "917px",
       backgroundColor: "green"
   },
@@ -229,7 +231,36 @@ const desktop14PageStyles = (theme) => ({
       height: "703px",
       backgroundColor: "#444444",
       borderRadius: "11px"
-  }
+  },
+
+  leftPanel : {
+    backgroundColor: "red",
+    color: "white",
+    borderStyle: "solid",
+    borderWidth: "5px",
+    borderColor: "white",
+    borderRadius: "3%",
+
+    display: "flex!important",
+    flexDirection: "column",
+    justifyContent: "top",
+    alignItems: "center",
+  },
+
+  rightPanel : {
+    backgroundColor: "blue",
+    color: "white",
+    borderStyle: "solid",
+    borderWidth: "5px",
+    borderColor: "white",
+    borderRadius: "3%",
+
+    display: "flex!important",
+    flexDirection: "column",
+    justifyContent: "top",
+    alignItems: "center",
+  },
+
 });
 
 export default desktop14PageStyles;
