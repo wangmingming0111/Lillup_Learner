@@ -137,13 +137,10 @@ const desktop14PageStyles = (theme) => ({
   },
 
   portfolio_content: {
-      // position: "absolute",
-      // marginLeft: "165px",
       position: "relative",
       left: "0",
       top: "0",
-      marginTop: "100px",
-      // height: "917px",
+      marginTop: "50px",
       backgroundColor: "white"
   },
 
@@ -156,7 +153,7 @@ const desktop14PageStyles = (theme) => ({
   wallet_group:{
       width: "682px",
       height: "88px",
-      marginTop: "35.48px" 
+      marginTop: "100.48px" 
   },
 
   label_Address: {
