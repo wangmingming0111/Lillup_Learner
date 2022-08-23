@@ -66,10 +66,10 @@ export default function Desktop14Page({ ...rest }) {
         }}
       >
         <div className={pageClasses.container}>
-          <GridContainer justify="center">
+          <GridContainer direction="row">
         {/* <div className={pageClasses.contentCenter}>
           <GridContainer> */}
-            <GridItem xs={8} sm={8} md={8}>
+            <GridItem xs={12} sm={12} md={7}>
               <div className={pageClasses.portfolio_content}>
                   <h1 className={pageClasses.portfolio_title}>PORTFOLIO</h1>
                   <div className={pageClasses.cell}></div>            
@@ -86,71 +86,93 @@ export default function Desktop14Page({ ...rest }) {
                   </div>
               </div>
             </GridItem>
+            <GridItem xs={12} sm={12} md={5}>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 1</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 2</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 3</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 4</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 5</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 6</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 7</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 8</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 9</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 10</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 11</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 12</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 13</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 14</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 15</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 16</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 17</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 18</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 19</h2>
+              <h2 className={pageClasses.subTitle}>404 Page not found : 20</h2>
+            </GridItem>
           </GridContainer>
         </div>
-        {/* </div> */}
+        <Footer_Lillup_LearnerExperience
+          className={pageClasses.footer}
+          theme="dark"
+          // big
+          content={
+            <div>
+              <div className={pageClasses.left}>
+                <GridContainer>
+                  {/* <GridItem xs={12} sm={6} md={6} lg={3}> */}
+                  <GridItem xs={6} sm={3} md={3} lg={1}>
+                    <Button color="twitter" round justIcon>
+                      <i className="fab fa-twitter" />
+                    </Button>
+                    <br />
+                    <Button color="linkedin" round justIcon>
+                      <i className="fab fa-linkedin-in" />
+                    </Button>
+                  </GridItem>
+                </GridContainer>
+              </div>
+              <div className={pageClasses.right}>
+                <List className={pageClasses.dense} dense>
+                  <ListItem className={commonClasses.footerLinkItem}>
+                    <a target="_blank" href="#" className={pageClasses.block}>
+                      Creator
+                    </a>
+                  </ListItem>
+                  <ListItem className={commonClasses.footerLinkItem}>
+                    <a target="_blank" href="#" className={pageClasses.block}>
+                      Learner
+                    </a>
+                  </ListItem>
+                  <ListItem className={commonClasses.footerLinkItem}>
+                    <a target="_blank" href="#" className={pageClasses.block}>
+                      Explore
+                    </a>
+                  </ListItem>
+                  <ListItem className={commonClasses.footerLinkItem}>
+                    <a target="_blank" href="#" className={pageClasses.block}>
+                      Documentation
+                    </a>
+                  </ListItem>
+                  <ListItem className={commonClasses.footerLinkItem}>
+                    <a target="_blank" href="#" className={pageClasses.block}>
+                      Stakeholder
+                    </a>
+                  </ListItem>
+                  <ListItem className={commonClasses.footerLinkItem}>
+                    <a target="_blank" href="#" className={pageClasses.block}>
+                      About Us
+                    </a>
+                  </ListItem>
+                  <ListItem className={commonClasses.footerLinkItem}>
+                    <a target="_blank" href="#" className={pageClasses.block}>
+                      Blog
+                    </a>
+                  </ListItem>
+                </List>
+              </div>
+            </div>
+          }
+        />
       </div>
-      <Footer_Lillup_LearnerExperience
-        theme="dark"
-        big
-        content={
-          <div>
-            <div className={pageClasses.left}>
-              <GridContainer>
-                {/* <GridItem xs={12} sm={6} md={6} lg={3}> */}
-                <GridItem xs={6} sm={3} md={3} lg={1}>
-                  <Button color="twitter" round justIcon>
-                    <i className="fab fa-twitter" />
-                  </Button>
-                  <br />
-                  <Button color="linkedin" round justIcon>
-                    <i className="fab fa-linkedin-in" />
-                  </Button>
-                </GridItem>
-              </GridContainer>
-            </div>
-            <div className={pageClasses.right}>
-              <List className={pageClasses.dense} dense>
-                <ListItem className={commonClasses.footerLinkItem}>
-                  <a target="_blank" href="#" className={pageClasses.block}>
-                    Creator
-                  </a>
-                </ListItem>
-                <ListItem className={commonClasses.footerLinkItem}>
-                  <a target="_blank" href="#" className={pageClasses.block}>
-                    Learner
-                  </a>
-                </ListItem>
-                <ListItem className={commonClasses.footerLinkItem}>
-                  <a target="_blank" href="#" className={pageClasses.block}>
-                    Explore
-                  </a>
-                </ListItem>
-                <ListItem className={commonClasses.footerLinkItem}>
-                  <a target="_blank" href="#" className={pageClasses.block}>
-                    Documentation
-                  </a>
-                </ListItem>
-                <ListItem className={commonClasses.footerLinkItem}>
-                  <a target="_blank" href="#" className={pageClasses.block}>
-                    Stakeholder
-                  </a>
-                </ListItem>
-                <ListItem className={commonClasses.footerLinkItem}>
-                  <a target="_blank" href="#" className={pageClasses.block}>
-                    About Us
-                  </a>
-                </ListItem>
-                <ListItem className={commonClasses.footerLinkItem}>
-                  <a target="_blank" href="#" className={pageClasses.block}>
-                    Blog
-                  </a>
-                </ListItem>
-              </List>
-            </div>
-          </div>
-        }
-      />
     </div>
   );
 }

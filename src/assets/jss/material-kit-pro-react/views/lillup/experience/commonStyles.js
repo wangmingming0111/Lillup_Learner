@@ -15,6 +15,14 @@ const commonStyles = (theme) => ({
     paddingLeft: "0.2rem",
     paddingRight: "0.2rem",
   },
+  footerBar: {
+    color: "#FFF",
+    width: "100%",
+    bottom: "0",
+    zIndex: "2",
+    position: "absolute",
+    // background: "transparent",
+  },
   footerContainer: {
     zIndex: "2",
     width: "100%",

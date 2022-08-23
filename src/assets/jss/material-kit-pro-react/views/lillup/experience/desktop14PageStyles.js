@@ -40,14 +40,17 @@ const desktop14PageStyles = (theme) => ({
     marginBottom: "8px",
   },
   pageHeader: {
-    minHeight: "100vh",
-    height: "auto",
-    display: "inherit",
-    position: "relative",
-    margin: "0",
-    padding: "0",
+    color: whiteColor,
     border: "0",
-    alignItems: "center",
+    height: "100%",
+    margin: "0",
+    display: "flex!important",
+    flexDirection: "column!important",
+    // justifyContent: "center",
+    alignItems: "top",
+    padding: "80px 0",
+    position: "relative",
+    minHeight: "100vh",
     "&:before": {
       background: "rgba(" + hexToRgb(blackColor) + ", 0.5)",
     },
@@ -118,7 +121,9 @@ const desktop14PageStyles = (theme) => ({
 
   portfolio_content: {
       position: "absolute",
-      height: "917px",
+      left: "0",
+      top: "0",
+      // height: "917px",
       backgroundColor: "green"
   },
 

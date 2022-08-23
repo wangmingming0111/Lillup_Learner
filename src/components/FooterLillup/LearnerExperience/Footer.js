@@ -12,15 +12,15 @@ import ListItem from "@material-ui/core/ListItem";
 import Favorite from "@material-ui/icons/Favorite";
 
 import footerStyles from "assets/jss/material-kit-pro-react/components/footerStyle.js";
-import commonStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/commonStyles.js";
+import commonStyles from "assets/jss/material-kit-pro-react/views/lillup/experience/commonStyles.js";
 const useFooterStyles = makeStyles(footerStyles);
-const useCommonStyle = makeStyles(commonStyle);
+const useCommonStyles = makeStyles(commonStyles);
 
-export default function Footer(props) {
+export default function Footer_Lillup_LearnerExperience(props) {
   const { children, content, theme, big, className } = props;
 
   const footerClasses = useFooterStyles();
-  const commonClasses = useCommonStyle();
+  const commonClasses = useCommonStyles();
   
   const themeType =
     theme === "transparent" || theme == undefined ? false : true;
@@ -35,8 +35,9 @@ export default function Footer(props) {
   });
 
   return (
-    <footer className={footerBodyClasses}>
+    <footer className={footerBodyClasses + " " + commonClasses.footerBar}>
       <div className={commonClasses.footerContainer}>
+      {/* <div className={footerClasses.container}> */}
         {children !== undefined ? (
           <div>
             <div className={footerClasses.content}>{children}</div>
@@ -52,7 +53,7 @@ export default function Footer(props) {
   );
 }
 
-Footer.propTypes = {
+Footer_Lillup_LearnerExperience.propTypes = {
   theme: PropTypes.oneOf(["dark", "white", "transparent"]),
   big: PropTypes.bool,
   content: PropTypes.node.isRequired,
