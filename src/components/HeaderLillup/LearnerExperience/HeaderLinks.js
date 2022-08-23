@@ -43,8 +43,10 @@ import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-pro-react/components/headerLinksStyle.js";
+import commonStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/commonStyles.js";
 
 const useStyles = makeStyles(styles);
+const useCommonStyle = makeStyles(commonStyle);
 
 export default function HeaderLinks_Lillup_LearnerExperience(props) {
   const easeInOutQuad = (t, b, c, d) => {
@@ -87,7 +89,10 @@ export default function HeaderLinks_Lillup_LearnerExperience(props) {
   var onClickSections = {};
 
   const { dropdownHoverColor } = props;
+
   const classes = useStyles();
+  const commonClasses = useCommonStyle();
+
   return (
     <List className={classes.list + " " + classes.mlAuto}>
       <ListItem className={classes.listItem}>
@@ -97,15 +102,15 @@ export default function HeaderLinks_Lillup_LearnerExperience(props) {
           hoverColor={dropdownHoverColor}
           buttonText="Learner-Experience"
           buttonProps={{
-            className: classes.navLink,
+            className: classes.navLink + " " + commonClasses.headerNavLink,
             color: "transparent",
           }}
           buttonIcon={Apps}
           dropdownList={[
-            <Link to="/lillup/learner/experience/desktop-13" className={classes.dropdownLink}>
-              <Layers className={classes.dropdownIcons} />
-              Desktop-13
-            </Link>,
+            // <Link to="/lillup/learner/experience/desktop-13" className={classes.dropdownLink}>
+            //   <Layers className={classes.dropdownIcons} />
+            //   Desktop-13
+            // </Link>,
             <Link to="/lillup/learner/experience/desktop-14" className={classes.dropdownLink}>
               <Layers className={classes.dropdownIcons} />
               Desktop-14

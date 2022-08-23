@@ -8,8 +8,8 @@ import ListItem from "@material-ui/core/ListItem";
 import Favorite from "@material-ui/icons/Favorite";
 // core components
 
-import Header_Lillup_LearnerExperience from "components/HeaderLillup/LearnerExperience/Header";
-import HeaderLinks_Lillup_LearnerExperience from "components/HeaderLillup/LearnerExperience/HeaderLinks";
+import Header_Lillup_LearnerExperience from "components/HeaderLillup/LearnerExperience/Header.js";
+import HeaderLinks_Lillup_LearnerExperience from "components/HeaderLillup/LearnerExperience/HeaderLinks.js";
 
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";

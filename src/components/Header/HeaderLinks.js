@@ -104,10 +104,10 @@ export default function HeaderLinks(props) {
           }}
           buttonIcon={Apps}
           dropdownList={[
-            <Link to="/lillup/learner/experience/desktop-13" className={classes.dropdownLink}>
-              <Layers className={classes.dropdownIcons} />
-              Desktop-13
-            </Link>,
+            // <Link to="/lillup/learner/experience/desktop-13" className={classes.dropdownLink}>
+            //   <Layers className={classes.dropdownIcons} />
+            //   Desktop-13
+            // </Link>,
             <Link to="/lillup/learner/experience/desktop-14" className={classes.dropdownLink}>
               <Layers className={classes.dropdownIcons} />
               Desktop-14

@@ -37,7 +37,7 @@ const commonStyles = (theme) => ({
   },
 	footerLinkItem: {
 		fontSize: "16px",
-		lineHeight: "1.1em",
+		lineHeight: "1.2em",
 	},
   pageContent: {
     // paddingLeft: "50px",
@@ -46,9 +46,21 @@ const commonStyles = (theme) => ({
     // paddingBottom: "300px",
     paddingLeft: "4rem",
     paddingRight: "4rem",
-    paddingTop: "8rem",
+    paddingTop: "10rem",
     paddingBottom: "18rem",
   },
+
+  headerBrand: {
+    lineHeight: "70px",
+    fontSize: "40px",
+  },
+  headerBrandLink: {
+    color: "white",
+  },
+  headerNavLink: {
+    fontSize: "20px",
+  },
+
 });
 
 export default commonStyles;

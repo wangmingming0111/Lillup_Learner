@@ -14,8 +14,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Favorite from "@material-ui/icons/Favorite";
 // core components
 
-import Header_Lillup_LearnerExperience from "components/HeaderLillup/LearnerExperience/Header";
-import HeaderLinks_Lillup_LearnerExperience from "components/HeaderLillup/LearnerExperience/HeaderLinks";
+import Header_Lillup_LearnerExperience from "components/HeaderLillup/LearnerExperience/Header.js";
+import HeaderLinks_Lillup_LearnerExperience from "components/HeaderLillup/LearnerExperience/HeaderLinks.js";
 import Footer_Lillup_LearnerExperience from "components/FooterLillup/LearnerExperience/Footer.js";
 
 import GridContainer from "components/Grid/GridContainer.js";
@@ -257,26 +257,6 @@ export default function Desktop14Page({ ...rest }) {
                   EMBEDDED
                 </Button>
               </div>
-              {/* <h2 className={pageClasses.subTitle}>404 Page not found : 1</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 2</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 3</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 4</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 5</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 6</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 7</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 8</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 9</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 10</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 11</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 12</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 13</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 14</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 15</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 16</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 17</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 18</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 19</h2>
-              <h2 className={pageClasses.subTitle}>404 Page not found : 20</h2> */}
             </GridItem>
           </GridContainer>
         </div>
@@ -286,9 +266,8 @@ export default function Desktop14Page({ ...rest }) {
           // big
           content={
             <div>
-              <div className={pageClasses.left}>
+              {/* <div className={pageClasses.left}>
                 <GridContainer>
-                  {/* <GridItem xs={12} sm={6} md={6} lg={3}> */}
                   <GridItem xs={6} sm={3} md={3} lg={1}>
                     <Button color="twitter" round justIcon>
                       <i className="fab fa-twitter" />
@@ -299,8 +278,8 @@ export default function Desktop14Page({ ...rest }) {
                     </Button>
                   </GridItem>
                 </GridContainer>
-              </div>
-              <div className={pageClasses.right}>
+              </div> */}
+              <div className={pageClasses.left}>
                 <List className={pageClasses.dense} dense>
                   <ListItem className={commonClasses.footerLinkItem}>
                     <a target="_blank" href="#" className={pageClasses.block}>

@@ -79,7 +79,7 @@ const desktop14PageStyles = (theme) => ({
     color: "inherit",
     // padding: "0.9375rem",
     fontWeight: "500",
-    fontSize: "12px",
+    fontSize: "18px",
     // textTransform: "uppercase",
     borderRadius: "3px",
     textDecoration: "none",
@@ -233,7 +233,7 @@ const desktop14PageStyles = (theme) => ({
   },
 
   leftPanel : {
-    backgroundColor: "white",
+    backgroundColor: "green",
     color: "white",
     borderStyle: "solid",
     borderWidth: "5px",

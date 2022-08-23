@@ -72,9 +72,16 @@ export default function Header_Lillup_LearnerExperience(props) {
   return (
     <AppBar className={appBarClasses}>
       <Toolbar className={commonClasses.toolbarContainer}>
-        <Button className={headerClasses.title}>
-          <Link to="/">{brand}</Link>
-        </Button>
+        <div className={commonClasses.headerBrand}>
+          <Link to="/" className={commonClasses.headerBrandLink}>
+            {brand}
+          </Link>
+        </div>
+        {/* <Button className={headerClasses.title}>
+          <Link to="/" className={commonClasses.headerBrand}>
+            {brand}
+          </Link>
+        </Button> */}
         <Hidden smDown implementation="css" className={headerClasses.hidden}>
           <div className={headerClasses.collapse}>{links}</div>
         </Hidden>
