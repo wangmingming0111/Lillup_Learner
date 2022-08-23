@@ -67,7 +67,7 @@ export default function Desktop14Page({ ...rest }) {
           backgroundPosition: "top center",
         }}
       >
-        <div className={pageClasses.container}>
+        <div className={pageClasses.container + " " + commonClasses.pageContent}>
           <GridContainer direction="row">
             <GridItem 
               xs={12} sm={12} md={7}

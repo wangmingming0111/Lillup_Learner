@@ -38,7 +38,13 @@ const commonStyles = (theme) => ({
 	footerLinkItem: {
 		fontSize: "16px",
 		lineHeight: "1.1em",
-	}
+	},
+  pageContent: {
+    paddingLeft: "50px",
+    paddingRight: "50px",
+    paddingTop: "130px",
+    paddingBottom: "300px",
+  },
 });
 
 export default commonStyles;
