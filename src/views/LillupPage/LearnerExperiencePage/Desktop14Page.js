@@ -21,6 +21,19 @@ import Footer_Lillup_LearnerExperience from "components/FooterLillup/LearnerExpe
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
+import FormControl from '@material-ui/core/FormControl';
+import Input from '@material-ui/core/Input';
+import clsx from 'clsx';
+import FilledInput from '@material-ui/core/FilledInput';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import IconButton from '@material-ui/core/IconButton';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+
+
+
+
 
 // import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 
@@ -34,11 +47,28 @@ import commonStyle from "assets/jss/material-kit-pro-react/views/lillup/experien
 
 import image from "assets/img/lillup-learner-experience-desktop-13.jpg";
 import wallet_img from "assets/img/lillup/experience/wallet_avatar.png";
-// import token_img from "assets/img/lillup/experience/token_avatar.png";
+import token_img from "assets/img/lillup/experience/token_avatar.png";
 import cardProduct1 from "assets/img/examples/card-product1.jpg";
 
 const useDesktop14PageStyles = makeStyles(desktop14PageStyle);
 const useCommonStyles = makeStyles(commonStyle);
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  margin: {
+    margin: theme.spacing(1),
+  },
+  withoutLabel: {
+    marginTop: theme.spacing(3),
+  },
+  textField: {
+    width: '682px',
+    height: '56px',
+  },
+}));
 
 export default function Desktop14Page({ ...rest }) {
   React.useEffect(() => {
@@ -46,8 +76,30 @@ export default function Desktop14Page({ ...rest }) {
     document.body.scrollTop = 0;
   });
 
+  const classes = useStyles();
+
   const pageClasses = useDesktop14PageStyles();
   const commonClasses = useCommonStyles();
+
+  const [values, setValues] = React.useState({
+    amount: '',
+    password: '',
+    weight: '',
+    weightRange: '',
+    showPassword: false,
+  });
+
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
   
   return (
     <div>
@@ -80,15 +132,31 @@ export default function Desktop14Page({ ...rest }) {
                     <input className={pageClasses.address}
                       style={{
                         backgroundImage: "url(" + wallet_img + ")",
-                        backgroundSize: "20px, 20px",
+                        backgroundSize: "36px, 36px",
+                        backgroundRepeat: "no-repeat",
                         backgroundPosition: "left",
                       }}
                     />
                   </div>
                   <div className={pageClasses.token_group}>
                     <span className={pageClasses.label_Id}>Token Id</span>
-                    <input className={pageClasses.token_Id}/>
+                    <input className={pageClasses.token_Id}
+                      style={{
+                        backgroundImage: "url(" + token_img + ")",
+                        backgroundSize: "36px, 36px",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "left",
+                      }}                      
+                    />
                   </div>
+
+                  <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+                    <OutlinedInput
+                      id="outlined-adornment-token"
+                      type={'text'}
+                      startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                    />
+                  </FormControl>     
                   <div className={pageClasses.publish}>
                     <Button className={pageClasses.publish_btn}>PUBLISH</Button>
                   </div>
