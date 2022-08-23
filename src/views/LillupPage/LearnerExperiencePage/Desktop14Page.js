@@ -16,8 +16,8 @@ import Favorite from "@material-ui/icons/Favorite";
 
 import Header_Lillup_LearnerExperience from "components/HeaderLillup/LearnerExperience/Header";
 import HeaderLinks_Lillup_LearnerExperience from "components/HeaderLillup/LearnerExperience/HeaderLinks";
+import Footer_Lillup_LearnerExperience from "components/FooterLillup/LearnerExperience/Footer.js";
 
-import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
@@ -128,11 +128,11 @@ export default function Desktop14Page({ ...rest }) {
         </div>
         {/* </div> */}
       </div>
-      <Footer
+      <Footer_Lillup_LearnerExperience
         theme="dark"
         big
         content={
-          <div className={commonClasses.footerContainer}>
+          <div>
             <div className={pageClasses.left}>
               <GridContainer>
                 {/* <GridItem xs={12} sm={6} md={6} lg={3}> */}
@@ -149,37 +149,37 @@ export default function Desktop14Page({ ...rest }) {
             </div>
             <div className={pageClasses.right}>
               <List className={pageClasses.dense} dense>
-                <ListItem>
+                <ListItem className={commonClasses.footerLinkItem}>
                   <a target="_blank" href="#" className={pageClasses.block}>
                     Creator
                   </a>
                 </ListItem>
-                <ListItem>
+                <ListItem className={commonClasses.footerLinkItem}>
                   <a target="_blank" href="#" className={pageClasses.block}>
                     Learner
                   </a>
                 </ListItem>
-                <ListItem>
+                <ListItem className={commonClasses.footerLinkItem}>
                   <a target="_blank" href="#" className={pageClasses.block}>
                     Explore
                   </a>
                 </ListItem>
-                <ListItem>
+                <ListItem className={commonClasses.footerLinkItem}>
                   <a target="_blank" href="#" className={pageClasses.block}>
                     Documentation
                   </a>
                 </ListItem>
-                <ListItem>
+                <ListItem className={commonClasses.footerLinkItem}>
                   <a target="_blank" href="#" className={pageClasses.block}>
                     Stakeholder
                   </a>
                 </ListItem>
-                <ListItem>
+                <ListItem className={commonClasses.footerLinkItem}>
                   <a target="_blank" href="#" className={pageClasses.block}>
                     About Us
                   </a>
                 </ListItem>
-                <ListItem>
+                <ListItem className={commonClasses.footerLinkItem}>
                   <a target="_blank" href="#" className={pageClasses.block}>
                     Blog
                   </a>
