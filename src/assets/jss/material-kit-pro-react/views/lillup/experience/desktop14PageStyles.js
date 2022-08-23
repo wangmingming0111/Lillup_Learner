@@ -48,6 +48,7 @@ const desktop14PageStyles = (theme) => ({
     marginBottom: "8px",
   },
   pageHeader: {
+    backgroundColor: "white",
     color: whiteColor,
     border: "0",
     height: "100%",
@@ -62,7 +63,7 @@ const desktop14PageStyles = (theme) => ({
     minHeight: "100vh",
     alignItems: "top",
     "&:before": {
-      background: "rgba(" + hexToRgb(blackColor) + ", 0.5)",
+      background: "rgba(" + hexToRgb(whiteColor) + ", 0.5)",
     },
     "&:before,&:after": {
       position: "absolute",
@@ -144,7 +145,7 @@ const desktop14PageStyles = (theme) => ({
   portfolioTitle:{
     fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: "bold",
+    fontWeight: "normal",
     fontSize: "40px",
     // fontSize: "2.4rem",
     // fontSize: "2.8vw",
@@ -154,7 +155,8 @@ const desktop14PageStyles = (theme) => ({
 
     textTransform: "uppercase",
     
-    color: "#333333"
+    // color: "#333333"
+    color: "black"
   },
 
   tokenCodeGrp: {

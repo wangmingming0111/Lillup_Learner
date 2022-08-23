@@ -132,7 +132,7 @@ export default function Desktop14Page({ ...rest }) {
               xs={12} sm={12} md={7}
               className={pageClasses.leftPanel}>
               <div className={pageClasses.portfolioTitleGrp}>
-                <h1 className={pageClasses.portfolioTitle}>PORTFOLIO</h1>
+                <h1 className={pageClasses.portfolioTitle}>NET TOKEN</h1>
               </div>
               <div className={pageClasses.tokenCodeGrp}>
                 <img 
