@@ -19,6 +19,14 @@ const desktop14PageStyles = (theme) => ({
     width: "100%",
     maxWidth: "880px",
   },
+  container: {
+    // this is important!
+    // ...container,
+    zIndex: "3",
+    [theme.breakpoints.down("sm")]: {
+      paddingBottom: "100px",
+    },
+  },
   title: {
     ...title,
     fontSize: "13.7em",
@@ -45,12 +53,12 @@ const desktop14PageStyles = (theme) => ({
     height: "100%",
     margin: "0",
     display: "flex!important",
-    flexDirection: "column!important",
-    // justifyContent: "center",
-    alignItems: "top",
-    padding: "80px 0",
+    flexDirection: "column",
+    padding: "150px 0",
+    paddingBottom: "300px",
     position: "relative",
     minHeight: "100vh",
+    alignItems: "top",
     "&:before": {
       background: "rgba(" + hexToRgb(blackColor) + ", 0.5)",
     },
@@ -106,6 +114,14 @@ const desktop14PageStyles = (theme) => ({
     height: "18px",
     top: "3px",
     position: "relative",
+  },
+  footer: {
+    position: "absolute",
+    width: "100%",
+    // background: "transparent",
+    bottom: "0",
+    color: whiteColor,
+    zIndex: "2",
   },
 
   portfolio_title:{

@@ -173,6 +173,7 @@ export default function LoginPage() {
             </GridItem>
           </GridContainer>
         </div>
+        {/* <div > */}
         <Footer
           className={classes.footer}
           content={
