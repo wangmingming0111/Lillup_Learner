@@ -144,14 +144,13 @@ const desktop14PageStyles = (theme) => ({
       top: "0",
       marginTop: "100px",
       // height: "917px",
-      backgroundColor: "green"
+      backgroundColor: "white"
   },
 
   cell:{
       marginTop: "29px",
-      width: "682px",
-      height: "366.52px",
-      backgroundColor: "yellow"
+      width: "652px",
+      height: "336.52px",
   },
 
   wallet_group:{

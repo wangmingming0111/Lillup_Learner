@@ -22,14 +22,9 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 import FormControl from '@material-ui/core/FormControl';
-import Input from '@material-ui/core/Input';
 import clsx from 'clsx';
-import FilledInput from '@material-ui/core/FilledInput';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import IconButton from '@material-ui/core/IconButton';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 
 
@@ -46,7 +41,6 @@ import desktop14PageStyle from "assets/jss/material-kit-pro-react/views/lillup/e
 import commonStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/commonStyles.js";
 
 import imageBack from "assets/img/lillup-learner-experience-desktop-13.jpg";
-import wallet_img from "assets/img/lillup/experience/wallet_avatar.png";
 import imageMarkCopy from "assets/img/lillup/experience/Mark_Copy.png";
 import imageMarkFacebook from "assets/img/lillup/experience/Mark_Facebook.png";
 import imageMarkInstagram from "assets/img/lillup/experience/Mark_Instagram.png";
@@ -56,6 +50,9 @@ import imageMarkTelegram from "assets/img/lillup/experience/Mark_Telegram.png";
 import imageMarkTwitter from "assets/img/lillup/experience/Mark_Twitter.png";
 import imageMarkWhatapp from "assets/img/lillup/experience/Mark_Whatapp.png";
 import imageQRCode from "assets/img/lillup/experience/QRCode_Sample.png";
+import TokenCode from "assets/img/lillup/experience/TokenCode_Sample.png";
+
+import wallet_img from "assets/img/lillup/experience/wallet_avatar.png";
 import token_img from "assets/img/lillup/experience/token_avatar.png";
 
 const useDesktop14PageStyles = makeStyles(desktop14PageStyle);
@@ -67,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
   },
   margin: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(0),
   },
   withoutLabel: {
     marginTop: theme.spacing(3),
@@ -76,6 +73,11 @@ const useStyles = makeStyles((theme) => ({
     width: '682px',
     height: '56px',
   },
+  borderProp: {
+    background: '#FFFFFF',
+    border: '1px solid #D1D1D1',
+    borderRadius: '10px',
+  }
 }));
 
 export default function Desktop14Page({ ...rest }) {
@@ -108,7 +110,7 @@ export default function Desktop14Page({ ...rest }) {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-  
+
   return (
     <div>
       <Header_Lillup_LearnerExperience
@@ -129,48 +131,38 @@ export default function Desktop14Page({ ...rest }) {
       >
         <div className={pageClasses.container + " " + commonClasses.pageContent}>
           <GridContainer direction="row">
-            <GridItem 
+            <GridItem
               xs={12} sm={12} md={7}
               className={pageClasses.leftPanel}>
               <div className={pageClasses.portfolio_content}>
-                  <h1 className={pageClasses.portfolio_title}>PORTFOLIO</h1>
-                  <div className={pageClasses.cell}></div>            
-                  <div className={pageClasses.wallet_group}>
-                    <span className={pageClasses.label_Address}>Wallet Address</span>
-                    <input className={pageClasses.address}
-                      style={{
-                        backgroundImage: "url(" + wallet_img + ")",
-                        backgroundSize: "36px, 36px",
-                        backgroundRepeat: "no-repeat",
-                        backgroundPosition: "left",
-                      }}
+                <h1 className={pageClasses.portfolio_title}>PORTFOLIO</h1>
+                <div className={pageClasses.cell}><img src ={TokenCode}/></div>
+                <div className={pageClasses.wallet_group}>
+                  <span className={pageClasses.label_Address}>Wallet Address</span>
+                  <FormControl className={clsx(classes.margin, classes.textField, classes.borderProp)} variant="outlined">
+                    <OutlinedInput
+                      id="outlined-adornment-wallet"
+                      type={'text'}
+                      startAdornment={<InputAdornment position="start"><img src={wallet_img} /></InputAdornment>}
                     />
-                  </div>
-                  <div className={pageClasses.token_group}>
-                    <span className={pageClasses.label_Id}>Token Id</span>
-                    <input className={pageClasses.token_Id}
-                      style={{
-                        backgroundImage: "url(" + token_img + ")",
-                        backgroundSize: "36px, 36px",
-                        backgroundRepeat: "no-repeat",
-                        backgroundPosition: "left",
-                      }}                      
-                    />
-                  </div>
-
-                  <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+                  </FormControl>                  
+                </div>
+                <div className={pageClasses.token_group}>
+                  <span className={pageClasses.label_Id}>Token Id</span>
+                  <FormControl className={clsx(classes.margin, classes.textField, classes.borderProp)} variant="outlined">
                     <OutlinedInput
                       id="outlined-adornment-token"
                       type={'text'}
-                      startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                      startAdornment={<InputAdornment position="start"><img src={token_img} /></InputAdornment>}
                     />
-                  </FormControl>     
-                  <div className={pageClasses.publish}>
-                    <Button className={pageClasses.publish_btn}>PUBLISH</Button>
-                  </div>
+                  </FormControl>
+                </div>
+                <div className={pageClasses.publish}>
+                  <Button className={pageClasses.publish_btn}>PUBLISH</Button>
+                </div>
               </div>
             </GridItem>
-            <GridItem 
+            <GridItem
               xs={12} sm={12} md={5}
               className={pageClasses.rightPanel}>
               <h1 className={pageClasses.socialNetworkTitle}>Share</h1>
@@ -180,7 +172,7 @@ export default function Desktop14Page({ ...rest }) {
                     <img
                       src={imageMarkLinkedIn}
                       alt="..."
-                      // className={classes.imgRounded + " " + classes.imgFluid}
+                    // className={classes.imgRounded + " " + classes.imgFluid}
                     />
                     <span>Linked In</span>
                   </div>
@@ -188,7 +180,7 @@ export default function Desktop14Page({ ...rest }) {
                     <img
                       src={imageMarkTwitter}
                       alt="..."
-                      // className={classes.imgRounded + " " + classes.imgFluid}
+                    // className={classes.imgRounded + " " + classes.imgFluid}
                     />
                     <span>Twitter</span>
                   </div>
@@ -196,7 +188,7 @@ export default function Desktop14Page({ ...rest }) {
                     <img
                       src={imageMarkWhatapp}
                       alt="..."
-                      // className={classes.imgRounded + " " + classes.imgFluid}
+                    // className={classes.imgRounded + " " + classes.imgFluid}
                     />
                     <span>Whatsapp</span>
                   </div>
@@ -204,7 +196,7 @@ export default function Desktop14Page({ ...rest }) {
                     <img
                       src={imageMarkTelegram}
                       alt="..."
-                      // className={classes.imgRounded + " " + classes.imgFluid}
+                    // className={classes.imgRounded + " " + classes.imgFluid}
                     />
                     <span>Telegram</span>
                   </div>
@@ -214,7 +206,7 @@ export default function Desktop14Page({ ...rest }) {
                     <img
                       src={imageMarkFacebook}
                       alt="..."
-                      // className={classes.imgRounded + " " + classes.imgFluid}
+                    // className={classes.imgRounded + " " + classes.imgFluid}
                     />
                     <span>Facebook</span>
                   </div>
@@ -222,7 +214,7 @@ export default function Desktop14Page({ ...rest }) {
                     <img
                       src={imageMarkInstagram}
                       alt="..."
-                      // className={classes.imgRounded + " " + classes.imgFluid}
+                    // className={classes.imgRounded + " " + classes.imgFluid}
                     />
                     <span>Instagram</span>
                   </div>
@@ -230,7 +222,7 @@ export default function Desktop14Page({ ...rest }) {
                     <img
                       src={imageMarkMail}
                       alt="..."
-                      // className={classes.imgRounded + " " + classes.imgFluid}
+                    // className={classes.imgRounded + " " + classes.imgFluid}
                     />
                     <span>Email</span>
                   </div>
@@ -238,7 +230,7 @@ export default function Desktop14Page({ ...rest }) {
                     <img
                       src={imageMarkCopy}
                       alt="..."
-                      // className={classes.imgRounded + " " + classes.imgFluid}
+                    // className={classes.imgRounded + " " + classes.imgFluid}
                     />
                     <span>Copy</span>
                   </div>
@@ -248,7 +240,7 @@ export default function Desktop14Page({ ...rest }) {
                 <img
                   src={imageQRCode}
                   alt="..."
-                  // className={classes.imgRounded + " " + classes.imgFluid}
+                // className={classes.imgRounded + " " + classes.imgFluid}
                 />
               </div>
               <div className={pageClasses.embeddedGroup}>
