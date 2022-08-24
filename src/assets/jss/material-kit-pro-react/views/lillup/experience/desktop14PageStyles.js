@@ -121,6 +121,7 @@ const desktop14PageStyles = (theme) => ({
   footer: {
     position: "absolute",
     width: "100%",
+    height: "250px",
     // background: "transparent",
     bottom: "0",
     color: whiteColor,
@@ -214,6 +215,20 @@ const desktop14PageStyles = (theme) => ({
     color: "#000000",
   },
 
+  walletGroup_Input: {
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: "20px",
+    // fontSize: "1.0rem",
+    // fontSize: "1.5vw",
+
+    lineHeight: "30px",
+    // lineHeight: "2.1vw",
+
+    color: "#000000",
+  },
+
   // address: {
   //     width: "682px",
   //     height: "56px",
@@ -242,6 +257,20 @@ const desktop14PageStyles = (theme) => ({
   },
 
   tokenGroup_Label: {
+    fontFamily: "Roboto",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: "20px",
+    // fontSize: "1.0rem",
+    // fontSize: "1.5vw",
+
+    lineHeight: "30px",
+    // lineHeight: "2.1vw",
+
+    color: "#000000",
+  },
+
+  tokenGroup_Input: {
     fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "bold",
@@ -327,7 +356,7 @@ const desktop14PageStyles = (theme) => ({
 
     // paddingLeft: "80px",
     // paddingLeft: "10vw",
-    paddingLeft: "10%",
+    // paddingLeft: "10%",
 
     display: "flex!important",
     flexDirection: "column",
@@ -346,7 +375,7 @@ const desktop14PageStyles = (theme) => ({
 
     // paddingRight: "80px",
     // paddingRight: "5.6vw",
-    paddingRight: "5%",
+    // paddingRight: "5%",
 
     display: "flex!important",
     flexDirection: "column",
@@ -404,9 +433,9 @@ const desktop14PageStyles = (theme) => ({
 
   socialNetworkMark: {
     // borderStyle: "solid",
-    // borderWidth: "2px",
+    // borderWidth: "1px",
     // borderColor: "black",
-    // borderRadius: "10%",
+    // borderRadius: "5px",
 
     paddingLeft: "10px",
     paddingRight: "10px",
@@ -446,6 +475,12 @@ const desktop14PageStyles = (theme) => ({
     color: "black",
     "&:hover": {
       color: "red",
+      fontWeight: "bold",
+
+      borderStyle: "solid",
+      borderWidth: "1px",
+      borderColor: "white",
+      borderRadius: "5px",
     },
 
     display: "flex!important",
@@ -460,6 +495,35 @@ const desktop14PageStyles = (theme) => ({
     fontWeight: "normal",
     fontSize: "14px",
     // fontSize: "1vw",
+
+    "@media (min-width: 576px)": {
+      width: "50px",
+      height: "50px",
+      maxWidth: "50px",
+      maxHeight: "50px",
+      fontSize: "8px",
+    },
+    "@media (min-width: 768px)": {
+      width: "70px",
+      height: "70px",
+      maxWidth: "70px",
+      maxHeight: "70px",
+      fontSize: "10px",
+    },
+    "@media (min-width: 990px)": {
+      width: "90px",
+      height: "90px",
+      maxWidth: "90px",
+      maxHeight: "90px",
+      fontSize: "12px",
+    },
+    "@media (min-width: 1200px)": {
+      width: "100px",
+      height: "100px",
+      maxWidth: "100px",
+      maxHeight: "100px",
+      fontSize: "14px",
+    },
   },
 
   socialNetworkMark_Img: {
@@ -476,11 +540,61 @@ const desktop14PageStyles = (theme) => ({
     // paddingBottom: "0",
 
     // margin: "0",
+
+    "@media (min-width: 576px)": {
+      width: "30px",
+      height: "30px",
+      maxWidth: "30px",
+      maxHeight: "30px",
+    },
+    "@media (min-width: 768px)": {
+      width: "35px",
+      height: "35px",
+      maxWidth: "35px",
+      maxHeight: "35px",
+    },
+    "@media (min-width: 990px)": {
+      width: "40px",
+      height: "40px",
+      maxWidth: "40px",
+      maxHeight: "40px",
+    },
+    "@media (min-width: 1200px)": {
+      width: "45px",
+      height: "45px",
+      maxWidth: "45px",
+      maxHeight: "45px",
+    },
   },
 
   socialNetworkMark_Desc: {
     width: "80px",
     height: "20px",
+
+    "@media (min-width: 576px)": {
+      width: "65px",
+      height: "14px",
+      maxWidth: "65px",
+      maxHeight: "14px",
+    },
+    "@media (min-width: 768px)": {
+      width: "70px",
+      height: "16px",
+      maxWidth: "70px",
+      maxHeight: "16px",
+    },
+    "@media (min-width: 992px)": {
+      width: "75px",
+      height: "18px",
+      maxWidth: "75px",
+      maxHeight: "18px",
+    },
+    "@media (min-width: 1200px)": {
+      width: "80px",
+      height: "20px",
+      maxWidth: "80px",
+      maxHeight: "20px",
+    },
   },
 
   qrCodeGroup: {
@@ -508,6 +622,31 @@ const desktop14PageStyles = (theme) => ({
     // height: "24rem",
     // width: "23vw",
     // height: "23vw",
+
+    "@media (min-width: 576px)": {
+      width: "200px",
+      height: "200px",
+      maxWidth: "200px",
+      maxHeight: "200px",
+    },
+    "@media (min-width: 768px)": {
+      width: "250px",
+      height: "250px",
+      maxWidth: "250px",
+      maxHeight: "250px",
+    },
+    "@media (min-width: 990px)": {
+      width: "300px",
+      height: "300px",
+      maxWidth: "300px",
+      maxHeight: "300px",
+    },
+    "@media (min-width: 1200px)": {
+      width: "350px",
+      height: "350px",
+      maxWidth: "350px",
+      maxHeight: "350px",
+    },
   },
 
   embeddedGroup: {

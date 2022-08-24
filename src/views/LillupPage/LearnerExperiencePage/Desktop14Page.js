@@ -53,7 +53,7 @@ import token_img from "assets/img/lillup/experience/token_avatar.png";
 const useDesktop14PageStyles = makeStyles(desktop14PageStyle);
 const useCommonStyles = makeStyles(commonStyle);
 
-const useStyles = makeStyles((theme) => ({
+const useFormStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -82,7 +82,7 @@ export default function Desktop14Page({ ...rest }) {
     document.body.scrollTop = 0;
   });
 
-  const classes = useStyles();
+  const formClasses = useFormStyles();
 
   const pageClasses = useDesktop14PageStyles();
   const commonClasses = useCommonStyles();
@@ -128,9 +128,14 @@ export default function Desktop14Page({ ...rest }) {
       >
         <div className={pageClasses.container + " " + commonClasses.pageContent}>
           <GridContainer direction="row">
+            <GridItem 
+              lg={2} xl={3}
+            >
+            </GridItem>
             <GridItem
-              xs={12} sm={7} md={7}
-              className={pageClasses.leftPanel}>
+              xs={12} sm={7} md={7} lg={5} xl={4}
+              className={pageClasses.leftPanel}
+            >
               <div className={pageClasses.portfolioTitleGrp}>
                 <h1 className={pageClasses.portfolioTitle}>NET TOKEN</h1>
               </div>
@@ -146,9 +151,10 @@ export default function Desktop14Page({ ...rest }) {
                   Wallet Address
                 </span>
                 <FormControl 
-                  className={clsx(classes.margin, classes.textField, classes.borderProp)} 
+                  className={clsx(formClasses.margin, formClasses.textField, formClasses.borderProp)} 
                   variant="outlined">
                   <OutlinedInput
+                    className={pageClasses.walletGroup_Input}
                     id="outlined-adornment-wallet"
                     type={'text'}
                     startAdornment={<InputAdornment position="start"><img src={wallet_img} /></InputAdornment>}
@@ -160,8 +166,9 @@ export default function Desktop14Page({ ...rest }) {
                 <span className={pageClasses.tokenGroup_Label}>
                   Token Id
                 </span>
-                <FormControl className={clsx(classes.margin, classes.textField, classes.borderProp)} variant="outlined">
+                <FormControl className={clsx(formClasses.margin, formClasses.textField, formClasses.borderProp)} variant="outlined">
                   <OutlinedInput
+                    className={pageClasses.tokenGroup_Input}
                     id="outlined-adornment-token"
                     type={'text'}
                     startAdornment={<InputAdornment position="start"><img src={token_img} /></InputAdornment>}
@@ -177,8 +184,9 @@ export default function Desktop14Page({ ...rest }) {
 
             </GridItem>
             <GridItem
-              xs={12} sm={7} md={5}
-              className={pageClasses.rightPanel}>
+              xs={12} sm={5} md={5} lg={4} xl={3}
+              className={pageClasses.rightPanel}
+            >
               <h1 className={pageClasses.socialNetworkTitle}>Share</h1>
               <div className={pageClasses.socialNetworkGroup}>
                 <div className={pageClasses.socialNetworkRow}>
@@ -288,6 +296,10 @@ export default function Desktop14Page({ ...rest }) {
                 </Button>
               </div>
             </GridItem>
+            <GridItem 
+              lg={1} xl={2}
+            >
+            </GridItem>
           </GridContainer>
         </div>
         <Footer_Lillup_LearnerExperience
@@ -309,7 +321,7 @@ export default function Desktop14Page({ ...rest }) {
                   </GridItem>
                 </GridContainer>
               </div> */}
-              <div className={pageClasses.left}>
+              {/* <div className={pageClasses.left}>
                 <List className={pageClasses.dense} dense>
                   <ListItem className={commonClasses.footerLinkItem}>
                     <a target="_blank" href="#" className={pageClasses.block}>
@@ -347,7 +359,7 @@ export default function Desktop14Page({ ...rest }) {
                     </a>
                   </ListItem>
                 </List>
-              </div>
+              </div> */}
             </div>
           }
         />
