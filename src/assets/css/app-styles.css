@@ -1,0 +1,16 @@
+html, body {
+	overflow-x: hidden;
+	/* font-size: 100px; */
+	background-color: red;
+}
+
+.App {
+  font-family: sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+
+.MuiSwitch-track {
+  background-color: #e52d27 !important;
+}
