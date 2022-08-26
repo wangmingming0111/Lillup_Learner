@@ -49,21 +49,21 @@ import commonStyle from "assets/jss/material-kit-pro-react/views/lillup/experien
 const useStyles = makeStyles(styles);
 const useCommonStyle = makeStyles(commonStyle);
 
-import { useMoralis } from "react-moralis";
+// import { useMoralis } from "react-moralis";
 
 export default function HeaderLinks_Lillup_LearnerExperience(props) {
-  const { authenticate, isAuthenticated, logout } = useMoralis();
+  // const { authenticate, isAuthenticated, logout } = useMoralis();
 
-  const onAuthenticate = function () {
-    console.log("+ -------------- +");
-    console.log("onAuthenticate");
-    authenticate({ signingMessage: "Hello, welcome on Lillup" })
-  };
-  const onSignout = function () {
-    console.log("+ -------------- +");
-    console.log("onSignout");
-    logout();
-  };
+  // const onAuthenticate = function () {
+  //   console.log("+ -------------- +");
+  //   console.log("onAuthenticate");
+  //   authenticate({ signingMessage: "Hello, welcome on Lillup" })
+  // };
+  // const onSignout = function () {
+  //   console.log("+ -------------- +");
+  //   console.log("onSignout");
+  //   logout();
+  // };
 
   const easeInOutQuad = (t, b, c, d) => {
     t /= d / 2;
@@ -109,7 +109,7 @@ export default function HeaderLinks_Lillup_LearnerExperience(props) {
   const classes = useStyles();
   const commonClasses = useCommonStyle();
 
-  if (!isAuthenticated) {
+  if (!props.isAuthenticated) {
     return (
       <List className={classes.list + " " + classes.mlAuto}>
         <ListItem className={classes.listItem}>
@@ -136,7 +136,7 @@ export default function HeaderLinks_Lillup_LearnerExperience(props) {
           />
         </ListItem>
         <ListItem className={classes.listItem}>
-          <Button block round color="info" onClick={onAuthenticate}>
+          <Button block round color="info" onClick={props.onAuthenticateCallback}>
             <AccountCircle /> Authenticate
           </Button>
         </ListItem>
@@ -170,8 +170,7 @@ export default function HeaderLinks_Lillup_LearnerExperience(props) {
           />
         </ListItem>
           <ListItem className={classes.listItem}>
-            <Button block round color="primary" onClick={onSignout}>
-            {/* <Button block round onClick={() => setLoginModal(true)}> */}
+            <Button block round color="primary" onClick={props.onSignoutCallback}>
               <ExitToApp /> Logout
             </Button>
           </ListItem>

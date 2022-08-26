@@ -76,7 +76,23 @@ const useFormStyles = makeStyles((theme) => ({
   }
 }));
 
+import { useMoralis } from "react-moralis";
+
 export default function Desktop14Page({ ...rest }) {
+
+  const { authenticate, isAuthenticated, logout } = useMoralis();
+
+  const onAuthenticate = function () {
+    console.log("+ -------------- +");
+    console.log("onAuthenticate");
+    authenticate({ signingMessage: "Hello, welcome on Lillup" })
+  };
+  const onSignout = function () {
+    console.log("+ -------------- +");
+    console.log("onSignout");
+    logout();
+  };
+
   React.useEffect(() => {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
@@ -114,7 +130,12 @@ export default function Desktop14Page({ ...rest }) {
         // color="transparent"
         color="success"
         brand="www.lillup.com"
-        links={<HeaderLinks_Lillup_LearnerExperience dropdownHoverColor="dark" />}
+        links={<HeaderLinks_Lillup_LearnerExperience 
+                  dropdownHoverColor="dark"
+                  isAuthenticated={isAuthenticated}
+                  onAuthenticateCallback={onAuthenticate}
+                  onSignoutCallback={onSignout}
+                />}
         {...rest}
       />
       <div
