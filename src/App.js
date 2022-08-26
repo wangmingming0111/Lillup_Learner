@@ -1,5 +1,3 @@
-import "./assets/css/app-styles.css";
-import { useMoralis } from "react-moralis";
 import { React } from "react";
 import { Router, Route, Switch } from "react-router";
 import { createBrowserHistory } from "history";
@@ -25,27 +23,43 @@ import Desktop14Page from "views/LillupPage/LearnerExperiencePage/Desktop14Page"
 
 var hist = createBrowserHistory();
 
-export default function App() {
-  const { authenticate, isAuthenticated, logout } = useMoralis();
+import "./assets/css/app-styles.css";
+import { useMoralis, useChain } from "react-moralis";
 
-  if (!isAuthenticated) {
-    return (
-      <div>
-        <button
-          onClick={() =>
-            authenticate({ signingMessage: "Hello, welcome on Lillup" })
-          }
-        >
-          Authenticate
-        </button>
-      </div>
-    );
-  }
-  return (
+export default function App() {
+  // const { authenticate, isAuthenticated, logout, user } = useMoralis();
+  // const { switchNetwork, chainId, chain, account } = useChain();
+
+  // const chain = EvmChain.ETHEREUM;
+  // console.log("name: ", chain.name);
+
+  // if (!isAuthenticated) {
+  //   return (
+  //     <div>
+  //       <button
+  //         onClick={() =>
+  //           authenticate({ signingMessage: "Hello, welcome on Lillup" })
+  //         }
+  //       >
+  //         Authenticate
+  //       </button>
+  //     </div>
+  //   );
+  // }
+
+  // console.log("+ ------- app started -------- +");
+  // console.log("user : " + user);
+  // console.log(user);
+  // console.log("chainId : " + chainId);
+  // console.log("chain : " + chain);
+  // console.log(chain);
+  // console.log("account : " + account);
+
+  return (    
     <div className="App">
-      <div>
+      {/* <div>
         <button onClick={() => logout()}>Logout</button>
-      </div>
+      </div> */}
       <Router history={hist}>
         <Switch>
           <Route path="/lillup/learner/experience/desktop-13" component={Desktop13Page} />

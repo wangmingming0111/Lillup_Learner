@@ -116,7 +116,7 @@ export default function SectionBasics() {
                 <Favorite className={classes.icons} /> with icon
               </Button>
               <Button color="primary" justIcon round>
-                <Favorite />
+                {/* <Favorite /> */}
               </Button>
               <Button color="primary" simple>
                 simple
