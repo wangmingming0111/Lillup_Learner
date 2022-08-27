@@ -169,11 +169,16 @@ export default function HeaderLinks_Lillup_LearnerExperience(props) {
           ]}
           />
         </ListItem>
-          <ListItem className={classes.listItem}>
-            <Button block round color="primary" onClick={props.onSignoutCallback}>
-              <ExitToApp /> Logout
-            </Button>
-          </ListItem>
+        <ListItem className={classes.listItem}>
+          <Button block round color="primary" onClick={props.onLogoutCallback}>
+            <ExitToApp /> Logout
+          </Button>
+        </ListItem>
+        <ListItem className={classes.listItem}>
+          <Button block round color="info" onClick={props.onGetNFTBalancesCallback}>
+            <ExitToApp /> GetNFT
+          </Button>
+        </ListItem>
       </List>
     );
   }

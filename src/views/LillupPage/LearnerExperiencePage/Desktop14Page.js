@@ -76,21 +76,59 @@ const useFormStyles = makeStyles((theme) => ({
   }
 }));
 
-import { useMoralis } from "react-moralis";
+import { useMoralis, useNFTBalances } from "react-moralis";
 
 export default function Desktop14Page({ ...rest }) {
 
-  const { authenticate, isAuthenticated, logout } = useMoralis();
+  const { authenticate, isAuthenticated, logout, user, auth } = useMoralis();
+  const { getNFTBalances, data, error, isLoading, isFetching } = useNFTBalances();
 
-  const onAuthenticate = function () {
-    console.log("+ -------------- +");
-    console.log("onAuthenticate");
-    authenticate({ signingMessage: "Hello, welcome on Lillup" })
+  const onAuthenticate = async function () {
+    if (!isAuthenticated) {
+      // console.log("+ -------------- +");
+      // console.log("onAuthenticate");
+      await authenticate({ 
+              onComplete: onAuthenticateComplete, 
+              signingMessage: "Hello, welcome on Lillup" 
+            })
+            .then(function (user) {
+              // console.log(user);
+              // console.log(auth);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+    }
   };
-  const onSignout = function () {
+  const onAuthenticateComplete = function () {
+    // console.log("+ -------------- +");
+    // console.log("onAuthenticateComplete");
+    // alert("onAuthenticateComplete");
+    // console.log(user);
+  };
+  const onLogout = async function () {
+    // console.log("+ -------------- +");
+    // console.log("onLogout");
+    await logout();
+    // console.log(user);
+    // console.log(auth);
+  };
+  const onGetNFTBalances = async function () {
+    if (!isAuthenticated) {
+      return;
+    }
     console.log("+ -------------- +");
-    console.log("onSignout");
-    logout();
+    console.log("onGetNFTBalances");
+
+    // await getNFTBalances({ params: { chain: "0x6", address: "0xBC7AAFB393146CB27062c8f4eFfB5B20fBD8D980" } });
+    await getNFTBalances({ 
+      params: { chain: "0x1", address: "0xc2C1c4491a4ed8C3112e5207EF3bD7DA67c3c1ba" },
+      // params: { chain: "0x6", address: "0xBC7AAFB393146CB27062c8f4eFfB5B20fBD8D980" },
+      // params: { chain: "0x9", address: "" },
+      onSuccess: (result) => console.log(result)
+    });
+    // console.log(data);
+    // console.log(error);
   };
 
   React.useEffect(() => {
@@ -125,6 +163,7 @@ export default function Desktop14Page({ ...rest }) {
 
   return (
     <div>
+      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       <Header_Lillup_LearnerExperience
         absolute
         // color="transparent"
@@ -134,7 +173,8 @@ export default function Desktop14Page({ ...rest }) {
                   dropdownHoverColor="dark"
                   isAuthenticated={isAuthenticated}
                   onAuthenticateCallback={onAuthenticate}
-                  onSignoutCallback={onSignout}
+                  onLogoutCallback={onLogout}
+                  onGetNFTBalancesCallback={onGetNFTBalances}
                 />}
         {...rest}
       />
