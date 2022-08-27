@@ -182,6 +182,7 @@ const desktop14PageStyles = (theme) => ({
     // height: "24rem",
     // width: "23vw",
     // height: "23vw",
+    cursor: "pointer",
   },
 
   walletGroup:{

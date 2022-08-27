@@ -1,24 +1,8 @@
-/*eslint-disable*/
 import React from "react";
 
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-
 import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-import ImageListItemBar from '@mui/material/ImageListItemBar';
-import IconButton from '@mui/material/IconButton';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
-
-// @material-ui/icons
-import Favorite from "@material-ui/icons/Favorite";
-// core components
 
 import Header_Lillup_LearnerExperience from "components/HeaderLillup/LearnerExperience/Header.js";
 import HeaderLinks_Lillup_LearnerExperience from "components/HeaderLillup/LearnerExperience/HeaderLinks.js";
@@ -31,12 +15,6 @@ import FormControl from '@material-ui/core/FormControl';
 import clsx from 'clsx';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
-
-// import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
-
-import Card from "components/Card/Card.js";
-import CardBody from "components/Card/CardBody.js";
-import CardHeader from "components/Card/CardHeader.js";
 
 import desktop14PageStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/desktop14PageStyles.js";
 import commonStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/commonStyles.js";
@@ -58,6 +36,8 @@ import token_img from "assets/img/lillup/experience/token_avatar.png";
 
 const useDesktop14PageStyles = makeStyles(desktop14PageStyle);
 const useCommonStyles = makeStyles(commonStyle);
+
+import NFTTokenPanel from "views/LillupPage/LearnerExperiencePage/NFTTokenPanel.js";
 
 const useFormStyles = makeStyles((theme) => ({
   root: {
@@ -83,13 +63,6 @@ const useFormStyles = makeStyles((theme) => ({
 }));
 
 import { useMoralis, useNFTBalances } from "react-moralis";
-
-function srcset(image, size, rows = 1, cols = 1) {
-  return {
-    src: `${image}?w=${size*cols}&h=${size*rows}&fit=crop&auto=format`,
-    // srcSet: `${image}?w=${size*cols}&h=${size*rows}&fit=crop&auto=format&dpr=2 2x`,
-  };
-}
 
 export default function Desktop14Page({ ...rest }) {
 
@@ -154,10 +127,6 @@ export default function Desktop14Page({ ...rest }) {
     event.preventDefault();
   };
 
-  const onClickImageListItem = function () {
-    console.log("1");
-  };
-
   return (
     <div>
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
@@ -210,35 +179,19 @@ export default function Desktop14Page({ ...rest }) {
                   variant="quilted"
                   cols={4}
                   rowHeight={120}
-                  gap={1}
+                  gap={0}
                   className={pageClasses.tokenCodeGrp_Img}
                 >
-                  {itemData.map((item) => (
-                    <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
-                      <img
-                        {...srcset(item.img, 120, item.rows, item.cols)}
-                        alt={item.title}
-                        loading="lazy"
-                      />
-                      <ImageListItemBar
-                        sx={{
-                          background:
-                            'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' +
-                            'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
-                        }}
-                        title={item.title}
-                        position="top"
-                        actionIcon={
-                          <IconButton
-                            sx={{ color: 'white' }}
-                            aria-label={`star ${item.title}`}
-                          >
-                            <StarBorderIcon />
-                          </IconButton>
-                        }
-                        actionPosition="left"
-                      />
-                    </ImageListItem>
+                  {itemData.map((item, index) => (
+                    <NFTTokenPanel 
+                      key={item.img} 
+                      item={item} 
+                      index={index}
+                      img={item.img}
+                      title={item.title}
+                      cols={item.cols || 1}
+                      rows={item.rows || 1}
+                    />
                   ))}
                 </ImageList>                
               </div>
@@ -415,6 +368,7 @@ export default function Desktop14Page({ ...rest }) {
 
 const itemData = [
   {
+    // img: 'assets/img/lillup/experience/token_avatar.png',
     img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
     title: 'Breakfast',
     rows: 2,
