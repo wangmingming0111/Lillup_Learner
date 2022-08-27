@@ -50,21 +50,7 @@ const useStyles = makeStyles(styles);
 const useCommonStyle = makeStyles(commonStyle);
 
 // import { useMoralis } from "react-moralis";
-
 export default function HeaderLinks_Lillup_LearnerExperience(props) {
-  // const { authenticate, isAuthenticated, logout } = useMoralis();
-
-  // const onAuthenticate = function () {
-  //   console.log("+ -------------- +");
-  //   console.log("onAuthenticate");
-  //   authenticate({ signingMessage: "Hello, welcome on Lillup" })
-  // };
-  // const onSignout = function () {
-  //   console.log("+ -------------- +");
-  //   console.log("onSignout");
-  //   logout();
-  // };
-
   const easeInOutQuad = (t, b, c, d) => {
     t /= d / 2;
     if (t < 1) return (c / 2) * t * t + b;

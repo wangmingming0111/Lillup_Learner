@@ -10,6 +10,12 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import IconButton from '@mui/material/IconButton';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+
 // @material-ui/icons
 import Favorite from "@material-ui/icons/Favorite";
 // core components
@@ -78,57 +84,44 @@ const useFormStyles = makeStyles((theme) => ({
 
 import { useMoralis, useNFTBalances } from "react-moralis";
 
+function srcset(image, size, rows = 1, cols = 1) {
+  return {
+    src: `${image}?w=${size*cols}&h=${size*rows}&fit=crop&auto=format`,
+    // srcSet: `${image}?w=${size*cols}&h=${size*rows}&fit=crop&auto=format&dpr=2 2x`,
+  };
+}
+
 export default function Desktop14Page({ ...rest }) {
 
   const { authenticate, isAuthenticated, logout, user, auth } = useMoralis();
   const { getNFTBalances, data, error, isLoading, isFetching } = useNFTBalances();
 
-  const onAuthenticate = async function () {
-    if (!isAuthenticated) {
-      // console.log("+ -------------- +");
-      // console.log("onAuthenticate");
-      await authenticate({ 
-              onComplete: onAuthenticateComplete, 
-              signingMessage: "Hello, welcome on Lillup" 
-            })
-            .then(function (user) {
-              // console.log(user);
-              // console.log(auth);
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
+  const onAuthenticate = function () {
+    if (isAuthenticated) {
+      return;
     }
+    console.log("----");
+    authenticate({ 
+      onComplete: onAuthenticateComplete, 
+      signingMessage: "Hello, welcome on Lillup" 
+    });
   };
   const onAuthenticateComplete = function () {
-    // console.log("+ -------------- +");
-    // console.log("onAuthenticateComplete");
-    // alert("onAuthenticateComplete");
-    // console.log(user);
   };
-  const onLogout = async function () {
-    // console.log("+ -------------- +");
-    // console.log("onLogout");
-    await logout();
-    // console.log(user);
-    // console.log(auth);
-  };
-  const onGetNFTBalances = async function () {
+  const onLogout = function () {
     if (!isAuthenticated) {
       return;
     }
-    console.log("+ -------------- +");
-    console.log("onGetNFTBalances");
-
-    // await getNFTBalances({ params: { chain: "0x6", address: "0xBC7AAFB393146CB27062c8f4eFfB5B20fBD8D980" } });
-    await getNFTBalances({ 
+    logout();
+  };
+  const onGetNFTBalances = function () {
+    if (!isAuthenticated) {
+      return;
+    }
+    getNFTBalances({ 
       params: { chain: "0x1", address: "0xc2C1c4491a4ed8C3112e5207EF3bD7DA67c3c1ba" },
-      // params: { chain: "0x6", address: "0xBC7AAFB393146CB27062c8f4eFfB5B20fBD8D980" },
-      // params: { chain: "0x9", address: "" },
       onSuccess: (result) => console.log(result)
     });
-    // console.log(data);
-    // console.log(error);
   };
 
   React.useEffect(() => {
@@ -159,6 +152,10 @@ export default function Desktop14Page({ ...rest }) {
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
+  };
+
+  const onClickImageListItem = function () {
+    console.log("1");
   };
 
   return (
@@ -200,11 +197,50 @@ export default function Desktop14Page({ ...rest }) {
               <div className={pageClasses.portfolioTitleGrp}>
                 <h1 className={pageClasses.portfolioTitle}>NET TOKEN</h1>
               </div>
+              
               <div className={pageClasses.tokenCodeGrp}>
-                <img 
+                {/* <img 
                   src ={imageTokenCode} 
                   className={pageClasses.tokenCodeGrp_Img}
-                />
+                /> */}
+                <ImageList
+                  sx={{
+                    transform: 'translateZ(0)',
+                  }}
+                  variant="quilted"
+                  cols={4}
+                  rowHeight={120}
+                  gap={1}
+                  className={pageClasses.tokenCodeGrp_Img}
+                >
+                  {itemData.map((item) => (
+                    <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
+                      <img
+                        {...srcset(item.img, 120, item.rows, item.cols)}
+                        alt={item.title}
+                        loading="lazy"
+                      />
+                      <ImageListItemBar
+                        sx={{
+                          background:
+                            'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' +
+                            'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+                        }}
+                        title={item.title}
+                        position="top"
+                        actionIcon={
+                          <IconButton
+                            sx={{ color: 'white' }}
+                            aria-label={`star ${item.title}`}
+                          >
+                            <StarBorderIcon />
+                          </IconButton>
+                        }
+                        actionPosition="left"
+                      />
+                    </ImageListItem>
+                  ))}
+                </ImageList>                
               </div>
 
               <div className={pageClasses.walletGroup}>
@@ -369,58 +405,6 @@ export default function Desktop14Page({ ...rest }) {
           // big
           content={
             <div>
-              {/* <div className={pageClasses.left}>
-                <GridContainer>
-                  <GridItem xs={6} sm={3} md={3} lg={1}>
-                    <Button color="twitter" round justIcon>
-                      <i className="fab fa-twitter" />
-                    </Button>
-                    <br />
-                    <Button color="linkedin" round justIcon>
-                      <i className="fab fa-linkedin-in" />
-                    </Button>
-                  </GridItem>
-                </GridContainer>
-              </div> */}
-              {/* <div className={pageClasses.left}>
-                <List className={pageClasses.dense} dense>
-                  <ListItem className={commonClasses.footerLinkItem}>
-                    <a target="_blank" href="#" className={pageClasses.block}>
-                      Creator
-                    </a>
-                  </ListItem>
-                  <ListItem className={commonClasses.footerLinkItem}>
-                    <a target="_blank" href="#" className={pageClasses.block}>
-                      Learner
-                    </a>
-                  </ListItem>
-                  <ListItem className={commonClasses.footerLinkItem}>
-                    <a target="_blank" href="#" className={pageClasses.block}>
-                      Explore
-                    </a>
-                  </ListItem>
-                  <ListItem className={commonClasses.footerLinkItem}>
-                    <a target="_blank" href="#" className={pageClasses.block}>
-                      Documentation
-                    </a>
-                  </ListItem>
-                  <ListItem className={commonClasses.footerLinkItem}>
-                    <a target="_blank" href="#" className={pageClasses.block}>
-                      Stakeholder
-                    </a>
-                  </ListItem>
-                  <ListItem className={commonClasses.footerLinkItem}>
-                    <a target="_blank" href="#" className={pageClasses.block}>
-                      About Us
-                    </a>
-                  </ListItem>
-                  <ListItem className={commonClasses.footerLinkItem}>
-                    <a target="_blank" href="#" className={pageClasses.block}>
-                      Blog
-                    </a>
-                  </ListItem>
-                </List>
-              </div> */}
             </div>
           }
         />
@@ -428,3 +412,64 @@ export default function Desktop14Page({ ...rest }) {
     </div>
   );
 }
+
+const itemData = [
+  {
+    img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+    title: 'Breakfast',
+    rows: 2,
+    cols: 2,
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
+    title: 'Burger',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
+    title: 'Camera',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
+    title: 'Coffee',
+    cols: 2,
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
+    title: 'Hats',
+    cols: 2,
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
+    title: 'Honey',
+    author: '@arwinneil',
+    rows: 2,
+    cols: 2,
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
+    title: 'Basketball',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f',
+    title: 'Fern',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25',
+    title: 'Mushrooms',
+    rows: 2,
+    cols: 2,
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
+    title: 'Tomato basil',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
+    title: 'Sea star',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
+    title: 'Bike',
+    cols: 2,
+  },
+];
