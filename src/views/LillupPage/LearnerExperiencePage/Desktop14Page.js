@@ -81,6 +81,8 @@ export default function Desktop14Page({ ...rest }) {
   });
 
   const [nftNotes, setNFTNotes] = useState("You don't have any NFT ampersand");
+  const [selectedWalletAddress, setSelectedWalletAddress] = useState("");
+  const [selectedTokenID, setSelectedTokenID] = useState("");
 
   const [values, setValues] = React.useState({
     amount: '',
@@ -170,12 +172,17 @@ export default function Desktop14Page({ ...rest }) {
       var _title = nftMetadata.name != null ? nftMetadata.name : "No title";
       var _description = nftMetadata.description != null ? nftMetadata.description : "No description";
       var _image = nftMetadata.image != null ? nftMetadata.image : "";
+      var _walletAddress = nftBalances.result[index].owner_of ? nftBalances.result[index].owner_of : "";
+      var _tokenId = nftBalances.result[index].token_id ? nftBalances.result[index].token_id : "";
       var metadata = {
         title: _title,
         desc: _description,
         image: _image,
         row: _row,
         col: _col,
+        globalIndex: totalCount,
+        walletAddress: _walletAddress,
+        tokenId: _tokenId,
       };
       totalMetadatas.push(metadata);
       totalCount++;
@@ -235,6 +242,8 @@ export default function Desktop14Page({ ...rest }) {
     if (pageCount > 0 && pageIndex >= 0) {
       setNFTNotes("Page Info : [" + (pageIndex + 1) + "/" + pageCount + "]");
     }
+    setSelectedWalletAddress("");
+    setSelectedTokenID("");
   };
 
   const onNextPage = function () {
@@ -294,6 +303,8 @@ export default function Desktop14Page({ ...rest }) {
     });
 
     setNFTNotes("Page Info : [" + (pageIndex + 1) + "/" + nftDatas.pageCount + "]");
+    setSelectedWalletAddress("");
+    setSelectedTokenID("");
   };
 
   const onPrevPage = function () {
@@ -353,7 +364,22 @@ export default function Desktop14Page({ ...rest }) {
     });
 
     setNFTNotes("Page Info : [" + (pageIndex + 1) + "/" + nftDatas.pageCount + "]");
+    setSelectedWalletAddress("");
+    setSelectedTokenID("");
   };
+
+  const onNFTTokenSelected = function (index) {
+    // console.log(index);
+    if (nftDatas.pageCount < 1) {
+      return;
+    }
+    if (index < 0 || index >= nftDatas.totalCount) {
+      return;
+    }
+    
+    document.getElementById("selected-wallet-address").value = nftDatas.totalMetadatas[index].walletAddress;
+    document.getElementById("selected-token-id").value = nftDatas.totalMetadatas[index].tokenId;
+  }
 
   return (
     <div>
@@ -390,10 +416,6 @@ export default function Desktop14Page({ ...rest }) {
               xs={12} sm={7} md={7} lg={5} xl={4}
               className={pageClasses.leftPanel}
             >
-              <div>
-                <span>{nftNotes}</span>
-              </div>
-
               <div className={pageClasses.portfolioTitleGrp}>
                 <h1 className={pageClasses.portfolioTitle}>NET TOKEN</h1>
               </div>
@@ -418,6 +440,7 @@ export default function Desktop14Page({ ...rest }) {
                   >
                     <Add />
                   </Button>
+                  <span>&nbsp;&nbsp;&nbsp;{nftNotes}</span>
                 </div>
                 {/* <img 
                   src ={imageTokenCode} 
@@ -443,6 +466,8 @@ export default function Desktop14Page({ ...rest }) {
                       description="SubTitle"
                       cols={item.cols || 1}
                       rows={item.rows || 1}
+                      globalIndex=-1,
+                      onSelected={onNFTTokenSelected}
                     />
                   ))} */}
                   {nftDatas.renderMetadatas.map((item, index) => (
@@ -454,6 +479,8 @@ export default function Desktop14Page({ ...rest }) {
                       description={item.desc}
                       cols={item.col || 1}
                       rows={item.row || 1}
+                      globalIndex={item.globalIndex}
+                      onSelected={onNFTTokenSelected}
                     />
                   ))}
                 </ImageList>                
@@ -468,9 +495,10 @@ export default function Desktop14Page({ ...rest }) {
                   variant="outlined">
                   <OutlinedInput
                     className={pageClasses.walletGroup_Input}
-                    id="outlined-adornment-wallet"
+                    id="selected-wallet-address"
                     type={'text'}
                     startAdornment={<InputAdornment position="start"><img src={wallet_img} /></InputAdornment>}
+                    value={selectedWalletAddress}
                   />
                 </FormControl>
               </div>
@@ -482,9 +510,10 @@ export default function Desktop14Page({ ...rest }) {
                 <FormControl className={clsx(formClasses.margin, formClasses.textField, formClasses.borderProp)} variant="outlined">
                   <OutlinedInput
                     className={pageClasses.tokenGroup_Input}
-                    id="outlined-adornment-token"
+                    id="selected-token-id"
                     type={'text'}
                     startAdornment={<InputAdornment position="start"><img src={token_img} /></InputAdornment>}
+                    value={selectedTokenID}
                   />
                 </FormControl>
               </div>

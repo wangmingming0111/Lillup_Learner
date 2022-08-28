@@ -37,6 +37,7 @@ var unselectedColors = [
 	"#FF704D",
 	"#C7C96C",
 	"#72D922",
+	"#F8FC51",
 ];
 
 export default function NFTTokenPanel(props) {
@@ -47,6 +48,8 @@ export default function NFTTokenPanel(props) {
 		cols: PropTypes.number,
 		rows: PropTypes.number,
 		index: PropTypes.number.isRequired,
+		globalIndex: PropTypes.number.isRequired,
+		onSelected: PropTypes.func,
 	};	
 	NFTTokenPanel.defaultProps = {
 		img: "",
@@ -55,6 +58,8 @@ export default function NFTTokenPanel(props) {
 		cols: 1,
 		rows: 1,
 		index: -1,
+		globalIndex: -1,
+		onSelected: null,
 	};
 	
 	const [selected, setSelected] = useState(false);
@@ -67,10 +72,12 @@ export default function NFTTokenPanel(props) {
 	const pageClasses = useDesktop14PageStyles();
 
 	const onClickImageListItem = function () {
+		if (props.onSelected) {
+			props.onSelected(props.globalIndex);
+		}
 		if (selected === true) {
 			return;
 		}
-		console.log(props.img);
 		setSelected(true);
 	};
 
@@ -103,6 +110,7 @@ export default function NFTTokenPanel(props) {
 		<ImageListItem 
 			cols={props.cols} 
 			rows={props.rows}
+			onClick={onClickImageListItem}
 		>
 			<img
 				{...srcset(props.img, 120, props.rows, props.cols)}
