@@ -1,6 +1,9 @@
 import React from "react";
-
+import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+
+import Remove from "@material-ui/icons/Remove";
+import Add from "@material-ui/icons/Add";
 
 import ImageList from '@mui/material/ImageList';
 
@@ -18,6 +21,7 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 
 import desktop14PageStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/desktop14PageStyles.js";
 import commonStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/commonStyles.js";
+import buttonGroupStyle from "assets/jss/material-kit-pro-react/buttonGroupStyle.js";
 
 import imageBack from "assets/img/lillup-learner-experience-desktop-13.png";
 import imageMarkCopy from "assets/img/lillup/experience/Mark_Copy.png";
@@ -36,6 +40,7 @@ import token_img from "assets/img/lillup/experience/token_avatar.png";
 
 const useDesktop14PageStyles = makeStyles(desktop14PageStyle);
 const useCommonStyles = makeStyles(commonStyle);
+const useButtonGroupStyle = makeStyles(buttonGroupStyle);
 
 import NFTTokenPanel from "views/LillupPage/LearnerExperiencePage/NFTTokenPanel.js";
 
@@ -66,6 +71,36 @@ import { useMoralis, useNFTBalances } from "react-moralis";
 
 export default function Desktop14Page({ ...rest }) {
 
+  const [nftDatas, setNFTDatas] = useState({
+    renderCount: 0,
+    totalCount: 0,
+    renderMetadatas: [],
+    totalMetadatas: [],
+    pageCount: 0,
+    pageIndex: 0,
+  });
+
+  const [nftNotes, setNFTNotes] = useState("You don't have any NFT ampersand");
+
+  const [values, setValues] = React.useState({
+    amount: '',
+    password: '',
+    weight: '',
+    weightRange: '',
+    showPassword: false,
+  });
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+  });
+
+  const formClasses = useFormStyles();
+
+  const pageClasses = useDesktop14PageStyles();
+  const commonClasses = useCommonStyles();
+  const buttonGroupClasses = useButtonGroupStyle();
+
   const { authenticate, isAuthenticated, logout, user, auth } = useMoralis();
   const { getNFTBalances, data, error, isLoading, isFetching } = useNFTBalances();
 
@@ -76,7 +111,7 @@ export default function Desktop14Page({ ...rest }) {
     console.log("----");
     authenticate({ 
       onComplete: onAuthenticateComplete, 
-      signingMessage: "Hello, welcome on Lillup" 
+      signingMessage: "Hello, welcome on Lillup",
     });
   };
   const onAuthenticateComplete = function () {
@@ -93,43 +128,234 @@ export default function Desktop14Page({ ...rest }) {
     }
     getNFTBalances({ 
       params: { chain: "0x1", address: "0xc2C1c4491a4ed8C3112e5207EF3bD7DA67c3c1ba" },
-      onSuccess: (result) => console.log(result)
+      onSuccess: onGetNFTBalancesComplete,
     });
   };
+  const onGetNFTBalancesComplete = function (nftBalances) {
+    var index = 0;
+    setNFTNotes("You don't have any NFT ampersand");
 
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-    document.body.scrollTop = 0;
-  });
+    /*
+    + ------------------------------------------ +
+    + get total metadatas
+    + ------------------------------------------ +
+    */
+    var totalMetadatas = [];
+    var totalCount = 0;
+    for (index = 0; index < nftBalances.result.length; index++) {
+      var nftMetadata = JSON.parse(nftBalances.result[index].metadata);
+      if (nftMetadata == null) continue;
+      if (nftMetadata.name == null ||
+          nftMetadata.description == null ||
+          nftMetadata.image == null) 
+      {
+        continue;
+      }
+      var _row = 1, _col = 1;
+      switch (totalCount % 8)
+      {
+        case 0:
+        case 5:
+          _row = 2;
+          _col = 2;
+          break;
+        case 3:
+        case 4:
+          _col = 2;
+          break;
+        default:
+          break;
+      }
+      var _title = nftMetadata.name != null ? nftMetadata.name : "No title";
+      var _description = nftMetadata.description != null ? nftMetadata.description : "No description";
+      var _image = nftMetadata.image != null ? nftMetadata.image : "";
+      var metadata = {
+        title: _title,
+        desc: _description,
+        image: _image,
+        row: _row,
+        col: _col,
+      };
+      totalMetadatas.push(metadata);
+      totalCount++;
+    }
 
-  const formClasses = useFormStyles();
+    /*
+    + ------------------------------------------ +
+    + get page count, index
+    + ------------------------------------------ +
+    */
+    var pageCount = 0;
+    var pageIndex = -1;
+    if (totalCount > 0) {
+      pageIndex = 0;
+      pageCount = Math.floor(totalCount / 12);
+      if (totalCount % 12 != 0) {
+        pageCount++;
+      }
+    }
 
-  const pageClasses = useDesktop14PageStyles();
-  const commonClasses = useCommonStyles();
+    /*
+    + ------------------------------------------ +
+    + get render metadatas
+    + ------------------------------------------ +
+    */
+    var renderMetadatas = [];
+    var renderCount = 0;
+    if (pageCount > 0 && pageIndex >= 0) {
+      var startIndex = pageIndex * 12;
+      var endIndex = startIndex + 12;
+      if (endIndex > totalCount) {
+        endIndex = totalCount;
+      }
+      for (index = startIndex; index < endIndex; index++) {
+        renderMetadatas.push(totalMetadatas[index]);
+        renderCount++;
+      }
+    }
 
-  const [values, setValues] = React.useState({
-    amount: '',
-    password: '',
-    weight: '',
-    weightRange: '',
-    showPassword: false,
-  });
+    /*
+    + ------------------------------------------ +
+    + update states
+    + ------------------------------------------ +
+    */
+    setNFTDatas(previousState => {
+      return { 
+        ...previousState, 
+        renderCount: renderCount,
+        totalCount: totalCount,
+        renderMetadatas: renderMetadatas,
+        totalMetadatas: totalMetadatas,
+        pageCount: pageCount,
+        pageIndex: pageIndex,
+      }
+    });
 
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+    if (pageCount > 0 && pageIndex >= 0) {
+      setNFTNotes("Page Info : [" + (pageIndex + 1) + "/" + pageCount + "]");
+    }
   };
 
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
+  const onNextPage = function () {
+    if (nftDatas.pageCount < 1) {
+      return;
+    }
+    if (nftDatas.pageIndex >= nftDatas.pageCount - 1) {
+      return;
+    }
+
+    /*
+    + ------------------------------------------ +
+    + reset states
+    + ------------------------------------------ +
+    */
+    setNFTDatas(previousState => {
+      return { 
+        ...previousState, 
+        renderCount: 0,
+        renderMetadatas: [],
+      }
+    });
+
+    var pageIndex = nftDatas.pageIndex;
+    pageIndex++;
+    var index = 0;
+
+    /*
+    + ------------------------------------------ +
+    + get render metadatas
+    + ------------------------------------------ +
+    */
+    var renderMetadatas = [];
+    var renderCount = 0;
+    var startIndex = pageIndex * 12;
+    var endIndex = startIndex + 12;
+    if (endIndex > nftDatas.totalCount) {
+      endIndex = nftDatas.totalCount;
+    }
+    for (index = startIndex; index < endIndex; index++) {
+      renderMetadatas.push(nftDatas.totalMetadatas[index]);
+      renderCount++;
+    }
+
+    /*
+    + ------------------------------------------ +
+    + update states
+    + ------------------------------------------ +
+    */
+    setNFTDatas(previousState => {
+      return { 
+        ...previousState, 
+        renderCount: renderCount,
+        renderMetadatas: renderMetadatas,
+        pageIndex: pageIndex,
+      }
+    });
+
+    setNFTNotes("Page Info : [" + (pageIndex + 1) + "/" + nftDatas.pageCount + "]");
   };
 
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
+  const onPrevPage = function () {
+    if (nftDatas.pageCount < 1) {
+      return;
+    }
+    if (nftDatas.pageIndex <= 0) {
+      return;
+    }
+
+    /*
+    + ------------------------------------------ +
+    + reset states
+    + ------------------------------------------ +
+    */
+    setNFTDatas(previousState => {
+      return { 
+        ...previousState, 
+        renderCount: 0,
+        renderMetadatas: [],
+      }
+    });
+
+    var pageIndex = nftDatas.pageIndex;
+    pageIndex--;
+    var index = 0;
+    
+    /*
+    + ------------------------------------------ +
+    + get render metadatas
+    + ------------------------------------------ +
+    */
+    var renderMetadatas = [];
+    var renderCount = 0;
+    var startIndex = pageIndex * 12;
+    var endIndex = startIndex + 12;
+    if (endIndex > nftDatas.totalCount) {
+      endIndex = nftDatas.totalCount;
+    }
+    for (index = startIndex; index < endIndex; index++) {
+      renderMetadatas.push(nftDatas.totalMetadatas[index]);
+      renderCount++;
+    }
+
+    /*
+    + ------------------------------------------ +
+    + update states
+    + ------------------------------------------ +
+    */
+    setNFTDatas(previousState => {
+      return { 
+        ...previousState, 
+        renderCount: renderCount,
+        renderMetadatas: renderMetadatas,
+        pageIndex: pageIndex,
+      }
+    });
+
+    setNFTNotes("Page Info : [" + (pageIndex + 1) + "/" + nftDatas.pageCount + "]");
   };
 
   return (
     <div>
-      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       <Header_Lillup_LearnerExperience
         absolute
         // color="transparent"
@@ -163,11 +389,35 @@ export default function Desktop14Page({ ...rest }) {
               xs={12} sm={7} md={7} lg={5} xl={4}
               className={pageClasses.leftPanel}
             >
+              <div>
+                <span>{nftNotes}</span>
+              </div>
+
               <div className={pageClasses.portfolioTitleGrp}>
                 <h1 className={pageClasses.portfolioTitle}>NET TOKEN</h1>
               </div>
               
               <div className={pageClasses.tokenCodeGrp}>
+                <div className={buttonGroupClasses.buttonGroup}>
+                  <Button
+                    color="info"
+                    size="sm"
+                    round
+                    className={buttonGroupClasses.firstButton}
+                    onClick={onPrevPage}
+                  >
+                    <Remove />
+                  </Button>
+                  <Button
+                    color="info"
+                    size="sm"
+                    round
+                    className={buttonGroupClasses.lastButton}
+                    onClick={onNextPage}
+                  >
+                    <Add />
+                  </Button>
+                </div>
                 {/* <img 
                   src ={imageTokenCode} 
                   className={pageClasses.tokenCodeGrp_Img}
@@ -182,15 +432,27 @@ export default function Desktop14Page({ ...rest }) {
                   gap={0}
                   className={pageClasses.tokenCodeGrp_Img}
                 >
-                  {itemData.map((item, index) => (
+                  {/* {itemData.map((item, index) => (
                     <NFTTokenPanel 
-                      key={item.img} 
+                      key={index} 
                       item={item} 
                       index={index}
                       img={item.img}
                       title={item.title}
+                      description="SubTitle"
                       cols={item.cols || 1}
                       rows={item.rows || 1}
+                    />
+                  ))} */}
+                  {nftDatas.renderMetadatas.map((item, index) => (
+                    <NFTTokenPanel 
+                      key={index} 
+                      index={index}
+                      img={item.image}
+                      title={item.title}
+                      description={item.desc}
+                      cols={item.col || 1}
+                      rows={item.row || 1}
                     />
                   ))}
                 </ImageList>                

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -43,6 +43,7 @@ export default function NFTTokenPanel(props) {
 	NFTTokenPanel.propTypes = {
 		img: PropTypes.string.isRequired,
 		title: PropTypes.string.isRequired,
+		description: PropTypes.string.isRequired,
 		cols: PropTypes.number,
 		rows: PropTypes.number,
 		index: PropTypes.number.isRequired,
@@ -50,6 +51,7 @@ export default function NFTTokenPanel(props) {
 	NFTTokenPanel.defaultProps = {
 		img: "",
 		title: "",
+		description: "",
 		cols: 1,
 		rows: 1,
 		index: -1,
@@ -58,18 +60,25 @@ export default function NFTTokenPanel(props) {
 	const [selected, setSelected] = useState(false);
 	// console.log(props.index);
 
+	useEffect(() => {
+		setSelected(false);
+	}, [props]);
+
 	const pageClasses = useDesktop14PageStyles();
 
 	const onClickImageListItem = function () {
-    console.log(props.index);
+		if (selected === true) {
+			return;
+		}
+		console.log(props.img);
 		setSelected(true);
-  };
+	};
 
+	// setSelected(false);
 	if (!selected)
 	{
 		return (
 			<ImageListItem 
-				key={props.img} 
 				cols={props.cols} 
 				rows={props.rows}
 				onClick={onClickImageListItem}
@@ -91,10 +100,13 @@ export default function NFTTokenPanel(props) {
 		)
 	}
 	return (
-		<ImageListItem key={props.img} cols={props.cols} rows={props.rows}>
+		<ImageListItem 
+			cols={props.cols} 
+			rows={props.rows}
+		>
 			<img
 				{...srcset(props.img, 120, props.rows, props.cols)}
-				alt={props.title}
+				alt="Loading..."
 				loading="lazy"
 				className={pageClasses.tokenCodeGrp_Img}
 			/>
@@ -105,7 +117,7 @@ export default function NFTTokenPanel(props) {
 						'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
 				}}
 				title={props.title}
-				subtitle="SubTitle"
+				subtitle={props.description}
 				position="top"
 				actionIcon={
 					<IconButton

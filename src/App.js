@@ -24,7 +24,7 @@ import Desktop14Page from "views/LillupPage/LearnerExperiencePage/Desktop14Page"
 var hist = createBrowserHistory();
 
 import "./assets/css/app-styles.css";
-import { useMoralis, useChain } from "react-moralis";
+// import { useMoralis, useChain } from "react-moralis";
 
 export default function App() {
   // const { authenticate, isAuthenticated, logout, user } = useMoralis();

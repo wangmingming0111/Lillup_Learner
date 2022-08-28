@@ -1,17 +1,14 @@
 /* eslint-disable */
 import React from "react";
-// nodejs library to set properties for components
+import { useState } from "react";
 import PropTypes from "prop-types";
-// react components for routing our app without refresh
 import { Link } from "react-router-dom";
 
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Icon from "@material-ui/core/Icon";
 
-// @material-ui/icons
 import Apps from "@material-ui/icons/Apps";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import ViewDay from "@material-ui/icons/ViewDay";
@@ -39,7 +36,6 @@ import LineStyle from "@material-ui/icons/LineStyle";
 import Error from "@material-ui/icons/Error";
 import ExitToApp from "@material-ui/icons/ExitToApp";
 
-// core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button.js";
 
@@ -50,6 +46,12 @@ const useStyles = makeStyles(styles);
 const useCommonStyle = makeStyles(commonStyle);
 
 export default function HeaderLinks_Lillup_LearnerExperience(props) {
+
+  // const [nftBalances, setNFTBalances] = useState({
+  //   length: 0,
+  //   datas: [],
+  // });
+
   const easeInOutQuad = (t, b, c, d) => {
     t /= d / 2;
     if (t < 1) return (c / 2) * t * t + b;
@@ -87,7 +89,24 @@ export default function HeaderLinks_Lillup_LearnerExperience(props) {
     };
     animateScroll();
   };
-  var onClickSections = {};
+
+  var onClickGetNFTBalances = function() {
+    // console.log("----" + nftBalances);
+
+    // var length = nftBalances.length;
+    // length++;
+    // var datas = nftBalances.datas;
+    // datas.push(length);
+    // setNFTBalances(previousState => {
+    //   return { 
+    //     ...previousState, 
+    //     length: length,
+    //     datas: datas,
+    //   }
+    // });
+
+    props.onGetNFTBalancesCallback();
+  };
 
   const { dropdownHoverColor } = props;
 
@@ -131,6 +150,9 @@ export default function HeaderLinks_Lillup_LearnerExperience(props) {
   else {
     return (
       <List className={classes.list + " " + classes.mlAuto}>
+        {/* <ListItem className={classes.listItem}>
+          <span>My NFT data length is {nftBalances.length}</span>
+        </ListItem> */}
         <ListItem className={classes.listItem}>
           <CustomDropdown
             noLiPadding
@@ -160,7 +182,7 @@ export default function HeaderLinks_Lillup_LearnerExperience(props) {
           </Button>
         </ListItem>
         <ListItem className={classes.listItem}>
-          <Button block round color="info" onClick={props.onGetNFTBalancesCallback}>
+          <Button block round color="info" onClick={onClickGetNFTBalances}>
             <ExitToApp /> GetNFT
           </Button>
         </ListItem>
