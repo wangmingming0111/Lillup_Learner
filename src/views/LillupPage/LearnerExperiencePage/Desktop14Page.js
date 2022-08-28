@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Remove from "@material-ui/icons/Remove";
 import Add from "@material-ui/icons/Add";
+import Close from "@material-ui/icons/Close";
 
 import ImageList from '@mui/material/ImageList';
 
@@ -23,6 +24,7 @@ import desktop14PageStyle from "assets/jss/material-kit-pro-react/views/lillup/e
 import commonStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/commonStyles.js";
 import buttonGroupStyle from "assets/jss/material-kit-pro-react/buttonGroupStyle.js";
 import embedPanelStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/embedPanelStyle.js";
+import javascriptStyles from "assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.js";
 
 import imageBack from "assets/img/lillup-learner-experience-desktop-13.png";
 import imageMarkCopy from "assets/img/lillup/experience/Mark_Copy.png";
@@ -42,7 +44,8 @@ import token_img from "assets/img/lillup/experience/token_avatar.png";
 const useDesktop14PageStyles = makeStyles(desktop14PageStyle);
 const useCommonStyles = makeStyles(commonStyle);
 const useButtonGroupStyle = makeStyles(buttonGroupStyle);
-const embedPanelStyles = makeStyles(embedPanelStyle);
+const useEmbedPanelStyles = makeStyles(embedPanelStyle);
+const useJavascriptStyles = makeStyles(javascriptStyles);
 
 import NFTTokenPanel from "views/LillupPage/LearnerExperiencePage/NFTTokenPanel.js";
 
@@ -70,10 +73,9 @@ const useFormStyles = makeStyles((theme) => ({
 }));
 
 import { useMoralis, useNFTBalances } from "react-moralis";
-import { Dialog, DialogContent, DialogTitle } from "@material-ui/core";
+import { Dialog, DialogContent, DialogTitle, DialogActions } from "@material-ui/core";
 import Slide from "@material-ui/core/Slide";
 import Instruction from "components/Instruction/Instruction.js";
-
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
@@ -95,6 +97,7 @@ export default function Desktop14Page({ ...rest }) {
   const [nftNotes, setNFTNotes] = useState("You don't have any NFT ampersand");
   const [selectedWalletAddress, setSelectedWalletAddress] = useState("");
   const [selectedTokenID, setSelectedTokenID] = useState("");
+  const [embeddedPanel, setEmbeddedPanel] = React.useState(false);
 
   const [values, setValues] = React.useState({
     amount: '',
@@ -114,12 +117,11 @@ export default function Desktop14Page({ ...rest }) {
   const pageClasses = useDesktop14PageStyles();
   const commonClasses = useCommonStyles();
   const buttonGroupClasses = useButtonGroupStyle();
-  const embedClasses = embedPanelStyles();
+  const embedClasses = useEmbedPanelStyles();
+  const javascriptStylesClasses = useJavascriptStyles();
 
   const { authenticate, isAuthenticated, logout, user, auth } = useMoralis();
   const { getNFTBalances, data, error, isLoading, isFetching } = useNFTBalances();
-
-  const [ePanel, setEmbeddedPanel] = React.useState(false);
 
   const onAuthenticate = function () {
     if (isAuthenticated) {
@@ -652,17 +654,53 @@ export default function Desktop14Page({ ...rest }) {
                   EMBEDDED
                 </Button>
                 <Dialog
-                    fullWidth={"200xl"}
-                    open={ePanel}
-                    TransitionComponent={Transition}
-                    keepMounted
-                    onClose={() => setEmbeddedPanel(false)}
+                  classes={{
+                    root: javascriptStylesClasses.modalRoot,
+                    paper: javascriptStylesClasses.modal + " " + embedClasses.dialog,
+                  }}
+                  open={embeddedPanel}
+                  TransitionComponent={Transition}
+                  keepMounted
+                  onClose={() => setEmbeddedPanel(false)}
+                  aria-labelledby="classic-modal-slide-title"
+                  aria-describedby="classic-modal-slide-description"
                 >
-                  <DialogTitle>
-                    Embed maps in your site
+                  <DialogTitle
+                    id="classic-modal-slide-title"
+                    disableTypography
+                    className={javascriptStylesClasses.modalHeader}
+                  >
+                    <Button
+                      simple
+                      className={javascriptStylesClasses.modalCloseButton}
+                      key="close"
+                      aria-label="Close"
+                      onClick={() => setEmbeddedPanel(false)}
+                    >
+                      {" "}
+                      <Close className={javascriptStylesClasses.modalClose} />
+                    </Button>
+                    <h4 className={javascriptStylesClasses.modalTitle}>Embed maps in your site</h4>
                   </DialogTitle>
-                  <DialogContent>
-                    <Instruction
+                  <DialogContent
+                    id="classic-modal-slide-description"
+                    className={javascriptStylesClasses.modalBody}
+                  >
+                    <p>
+                      Far far away, behind the word mountains, far from the
+                      countries Vokalia and Consonantia, there live the blind
+                      texts. Separated they live in Bookmarksgrove right at the
+                      coast of the Semantics, a large language ocean. A small
+                      river named Duden flows by their place and supplies it
+                      with the necessary regelialia. It is a paradisematic
+                      country, in which roasted parts of sentences fly into your
+                      mouth. Even the all-powerful Pointing has no control about
+                      the blind texts it is an almost unorthographic life One
+                      day however a small line of blind text by the name of
+                      Lorem Ipsum decided to leave for the far World of Grammar.
+                    </p>
+
+                    {/* <Instruction
                       text={
                         <span>Learn more about how to embed the logic{" "}
                           <a
@@ -672,8 +710,18 @@ export default function Desktop14Page({ ...rest }) {
                           </a>
                         </span>
                       }
-                    />
+                    /> */}
                   </DialogContent>
+                  <DialogActions className={javascriptStylesClasses.modalFooter}>
+                    <Button link>Nice Button</Button>
+                    <Button
+                      onClick={() => setEmbeddedPanel(false)}
+                      color="danger"
+                      simple
+                    >
+                      Close
+                    </Button>
+                  </DialogActions>
                 </Dialog>
               </div>
             </GridItem>
