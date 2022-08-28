@@ -652,10 +652,7 @@ export default function Desktop14Page({ ...rest }) {
                   EMBEDDED
                 </Button>
                 <Dialog
-                    classes={{
-                      root: embedClasses.panelBgColor,
-                      paper: embedClasses.panelBgColor,
-                    }}
+                    fullWidth={"200xl"}
                     open={ePanel}
                     TransitionComponent={Transition}
                     keepMounted
