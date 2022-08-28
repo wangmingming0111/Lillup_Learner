@@ -128,6 +128,7 @@ export default function Desktop14Page({ ...rest }) {
     }
     getNFTBalances({ 
       params: { chain: "0x1", address: "0xc2C1c4491a4ed8C3112e5207EF3bD7DA67c3c1ba" },
+      // params: { chain: "0x1" },
       onSuccess: onGetNFTBalancesComplete,
     });
   };

@@ -183,7 +183,7 @@ export default function HeaderLinks_Lillup_LearnerExperience(props) {
         </ListItem>
         <ListItem className={classes.listItem}>
           <Button block round color="info" onClick={onClickGetNFTBalances}>
-            <ExitToApp /> GetNFT
+            TEST NFT
           </Button>
         </ListItem>
       </List>
