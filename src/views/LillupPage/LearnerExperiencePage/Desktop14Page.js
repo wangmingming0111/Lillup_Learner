@@ -2,12 +2,16 @@ import React from "react";
 import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
+import clsx from 'clsx';
+
 import Remove from "@material-ui/icons/Remove";
 import Add from "@material-ui/icons/Add";
 import Close from "@material-ui/icons/Close";
+import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
-
+import InputAdornment from '@material-ui/core/InputAdornment';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
 import ImageList from '@mui/material/ImageList';
 
 import Header_Lillup_LearnerExperience from "components/HeaderLillup/LearnerExperience/Header.js";
@@ -17,10 +21,7 @@ import Footer_Lillup_LearnerExperience from "components/FooterLillup/LearnerExpe
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
-import FormControl from '@material-ui/core/FormControl';
-import clsx from 'clsx';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
+import CustomInput from "components/CustomInput/CustomInput.js";
 
 import desktop14PageStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/desktop14PageStyles.js";
 import commonStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/commonStyles.js";
@@ -726,11 +727,20 @@ export default function Desktop14Page({ ...rest }) {
                         value={checkedA ? "iFrame" : "Web component"}
                       />
                     </div>
-                    <div>
-                      <Input className={embedClasses.contentPanel}>
-
-                      </Input>
-                    </div>
+                    <CustomInput
+                      // labelText="You can write your text here..."
+                      id="textarea-input-embedded"
+                      formControlProps={{
+                        fullWidth: true,
+                        className: embedClasses.contentPanel,
+                      }}
+                      inputProps={{
+                        multiline: true,                          
+                        rows: 7,
+                      }}
+                      // white
+                      // className={embedClasses.contentPanel_Root}
+                    />
                   </DialogContent>
                   <DialogActions className={embedClasses.modalFooter}>
                     <div className={embedClasses.space}>

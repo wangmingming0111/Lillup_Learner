@@ -101,12 +101,23 @@ const embedPanelStyle = (theme) => ({
         },
       },
 
+      contentPanel_Root: {
+        padding: "0px !important",
+        borderBottomColor: "#D2D2D2 !important",
+        borderBottomWidth: "1px !important",
+        scrollbarColor: "rebeccapurple green !important",
+      },
+
       contentPanel: {
         marginLeft: "25px",
         marginTop: "20px",
         width: "400px",
         height: "150px",
-        backgroundColor: "#333C41",
+        backgroundColor: "#131A22 !important",
+        padding: "0px !important",
+        borderBottomColor: "#131A22 !important",
+        borderBottomWidth: "1px !important",
+        scrollbarColor: "rebeccapurple green !important",
       },
 
       copyBtn: {
