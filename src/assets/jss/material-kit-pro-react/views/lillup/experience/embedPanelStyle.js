@@ -108,6 +108,11 @@ const embedPanelStyle = (theme) => ({
         scrollbarColor: "rebeccapurple green !important",
       },
 
+      labelRoot: {
+        marginLeft: "-14px",
+        marginRight: "-16px",
+      },
+
       contentPanel: {
         marginLeft: "25px",
         marginTop: "20px",

@@ -720,7 +720,7 @@ export default function Desktop14Page({ ...rest }) {
                             }
                             classes={{
                               label: basicStyleClasses.label,
-                              root: basicStyleClasses.labelRoot,
+                              root: embedClasses.labelRoot,
                             }}
                           />
                         </InputAdornment>}
