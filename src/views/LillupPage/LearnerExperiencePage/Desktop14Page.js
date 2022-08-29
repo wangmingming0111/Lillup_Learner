@@ -738,8 +738,7 @@ export default function Desktop14Page({ ...rest }) {
                         multiline: true,                          
                         rows: 7,
                       }}
-                      // white
-                      // className={embedClasses.contentPanel_Root}
+                      white
                     />
                   </DialogContent>
                   <DialogActions className={embedClasses.modalFooter}>
