@@ -105,14 +105,6 @@ export default function Desktop14Page({ ...rest }) {
   const [embeddedPanel, setEmbeddedPanel] = React.useState(false);
   const [checkedA, setCheckedA] = React.useState(true);
 
-  const [values, setValues] = React.useState({
-    amount: '',
-    password: '',
-    weight: '',
-    weightRange: '',
-    showPassword: false,
-  });
-
   React.useEffect(() => {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
