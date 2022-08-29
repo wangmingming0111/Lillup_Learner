@@ -6,10 +6,7 @@ import clsx from 'clsx';
 
 import Remove from "@material-ui/icons/Remove";
 import Add from "@material-ui/icons/Add";
-import Close from "@material-ui/icons/Close";
 import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
 import InputAdornment from '@material-ui/core/InputAdornment';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import ImageList from '@mui/material/ImageList';
@@ -21,14 +18,10 @@ import Footer_Lillup_LearnerExperience from "components/FooterLillup/LearnerExpe
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
-import CustomInput from "components/CustomInput/CustomInput.js";
 
 import desktop14PageStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/desktop14PageStyles.js";
 import commonStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/commonStyles.js";
 import buttonGroupStyle from "assets/jss/material-kit-pro-react/buttonGroupStyle.js";
-import embedPanelStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/embedPanelStyle.js";
-import javascriptStyles from "assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.js";
-import basicsStyle from "assets/jss/material-kit-pro-react/views/componentsSections/basicsStyle.js";
 
 import imageBack from "assets/img/lillup-learner-experience-desktop-13.png";
 import imageMarkCopy from "assets/img/lillup/experience/Mark_Copy.png";
@@ -48,11 +41,9 @@ import token_img from "assets/img/lillup/experience/token_avatar.png";
 const useDesktop14PageStyles = makeStyles(desktop14PageStyle);
 const useCommonStyles = makeStyles(commonStyle);
 const useButtonGroupStyle = makeStyles(buttonGroupStyle);
-const useEmbedPanelStyles = makeStyles(embedPanelStyle);
-const useJavascriptStyles = makeStyles(javascriptStyles);
-const useBasicStyles = makeStyles(basicsStyle);
 
 import NFTTokenPanel from "views/LillupPage/LearnerExperiencePage/NFTTokenPanel.js";
+import EmbeddedGroup from "views/LillupPage/LearnerExperiencePage/EmbeddedGroup.js";
 
 const useFormStyles = makeStyles((theme) => ({
   root: {
@@ -78,15 +69,6 @@ const useFormStyles = makeStyles((theme) => ({
 }));
 
 import { useMoralis, useNFTBalances } from "react-moralis";
-import { Dialog, DialogContent, DialogTitle, DialogActions, Input } from "@material-ui/core";
-import Slide from "@material-ui/core/Slide";
-import Instruction from "components/Instruction/Instruction.js";
-
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="down" ref={ref} {...props} />;
-});
-
-Transition.displayName = "Transition";
 
 export default function Desktop14Page({ ...rest }) {
 
@@ -102,8 +84,6 @@ export default function Desktop14Page({ ...rest }) {
   const [nftNotes, setNFTNotes] = useState("You don't have any NFT ampersand");
   const [selectedWalletAddress, setSelectedWalletAddress] = useState("");
   const [selectedTokenID, setSelectedTokenID] = useState("");
-  const [embeddedPanel, setEmbeddedPanel] = React.useState(false);
-  const [checkedA, setCheckedA] = React.useState(true);
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -115,9 +95,6 @@ export default function Desktop14Page({ ...rest }) {
   const pageClasses = useDesktop14PageStyles();
   const commonClasses = useCommonStyles();
   const buttonGroupClasses = useButtonGroupStyle();
-  const embedClasses = useEmbedPanelStyles();
-  const javascriptStylesClasses = useJavascriptStyles();
-  const basicStyleClasses = useBasicStyles();
 
   const { authenticate, isAuthenticated, logout, user, auth } = useMoralis();
   const { getNFTBalances, data, error, isLoading, isFetching } = useNFTBalances();
@@ -648,105 +625,7 @@ export default function Desktop14Page({ ...rest }) {
                   // className={classes.imgRounded + " " + classes.imgFluid}
                 />
               </div>
-              <div className={pageClasses.embeddedGroup}>
-                <Button color="danger" className={pageClasses.embeddedBtn} onClick={() => setEmbeddedPanel(true)}>
-                  EMBEDDED
-                </Button>
-                <Dialog
-                  classes={{
-                    root: javascriptStylesClasses.modalRoot,
-                    paper: javascriptStylesClasses.modal + " " + embedClasses.dialog,
-                  }}
-                  open={embeddedPanel}
-                  TransitionComponent={Transition}
-                  keepMounted
-                  onClose={() => setEmbeddedPanel(false)}
-                  aria-labelledby="classic-modal-slide-title"
-                  aria-describedby="classic-modal-slide-description"
-                >
-                  <DialogTitle
-                    id="classic-modal-slide-title"
-                    disableTypography
-                    className={javascriptStylesClasses.modalHeader}
-                  >
-                    <Button
-                      simple
-                      className={javascriptStylesClasses.modalCloseButton}
-                      key="close"
-                      aria-label="Close"
-                      onClick={() => setEmbeddedPanel(false)}
-                    >
-                      {" "}
-                      <Close className={embedClasses.modalClose} />
-                    </Button>
-                    <span className={embedClasses.title}>Embed maps in your site</span>
-                  </DialogTitle>
-                  <DialogContent
-                    className={embedClasses.modalBody}
-                  >  
-                    <span className={embedClasses.howToTitle}>Learn more about how to embed the logic{" "}
-                      <a className={embedClasses.fontStyle}
-                        href="https://www.creative-tim.com/?ref=mkpr-javascript-components"
-                      >
-                        here
-                      </a>
-                    </span>
-                    <div>
-                      <OutlinedInput
-                        className={embedClasses.howToInput}
-                        type={'text'}
-                        endAdornment={<InputAdornment position="end">
-                          <FormControlLabel
-                            control={
-                              <Switch
-                                checked={checkedA}
-                                onChange={(event) => setCheckedA(event.target.checked)}
-                                value="checkedA"
-                                classes={{
-                                  switchBase: embedClasses.switchBase,
-                                  checked: embedClasses.switchChecked,
-                                  thumb: embedClasses.switchIcon,
-                                  track: embedClasses.switchBar,
-                                }}
-                              />
-                            }
-                            classes={{
-                              label: basicStyleClasses.label,
-                              root: embedClasses.labelRoot,
-                            }}
-                          />
-                        </InputAdornment>}
-                        value={checkedA ? "iFrame" : "Web component"}
-                      />
-                    </div>
-                    <CustomInput
-                      // labelText="You can write your text here..."
-                      id="textarea-input-embedded"
-                      formControlProps={{
-                        fullWidth: true,
-                        className: embedClasses.contentPanel,
-                      }}
-                      inputProps={{
-                        multiline: true,                          
-                        rows: 7,
-                      }}
-                      white
-                    />
-                  </DialogContent>
-                  <DialogActions className={embedClasses.modalFooter}>
-                    <div className={embedClasses.space}>
-                      <Button link className={embedClasses.copyBtn}>Copy</Button>
-                      <Button
-                        onClick={() => setEmbeddedPanel(false)}
-                        simple
-                        className={embedClasses.dismissBtn}
-                      >
-                        Dismiss
-                      </Button>
-                    </div>
-                  </DialogActions>
-                </Dialog>
-              </div>
+              <EmbeddedGroup />
             </GridItem>
             <GridItem 
               lg={1} xl={2}
