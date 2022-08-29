@@ -61,7 +61,7 @@ const embedPanelStyle = (theme) => ({
         marginTop: "10px",
         width: "400px",
         height: "30px",
-        backgroundColor: "#333C41",
+        backgroundColor: "#131A22 !important",
         color: whiteColor,
     },
 
