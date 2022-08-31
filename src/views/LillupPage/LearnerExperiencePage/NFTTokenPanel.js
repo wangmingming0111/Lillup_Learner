@@ -59,13 +59,13 @@ export default function NFTTokenPanel(props) {
 		globalIndex: -1,
 		onSelected: null,
 	};
-	
-	const [selected, setSelected] = useState(false);
+
 	// console.log(props.index);
 
-	useEffect(() => {
-		setSelected(false);
-	}, [props]);
+	// const [selected, setSelected] = useState(false);
+	// useEffect(() => {
+	// 	setSelected(false);
+	// }, [props]);
 
 	const pageClasses = useDesktop14PageStyles();
 
@@ -73,37 +73,37 @@ export default function NFTTokenPanel(props) {
 		if (props.onSelected) {
 			props.onSelected(props.globalIndex);
 		}
-		if (selected === true) {
-			return;
-		}
-		setSelected(true);
+		// if (selected === true) {
+		// 	return;
+		// }
+		// setSelected(true);
 	};
 
 	// setSelected(false);
-	if (!selected)
-	{
-		return (
-			<ImageListItem 
-				cols={props.cols} 
-				rows={props.rows}
-				onClick={onClickImageListItem}
-			>
-				{/* <img
-					{...srcset(imageTokenCode, 120, props.rows, props.cols)}
-					alt={props.title}
-					loading="lazy"
-				/> */}
-				<div
-					style={{ 
-						width: "100%", 
-						height: "100%", 
-						backgroundColor: unselectedColors[props.index%unselectedColors.length], 
-					}}
-					className={pageClasses.tokenCodeGrp_Img}
-				/>
-			</ImageListItem>
-		)
-	}
+	// if (!selected)
+	// {
+	// 	return (
+	// 		<ImageListItem 
+	// 			cols={props.cols} 
+	// 			rows={props.rows}
+	// 			onClick={onClickImageListItem}
+	// 		>
+	// 			{/* <img
+	// 				{...srcset(imageTokenCode, 120, props.rows, props.cols)}
+	// 				alt={props.title}
+	// 				loading="lazy"
+	// 			/> */}
+	// 			<div
+	// 				style={{ 
+	// 					width: "100%", 
+	// 					height: "100%", 
+	// 					backgroundColor: unselectedColors[props.index%unselectedColors.length], 
+	// 				}}
+	// 				className={pageClasses.tokenCodeGrp_Img}
+	// 			/>
+	// 		</ImageListItem>
+	// 	)
+	// }
 	return (
 		<ImageListItem 
 			cols={props.cols} 

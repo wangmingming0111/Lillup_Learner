@@ -71,7 +71,7 @@ export default function Desktop14Page({ ...rest }) {
   });
 
   const [nftNotes, setNFTNotes] = useState("You don't have any NFT ampersand");
-  const [selectedWalletAddress, setSelectedWalletAddress] = useState("");
+  const [selectedWalletAddress, setSelectedWalletAddress] = useState("0xc2C1c4491a4ed8C3112e5207EF3bD7DA67c3c1ba");
   const [selectedTokenID, setSelectedTokenID] = useState("");
 
   React.useEffect(() => {
@@ -112,7 +112,10 @@ export default function Desktop14Page({ ...rest }) {
       return;
     }
     getNFTBalances({ 
-      params: { chain: "0x1", address: "0xc2C1c4491a4ed8C3112e5207EF3bD7DA67c3c1ba" },
+      params: { 
+        chain: "0x1", 
+        address: selectedWalletAddress 
+      },
       // params: { chain: "0x1" },
       onSuccess: onGetNFTBalancesComplete,
     });
@@ -225,7 +228,7 @@ export default function Desktop14Page({ ...rest }) {
     if (pageCount > 0 && pageIndex >= 0) {
       setNFTNotes("Page Info : [" + (pageIndex + 1) + "/" + pageCount + "]");
     }
-    setSelectedWalletAddress("");
+    // setSelectedWalletAddress("");
     setSelectedTokenID("");
   };
 
@@ -286,7 +289,7 @@ export default function Desktop14Page({ ...rest }) {
     });
 
     setNFTNotes("Page Info : [" + (pageIndex + 1) + "/" + nftDatas.pageCount + "]");
-    setSelectedWalletAddress("");
+    // setSelectedWalletAddress("");
     setSelectedTokenID("");
   };
 
@@ -347,7 +350,7 @@ export default function Desktop14Page({ ...rest }) {
     });
 
     setNFTNotes("Page Info : [" + (pageIndex + 1) + "/" + nftDatas.pageCount + "]");
-    setSelectedWalletAddress("");
+    // setSelectedWalletAddress("");
     setSelectedTokenID("");
   };
 
@@ -359,10 +362,16 @@ export default function Desktop14Page({ ...rest }) {
     if (index < 0 || index >= nftDatas.totalCount) {
       return;
     }
-    
-    document.getElementById("selected-wallet-address").value = nftDatas.totalMetadatas[index].walletAddress;
+
+    // selected wallet address and metadatas
+    // nftDatas.totalMetadatas[index].walletAddress;
     document.getElementById("selected-token-id").value = nftDatas.totalMetadatas[index].tokenId;
   }
+
+  const onPublish = (e) => {
+    e.preventDefault();
+    onGetNFTBalances();
+  };
 
   return (
     <div>
@@ -426,6 +435,7 @@ export default function Desktop14Page({ ...rest }) {
                     type={'text'}
                     startAdornment={<InputAdornment position="start"><img src={wallet_img} /></InputAdornment>}
                     value={selectedWalletAddress}
+                    onChange={(e) => setSelectedWalletAddress(e.target.value)}
                   />
                 </FormControl>
               </div>
@@ -441,13 +451,19 @@ export default function Desktop14Page({ ...rest }) {
                     type={'text'}
                     startAdornment={<InputAdornment position="start"><img src={token_img} /></InputAdornment>}
                     value={selectedTokenID}
+                    onChange={(e) => setSelectedTokenID(e.target.value)}
+                    readOnly={true}
                   />
                 </FormControl>
               </div>
 
               <div className={pageClasses.publishGrp}>
-                <Button color="danger" className={pageClasses.publishBtn}>
-                PUBLISH
+                <Button 
+                  color="danger" 
+                  className={pageClasses.publishBtn}
+                  onClick={onPublish}
+                >
+                  PUBLISH
                 </Button>
               </div>
 
