@@ -161,6 +161,21 @@ const desktop14PageStyles = (theme) => ({
     color: "black"
   },
 
+  nftTokenListWrapper: {
+    display: "block",
+    padding: "0px",
+    margin: "0px",
+
+    // borderStyle: "solid",
+    // borderWidth: "2px",
+    // borderColor: "black",
+    // borderRadius: "2px",
+  },
+
+  nftTokenListWrapper_hidden: {
+    display: "none",
+  },
+
   tokenCodeGrp: {
     // borderStyle: "solid",
     // borderWidth: "2px",
@@ -170,7 +185,7 @@ const desktop14PageStyles = (theme) => ({
     display: "flex!important",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "left",
+    alignItems: "center",
 
     padding:"0",
   },

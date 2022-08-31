@@ -9,7 +9,6 @@ import Add from "@material-ui/icons/Add";
 import FormControl from '@material-ui/core/FormControl';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
-import ImageList from '@mui/material/ImageList';
 
 import Header_Lillup_LearnerExperience from "components/HeaderLillup/LearnerExperience/Header.js";
 import HeaderLinks_Lillup_LearnerExperience from "components/HeaderLillup/LearnerExperience/HeaderLinks.js";
@@ -42,7 +41,7 @@ const useDesktop14PageStyles = makeStyles(desktop14PageStyle);
 const useCommonStyles = makeStyles(commonStyle);
 const useButtonGroupStyle = makeStyles(buttonGroupStyle);
 
-import NFTTokenPanel from "views/LillupPage/LearnerExperiencePage/NFTTokenPanel.js";
+import NFTTokenList from "views/LillupPage/LearnerExperiencePage/NFTTokenList.js";
 import EmbeddedGroup from "views/LillupPage/LearnerExperiencePage/EmbeddedGroup.js";
 
 const useFormStyles = makeStyles((theme) => ({
@@ -81,6 +80,8 @@ export default function Desktop14Page({ ...rest }) {
     pageIndex: 0,
   });
 
+  const [nftRenderDatas, setNFTRenderDatas] = useState([]);
+
   const [nftNotes, setNFTNotes] = useState("You don't have any NFT ampersand");
   const [selectedWalletAddress, setSelectedWalletAddress] = useState("");
   const [selectedTokenID, setSelectedTokenID] = useState("");
@@ -112,12 +113,14 @@ export default function Desktop14Page({ ...rest }) {
   const onAuthenticateComplete = function () {
   };
   const onLogout = function () {
+    // document.getElementById("nft-token-list-wrapper").style.display = "none";
     if (!isAuthenticated) {
       return;
     }
     logout();
   };
   const onGetNFTBalances = function () {
+    // document.getElementById("nft-token-list-wrapper").style.display = "block";
     if (!isAuthenticated) {
       return;
     }
@@ -237,6 +240,21 @@ export default function Desktop14Page({ ...rest }) {
     }
     setSelectedWalletAddress("");
     setSelectedTokenID("");
+
+    // var nftRenderDatas = renderMetadatas.map((item, index) => (
+    //                                           <NFTTokenPanel 
+    //                                             key={index} 
+    //                                             index={index}
+    //                                             img={item.image}
+    //                                             title={item.title}
+    //                                             description={item.desc}
+    //                                             cols={item.col || 1}
+    //                                             rows={item.row || 1}
+    //                                             globalIndex={item.globalIndex}
+    //                                             onSelected={onNFTTokenSelected}
+    //                                           />
+    //                                         ));
+    // setNFTRenderDatas(nftRenderDatas);
   };
 
   const onNextPage = function () {
@@ -413,71 +431,15 @@ export default function Desktop14Page({ ...rest }) {
                 <h1 className={pageClasses.portfolioTitle}>NET TOKEN</h1>
               </div>
               
-              <div className={pageClasses.tokenCodeGrp}>
-                <div className={buttonGroupClasses.buttonGroup}>
-                  <Button
-                    color="info"
-                    size="sm"
-                    round
-                    className={buttonGroupClasses.firstButton}
-                    onClick={onPrevPage}
-                  >
-                    <Remove />
-                  </Button>
-                  <Button
-                    color="info"
-                    size="sm"
-                    round
-                    className={buttonGroupClasses.lastButton}
-                    onClick={onNextPage}
-                  >
-                    <Add />
-                  </Button>
-                  <span>&nbsp;&nbsp;&nbsp;{nftNotes}</span>
-                </div>
-                {/* <img 
-                  src ={imageTokenCode} 
-                  className={pageClasses.tokenCodeGrp_Img}
-                /> */}
-                <ImageList
-                  sx={{
-                    transform: 'translateZ(0)',
-                  }}
-                  variant="quilted"
-                  cols={4}
-                  rowHeight={120}
-                  gap={0}
-                  className={pageClasses.tokenCodeGrp_Img}
-                >
-                  {/* {itemData.map((item, index) => (
-                    <NFTTokenPanel 
-                      key={index} 
-                      item={item} 
-                      index={index}
-                      img={item.img}
-                      title={item.title}
-                      description="SubTitle"
-                      cols={item.cols || 1}
-                      rows={item.rows || 1}
-                      globalIndex=-1,
-                      onSelected={onNFTTokenSelected}
-                    />
-                  ))} */}
-                  {nftDatas.renderMetadatas.map((item, index) => (
-                    <NFTTokenPanel 
-                      key={index} 
-                      index={index}
-                      img={item.image}
-                      title={item.title}
-                      description={item.desc}
-                      cols={item.col || 1}
-                      rows={item.row || 1}
-                      globalIndex={item.globalIndex}
-                      onSelected={onNFTTokenSelected}
-                    />
-                  ))}
-                </ImageList>                
-              </div>
+              <NFTTokenList 
+                id="nft-token-list-wrapper"
+                metadatas={nftDatas.renderMetadatas}
+                nftNotes={nftNotes}
+                onPrevPage={onPrevPage}
+                onNextPage={onNextPage}
+                onNFTTokenSelected={onNFTTokenSelected}
+                style={{display: 'none'}}
+              />
 
               <div className={pageClasses.walletGroup}>
                 <span className={pageClasses.walletGroup_Label}>
@@ -645,66 +607,4 @@ export default function Desktop14Page({ ...rest }) {
       </div>
     </div>
   );
-}
-
-const itemData = [
-  {
-    // img: 'assets/img/lillup/experience/token_avatar.png',
-    img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-    title: 'Breakfast',
-    rows: 2,
-    cols: 2,
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-    title: 'Burger',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-    title: 'Camera',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-    title: 'Coffee',
-    cols: 2,
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
-    title: 'Hats',
-    cols: 2,
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
-    title: 'Honey',
-    author: '@arwinneil',
-    rows: 2,
-    cols: 2,
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
-    title: 'Basketball',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f',
-    title: 'Fern',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25',
-    title: 'Mushrooms',
-    rows: 2,
-    cols: 2,
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
-    title: 'Tomato basil',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
-    title: 'Sea star',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
-    title: 'Bike',
-    cols: 2,
-  },
-];
+};
