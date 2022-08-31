@@ -627,6 +627,13 @@ const desktop14PageStyles = (theme) => ({
     width: "100%",
 
     padding:"0",
+    marginTop: "30px",
+  },
+
+  qrCodeGroup_Link: {
+    cursor: "pointer",
+    padding:"0",
+    margin: "0",
   },
 
   qrCodeGroup_Img: {

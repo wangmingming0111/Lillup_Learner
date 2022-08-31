@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
+import QRCode from "react-qr-code";
+
 import clsx from 'clsx';
 
 import FormControl from '@material-ui/core/FormControl';
@@ -73,6 +75,7 @@ export default function Desktop14Page({ ...rest }) {
   const [nftNotes, setNFTNotes] = useState("You don't have any NFT ampersand");
   const [selectedWalletAddress, setSelectedWalletAddress] = useState("0xc2C1c4491a4ed8C3112e5207EF3bD7DA67c3c1ba");
   const [selectedTokenID, setSelectedTokenID] = useState("");
+  const [tokenLink, setTokenLink] = useState("https://www.w3schools.com/");
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -475,12 +478,17 @@ export default function Desktop14Page({ ...rest }) {
               <h1 className={pageClasses.socialNetworkTitle}>Share</h1>
               <SocialMediaList />
               <div className={pageClasses.qrCodeGroup}>
-                <img
-                  src={imageQRCode}
-                  alt="..."
-                  className={pageClasses.qrCodeGroup_Img}
-                  // className={classes.imgRounded + " " + classes.imgFluid}
-                />
+                <a
+                  href={tokenLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={pageClasses.qrCodeGroup_Link}
+                >
+                  <QRCode 
+                    value={tokenLink}
+                    // className={pageClasses.qrCodeGroup_Img}
+                  />
+                </a>
               </div>
               <EmbeddedGroup />
             </GridItem>
