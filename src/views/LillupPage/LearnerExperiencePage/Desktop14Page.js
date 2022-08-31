@@ -4,8 +4,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import clsx from 'clsx';
 
-import Remove from "@material-ui/icons/Remove";
-import Add from "@material-ui/icons/Add";
 import FormControl from '@material-ui/core/FormControl';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
@@ -23,16 +21,7 @@ import commonStyle from "assets/jss/material-kit-pro-react/views/lillup/experien
 import buttonGroupStyle from "assets/jss/material-kit-pro-react/buttonGroupStyle.js";
 
 import imageBack from "assets/img/lillup-learner-experience-desktop-13.png";
-import imageMarkCopy from "assets/img/lillup/experience/Mark_Copy.png";
-import imageMarkFacebook from "assets/img/lillup/experience/Mark_Facebook.png";
-import imageMarkInstagram from "assets/img/lillup/experience/Mark_Instagram.png";
-import imageMarkLinkedIn from "assets/img/lillup/experience/Mark_LinkedIn.png";
-import imageMarkMail from "assets/img/lillup/experience/Mark_Mail.png";
-import imageMarkTelegram from "assets/img/lillup/experience/Mark_Telegram.png";
-import imageMarkTwitter from "assets/img/lillup/experience/Mark_Twitter.png";
-import imageMarkWhatapp from "assets/img/lillup/experience/Mark_Whatapp.png";
 import imageQRCode from "assets/img/lillup/experience/QRCode_Sample.png";
-import imageTokenCode from "assets/img/lillup/experience/TokenCode_Sample.png";
 
 import wallet_img from "assets/img/lillup/experience/wallet_avatar.png";
 import token_img from "assets/img/lillup/experience/token_avatar.png";
@@ -42,6 +31,7 @@ const useCommonStyles = makeStyles(commonStyle);
 const useButtonGroupStyle = makeStyles(buttonGroupStyle);
 
 import NFTTokenList from "views/LillupPage/LearnerExperiencePage/NFTTokenList.js";
+import SocialMediaList from "views/LillupPage/LearnerExperiencePage/SocialMediaList.js";
 import EmbeddedGroup from "views/LillupPage/LearnerExperiencePage/EmbeddedGroup.js";
 
 const useFormStyles = makeStyles((theme) => ({
@@ -80,8 +70,6 @@ export default function Desktop14Page({ ...rest }) {
     pageIndex: 0,
   });
 
-  const [nftRenderDatas, setNFTRenderDatas] = useState([]);
-
   const [nftNotes, setNFTNotes] = useState("You don't have any NFT ampersand");
   const [selectedWalletAddress, setSelectedWalletAddress] = useState("");
   const [selectedTokenID, setSelectedTokenID] = useState("");
@@ -95,7 +83,6 @@ export default function Desktop14Page({ ...rest }) {
 
   const pageClasses = useDesktop14PageStyles();
   const commonClasses = useCommonStyles();
-  const buttonGroupClasses = useButtonGroupStyle();
 
   const { authenticate, isAuthenticated, logout, user, auth } = useMoralis();
   const { getNFTBalances, data, error, isLoading, isFetching } = useNFTBalances();
@@ -240,21 +227,6 @@ export default function Desktop14Page({ ...rest }) {
     }
     setSelectedWalletAddress("");
     setSelectedTokenID("");
-
-    // var nftRenderDatas = renderMetadatas.map((item, index) => (
-    //                                           <NFTTokenPanel 
-    //                                             key={index} 
-    //                                             index={index}
-    //                                             img={item.image}
-    //                                             title={item.title}
-    //                                             description={item.desc}
-    //                                             cols={item.col || 1}
-    //                                             rows={item.row || 1}
-    //                                             globalIndex={item.globalIndex}
-    //                                             onSelected={onNFTTokenSelected}
-    //                                           />
-    //                                         ));
-    // setNFTRenderDatas(nftRenderDatas);
   };
 
   const onNextPage = function () {
@@ -485,100 +457,7 @@ export default function Desktop14Page({ ...rest }) {
               className={pageClasses.rightPanel}
             >
               <h1 className={pageClasses.socialNetworkTitle}>Share</h1>
-              <div className={pageClasses.socialNetworkGroup}>
-                <div className={pageClasses.socialNetworkRow}>
-                  <div className={pageClasses.socialNetworkMark}>
-                    <img
-                      src={imageMarkLinkedIn}
-                      alt="..."
-                      className={pageClasses.socialNetworkMark_Img}
-                      // className={classes.imgRounded + " " + classes.imgFluid}
-                    />
-                    <span className={pageClasses.socialNetworkMark_Desc}>
-                      Linked In
-                    </span>
-                  </div>
-                  <div className={pageClasses.socialNetworkMark}>
-                    <img
-                      src={imageMarkTwitter}
-                      alt="..."
-                      className={pageClasses.socialNetworkMark_Img}
-                      // className={classes.imgRounded + " " + classes.imgFluid}
-                    />
-                    <span className={pageClasses.socialNetworkMark_Desc}>
-                      Twitter
-                    </span>
-                  </div>
-                  <div className={pageClasses.socialNetworkMark}>
-                    <img
-                      src={imageMarkWhatapp}
-                      alt="..."
-                      className={pageClasses.socialNetworkMark_Img}
-                      // className={classes.imgRounded + " " + classes.imgFluid}
-                    />
-                    <span className={pageClasses.socialNetworkMark_Desc}>
-                      Whatsapp
-                    </span>
-                  </div>
-                  <div className={pageClasses.socialNetworkMark}>
-                    <img
-                      src={imageMarkTelegram}
-                      alt="..."
-                      className={pageClasses.socialNetworkMark_Img}
-                      // className={classes.imgRounded + " " + classes.imgFluid}
-                    />
-                    <span className={pageClasses.socialNetworkMark_Desc}>
-                      Telegram
-                    </span>
-                  </div>
-                </div>
-                <div className={pageClasses.socialNetworkRow}>
-                  <div className={pageClasses.socialNetworkMark}>
-                    <img
-                      src={imageMarkFacebook}
-                      alt="..."
-                      className={pageClasses.socialNetworkMark_Img}
-                      // className={classes.imgRounded + " " + classes.imgFluid}
-                    />
-                    <span className={pageClasses.socialNetworkMark_Desc}>
-                      Facebook
-                    </span>
-                  </div>
-                  <div className={pageClasses.socialNetworkMark}>
-                    <img
-                      src={imageMarkInstagram}
-                      alt="..."
-                      className={pageClasses.socialNetworkMark_Img}
-                      // className={classes.imgRounded + " " + classes.imgFluid}
-                    />
-                    <span className={pageClasses.socialNetworkMark_Desc}>
-                      Instagram
-                    </span>
-                  </div>
-                  <div className={pageClasses.socialNetworkMark}>
-                    <img
-                      src={imageMarkMail}
-                      alt="..."
-                      className={pageClasses.socialNetworkMark_Img}
-                      // className={classes.imgRounded + " " + classes.imgFluid}
-                    />
-                    <span className={pageClasses.socialNetworkMark_Desc}>
-                      Email
-                    </span>
-                  </div>
-                  <div className={pageClasses.socialNetworkMark}>
-                    <img
-                      src={imageMarkCopy}
-                      alt="..."
-                      className={pageClasses.socialNetworkMark_Img}
-                      // className={classes.imgRounded + " " + classes.imgFluid}
-                    />
-                    <span className={pageClasses.socialNetworkMark_Desc}>
-                      Copy
-                    </span>
-                  </div>
-                </div>
-              </div>
+              <SocialMediaList />
               <div className={pageClasses.qrCodeGroup}>
                 <img
                   src={imageQRCode}
