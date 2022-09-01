@@ -172,7 +172,18 @@ const desktop14PageStyles = (theme) => ({
     // borderRadius: "2px",
   },
 
-  nftTokenListWrapper_hidden: {
+  nftTokenDetailWrapper: {
+    display: "block",
+    padding: "0px",
+    margin: "0px",
+
+    // borderStyle: "solid",
+    // borderWidth: "2px",
+    // borderColor: "black",
+    // borderRadius: "2px",
+  },
+
+  nftTokenWrapper_hidden: {
     display: "none",
   },
 
@@ -198,6 +209,11 @@ const desktop14PageStyles = (theme) => ({
     // width: "23vw",
     // height: "23vw",
     cursor: "pointer",
+
+    borderStyle: "solid",
+    borderWidth: "1px",
+    borderColor: "gray",
+    borderRadius: "2px",
   },
 
   walletGroup:{

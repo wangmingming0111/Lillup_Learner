@@ -1,20 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useState, useEffect } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
 import InfoIcon from '@mui/icons-material/Info';
 
 import desktop14PageStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/desktop14PageStyles.js";
-import commonStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/commonStyles.js";
 
 const useDesktop14PageStyles = makeStyles(desktop14PageStyle);
-const useCommonStyles = makeStyles(commonStyle);
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -22,21 +18,6 @@ function srcset(image, size, rows = 1, cols = 1) {
     srcSet: `${image}?w=${size*cols}&h=${size*rows}&fit=crop&auto=format&dpr=2 2x`,
   };
 }
-
-var unselectedColors = [
-	"#E181B8",
-	"#4598FF",
-	"#F06809",
-	"#5492A6",
-	"#58B071",
-	"#59C900",
-	"#A499E2",
-	"#FFBFE4",
-	"#FF704D",
-	"#C7C96C",
-	"#72D922",
-	"#F8FC51",
-];
 
 export default function NFTTokenPanel(props) {
 	NFTTokenPanel.propTypes = {
@@ -60,61 +41,26 @@ export default function NFTTokenPanel(props) {
 		onSelected: null,
 	};
 
-	// console.log(props.index);
-
-	// const [selected, setSelected] = useState(false);
-	// useEffect(() => {
-	// 	setSelected(false);
-	// }, [props]);
-
 	const pageClasses = useDesktop14PageStyles();
 
-	const onClickImageListItem = function () {
+	const onClickImageListItem = (e) => {
+    e.preventDefault();
 		if (props.onSelected) {
 			props.onSelected(props.globalIndex);
 		}
-		// if (selected === true) {
-		// 	return;
-		// }
-		// setSelected(true);
 	};
 
-	// setSelected(false);
-	// if (!selected)
-	// {
-	// 	return (
-	// 		<ImageListItem 
-	// 			cols={props.cols} 
-	// 			rows={props.rows}
-	// 			onClick={onClickImageListItem}
-	// 		>
-	// 			{/* <img
-	// 				{...srcset(imageTokenCode, 120, props.rows, props.cols)}
-	// 				alt={props.title}
-	// 				loading="lazy"
-	// 			/> */}
-	// 			<div
-	// 				style={{ 
-	// 					width: "100%", 
-	// 					height: "100%", 
-	// 					backgroundColor: unselectedColors[props.index%unselectedColors.length], 
-	// 				}}
-	// 				className={pageClasses.tokenCodeGrp_Img}
-	// 			/>
-	// 		</ImageListItem>
-	// 	)
-	// }
 	return (
 		<ImageListItem 
 			cols={props.cols} 
 			rows={props.rows}
 			onClick={onClickImageListItem}
-		>
+			className={pageClasses.tokenCodeGrp_Img}
+			>
 			<img
 				{...srcset(props.img, 120, props.rows, props.cols)}
 				alt="Loading..."
 				loading="lazy"
-				className={pageClasses.tokenCodeGrp_Img}
 			/>
 			<ImageListItemBar
 				sx={{

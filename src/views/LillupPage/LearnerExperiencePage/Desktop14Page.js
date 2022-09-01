@@ -20,19 +20,16 @@ import Button from "components/CustomButtons/Button.js";
 
 import desktop14PageStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/desktop14PageStyles.js";
 import commonStyle from "assets/jss/material-kit-pro-react/views/lillup/experience/commonStyles.js";
-import buttonGroupStyle from "assets/jss/material-kit-pro-react/buttonGroupStyle.js";
 
 import imageBack from "assets/img/lillup-learner-experience-desktop-13.png";
-import imageQRCode from "assets/img/lillup/experience/QRCode_Sample.png";
-
 import wallet_img from "assets/img/lillup/experience/wallet_avatar.png";
 import token_img from "assets/img/lillup/experience/token_avatar.png";
 
 const useDesktop14PageStyles = makeStyles(desktop14PageStyle);
 const useCommonStyles = makeStyles(commonStyle);
-const useButtonGroupStyle = makeStyles(buttonGroupStyle);
 
 import NFTTokenList from "views/LillupPage/LearnerExperiencePage/NFTTokenList.js";
+import NFTTokenDetail from "views/LillupPage/LearnerExperiencePage/NFTTokenDetail.js";
 import SocialMediaList from "views/LillupPage/LearnerExperiencePage/SocialMediaList.js";
 import EmbeddedGroup from "views/LillupPage/LearnerExperiencePage/EmbeddedGroup.js";
 
@@ -72,6 +69,17 @@ export default function Desktop14Page({ ...rest }) {
     pageIndex: 0,
   });
 
+  const [selectedMetadata, setSelectedMetadata] = useState({
+    title: "",
+    desc: "",
+    image: "",
+    row: 1,
+    col: 1,
+    globalIndex: 0,
+    walletAddress: "",
+    tokenId: "",
+  });
+
   const [nftNotes, setNFTNotes] = useState("You don't have any NFT ampersand");
   const [selectedWalletAddress, setSelectedWalletAddress] = useState("0xc2C1c4491a4ed8C3112e5207EF3bD7DA67c3c1ba");
   const [selectedTokenID, setSelectedTokenID] = useState("");
@@ -103,14 +111,12 @@ export default function Desktop14Page({ ...rest }) {
   const onAuthenticateComplete = function () {
   };
   const onLogout = function () {
-    // document.getElementById("nft-token-list-wrapper").style.display = "none";
     if (!isAuthenticated) {
       return;
     }
     logout();
   };
   const onGetNFTBalances = function () {
-    // document.getElementById("nft-token-list-wrapper").style.display = "block";
     if (!isAuthenticated) {
       return;
     }
@@ -357,8 +363,12 @@ export default function Desktop14Page({ ...rest }) {
     setSelectedTokenID("");
   };
 
+  const onBackToPortfolio = function () {
+    document.getElementById("nft-token-list-wrapper").style.display = "block";
+    document.getElementById("nft-token-detail-wrapper").style.display = "none";
+  };
+
   const onNFTTokenSelected = function (index) {
-    // console.log(index);
     if (nftDatas.pageCount < 1) {
       return;
     }
@@ -366,9 +376,25 @@ export default function Desktop14Page({ ...rest }) {
       return;
     }
 
-    // selected wallet address and metadatas
-    // nftDatas.totalMetadatas[index].walletAddress;
-    document.getElementById("selected-token-id").value = nftDatas.totalMetadatas[index].tokenId;
+    var metadata = {...nftDatas.totalMetadatas[index]};
+    setSelectedTokenID(metadata.tokenId);
+
+    document.getElementById("nft-token-list-wrapper").style.display = "none";
+    document.getElementById("nft-token-detail-wrapper").style.display = "block";
+
+    setSelectedMetadata(previousState => {
+      return { 
+        ...previousState, 
+        title: metadata.title,
+        desc: metadata.desc,
+        image: metadata.image,
+        row: 1,
+        col: 1,
+        globalIndex: metadata.globalIndex,
+        walletAddress: metadata.walletAddress,
+        tokenId: metadata.tokenId,
+      }
+    });
   }
 
   const onPublish = (e) => {
@@ -416,13 +442,16 @@ export default function Desktop14Page({ ...rest }) {
               </div>
               
               <NFTTokenList 
-                id="nft-token-list-wrapper"
+                // id="nft-token-list-wrapper"
                 metadatas={nftDatas.renderMetadatas}
                 nftNotes={nftNotes}
                 onPrevPage={onPrevPage}
                 onNextPage={onNextPage}
                 onNFTTokenSelected={onNFTTokenSelected}
-                style={{display: 'none'}}
+              />
+              <NFTTokenDetail
+                metadata={selectedMetadata}
+                onBackToPortfolio={onBackToPortfolio}
               />
 
               <div className={pageClasses.walletGroup}>
